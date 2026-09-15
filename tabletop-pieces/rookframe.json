@@ -3,7 +3,7 @@
   "id": "cccccccc-cccc-4ccc-8ccc-cccccccccccc",
   "kind": "optional",
   "name": "Tabletop Pieces",
-  "version": "0.7.0",
+  "version": "0.9.0",
   "sdk": {
     "edition": "2027",
     "minimumRevision": 1
@@ -26,7 +26,13 @@
           "id": "marker",
           "type": "miniature",
           "payload": "content/marker.tscn",
-          "displayName": "Marker"
+          "displayName": "Amber Warden"
+        },
+        {
+          "id": "goblin-raider",
+          "type": "miniature",
+          "payload": "content/goblin-raider.tscn",
+          "displayName": "Goblin Raider"
         },
         {
           "id": "crate",
@@ -49,6 +55,6 @@
       ]
     }
   ],
-  "manifest": "https://github.com/rookframe/rookframe-fixtures/releases/download/v0.7.0/Tabletop-Pieces-0.7.0.json",
-  "download": "https://github.com/rookframe/rookframe-fixtures/releases/download/v0.7.0/Tabletop-Pieces-0.7.0.rookpackage"
+  "manifest": "https://github.com/rookframe/rookframe-fixtures/releases/download/v0.9.0/Tabletop-Pieces-0.9.0.json",
+  "download": "https://github.com/rookframe/rookframe-fixtures/releases/download/v0.9.0/Tabletop-Pieces-0.9.0.rookpackage"
 }
