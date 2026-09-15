@@ -1,0 +1,140 @@
+[gd_scene load_steps=3 format=3]
+[ext_resource type="Script" path="res://rookframe/packages/bbbbbbbb-bbbb-4bbb-8bbb-bbbbbbbbbbbb/ui/actor_sheet.gd" id="script"]
+[ext_resource type="Theme" path="res://rookframe/ui/theme/rookframe_theme.tres" id="theme"]
+[node name="ActorSheet" type="Control"]
+size_flags_horizontal = 3
+size_flags_vertical = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("theme")
+script = ExtResource("script")
+[node name="Layout" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 24.0
+offset_top = 16.0
+offset_right = -24.0
+offset_bottom = -16.0
+theme_override_constants/separation = 16
+[node name="Header" type="VBoxContainer" parent="Layout"]
+layout_mode = 2
+theme_override_constants/separation = 8
+[node name="Name" type="Label" parent="Layout/Header"]
+layout_mode = 2
+theme_type_variation = &"RookframeTitle"
+text = "Actor"
+autowrap_mode = 2
+[node name="ViewOnly" type="Label" parent="Layout/Header"]
+visible = false
+layout_mode = 2
+theme_type_variation = &"RookframeStatus"
+text = "VIEW ONLY"
+[node name="Tabs" type="HBoxContainer" parent="Layout"]
+layout_mode = 2
+theme_override_constants/separation = 0
+[node name="Character" type="Button" parent="Layout/Tabs"]
+layout_mode = 2
+custom_minimum_size = Vector2(132, 44)
+theme_type_variation = &"RookframeTabButton"
+text = "CHARACTER"
+toggle_mode = true
+button_pressed = true
+[node name="Access" type="Button" parent="Layout/Tabs"]
+layout_mode = 2
+custom_minimum_size = Vector2(108, 44)
+theme_type_variation = &"RookframeTabButton"
+text = "ACCESS"
+toggle_mode = true
+[node name="Body" type="ScrollContainer" parent="Layout"]
+layout_mode = 2
+size_flags_vertical = 3
+horizontal_scroll_mode = 0
+[node name="Fields" type="VBoxContainer" parent="Layout/Body"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 16
+[node name="Character" type="VBoxContainer" parent="Layout/Body/Fields"]
+layout_mode = 2
+theme_override_constants/separation = 16
+[node name="Heading" type="Label" parent="Layout/Body/Fields/Character"]
+layout_mode = 2
+theme_type_variation = &"RookframeHeading"
+text = "HIT POINTS"
+[node name="HitPoints" type="Label" parent="Layout/Body/Fields/Character"]
+layout_mode = 2
+theme_type_variation = &"RookframeValue"
+text = "—"
+[node name="Train" type="Button" parent="Layout/Body/Fields/Character"]
+layout_mode = 2
+custom_minimum_size = Vector2(0, 44)
+theme_type_variation = &"RookframePrimaryButton"
+text = "Train (+1 HP)"
+[node name="Targets" type="Label" parent="Layout/Body/Fields/Character"]
+layout_mode = 2
+theme_type_variation = &"RookframeMeta"
+text = "Your targets: —"
+[node name="Delete" type="Button" parent="Layout/Body/Fields/Character"]
+layout_mode = 2
+custom_minimum_size = Vector2(0, 44)
+theme_type_variation = &"RookframeDangerButton"
+text = "Delete Actor"
+[node name="Access" type="VBoxContainer" parent="Layout/Body/Fields"]
+visible = false
+layout_mode = 2
+theme_override_constants/separation = 16
+[node name="Heading" type="Label" parent="Layout/Body/Fields/Access"]
+layout_mode = 2
+theme_type_variation = &"RookframeHeading"
+text = "ACTOR ACCESS"
+[node name="Title" type="Label" parent="Layout/Body/Fields/Access"]
+layout_mode = 2
+theme_type_variation = &"RookframeSubtitle"
+text = "Share Actor"
+autowrap_mode = 2
+[node name="Help" type="Label" parent="Layout/Body/Fields/Access"]
+layout_mode = 2
+theme_type_variation = &"RookframeBody"
+text = "Choose who can view or control this Actor."
+autowrap_mode = 2
+[node name="GM" type="HBoxContainer" parent="Layout/Body/Fields/Access"]
+layout_mode = 2
+theme_override_constants/separation = 12
+[node name="Identity" type="VBoxContainer" parent="Layout/Body/Fields/Access/GM"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 4
+[node name="Name" type="Label" parent="Layout/Body/Fields/Access/GM/Identity"]
+layout_mode = 2
+theme_type_variation = &"RookframeIdentity"
+text = "Game Master"
+autowrap_mode = 2
+[node name="Role" type="Label" parent="Layout/Body/Fields/Access/GM/Identity"]
+layout_mode = 2
+theme_type_variation = &"RookframeMeta"
+text = "GM · Full access"
+[node name="Inherent" type="Label" parent="Layout/Body/Fields/Access/GM"]
+layout_mode = 2
+size_flags_vertical = 4
+theme_type_variation = &"RookframeHeading"
+text = "INHERENT"
+[node name="Rows" type="VBoxContainer" parent="Layout/Body/Fields/Access"]
+layout_mode = 2
+theme_override_constants/separation = 12
+[node name="Hint" type="Label" parent="Layout/Body/Fields/Access"]
+layout_mode = 2
+theme_type_variation = &"RookframeMeta"
+text = "Changes apply immediately"
+[node name="Status" type="Label" parent="Layout"]
+layout_mode = 2
+theme_type_variation = &"RookframeMeta"
+autowrap_mode = 2
+[connection signal="pressed" from="Layout/Tabs/Character" to="." method="show_character"]
+[connection signal="pressed" from="Layout/Tabs/Access" to="." method="show_access"]
+[connection signal="pressed" from="Layout/Body/Fields/Character/Train" to="." method="train_actor"]
+[connection signal="pressed" from="Layout/Body/Fields/Character/Delete" to="." method="delete_actor"]

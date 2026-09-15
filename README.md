@@ -4,14 +4,14 @@ Public author projects and immutable releases for Rookframe application developm
 
 | Package | Public Manifest |
 | --- | --- |
-| Workshop System 0.8.1 | [Manifest](https://github.com/rookframe/rookframe-fixtures/releases/download/v0.8.1/Workshop-System-0.8.1.json) |
+| Workshop System 0.10.0 | [Manifest](https://github.com/rookframe/rookframe-fixtures/releases/download/v0.10.0/Workshop-System-0.10.0.json) |
 | Tabletop Pieces 0.9.0 | [Manifest](https://github.com/rookframe/rookframe-fixtures/releases/download/v0.9.0/Tabletop-Pieces-0.9.0.json) |
 
-Workshop System provides Hero Actors, a managed Workshop window, journal System Records, Player Actor Access controls, and Rules actions using accepted shared Targeting. Tabletop Pieces provides the Bevy Amber Warden and Goblin Raider Miniatures, plus Crate, Stone and Wood visual content. Select these two releases together for the remote-action QA World.
+Workshop System provides Hero Actors, Actor sheets and a separate Actor browser, journal System Records, Player Actor Access controls, and Rules actions using accepted shared Targeting. Tabletop Pieces provides the Bevy Amber Warden and Goblin Raider Miniatures, plus Crate, Stone and Wood visual content. Select these two releases together for the remote-action QA World.
 
 ## Author projects
 
-`workshop-system/` and `tabletop-pieces/` are ordinary Godot author projects. Each includes the gd-plug bootstrap and license, an exact SDK dependency (Workshop 0.10.0; Tabletop Pieces 0.10.1), a separately pinned public UI Kit, and a committed authoring lock. From either project directory, install the dependencies:
+`workshop-system/` and `tabletop-pieces/` are ordinary Godot author projects. Each includes the gd-plug bootstrap and license, an exact SDK dependency (Workshop 0.11.0; Tabletop Pieces 0.10.1), a separately pinned public UI Kit, and a committed authoring lock. From either project directory, install the dependencies:
 
 ```sh
 Godot --headless --path . --script plug.gd install

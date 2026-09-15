@@ -1,37 +1,64 @@
-[gd_scene load_steps=2 format=3]
+[gd_scene load_steps=3 format=3]
 [ext_resource type="Script" path="res://rookframe/packages/bbbbbbbb-bbbb-4bbb-8bbb-bbbbbbbbbbbb/ui/access_row.gd" id="script"]
-[node name="AccessRow" type="VBoxContainer"]
+[sub_resource type="ButtonGroup" id="choices"]
+[node name="AccessRow" type="PanelContainer"]
 script = ExtResource("script")
 size_flags_horizontal = 3
-theme_override_constants/separation = 6
-[node name="Name" type="Label" parent="."]
-layout_mode = 2
-text = "Player"
-[node name="Choices" type="HBoxContainer" parent="."]
+theme_type_variation = &"RookframeStructuredRow"
+[node name="Content" type="VBoxContainer" parent="."]
 layout_mode = 2
 theme_override_constants/separation = 8
-[node name="None" type="Button" parent="Choices"]
+[node name="Row" type="BoxContainer" parent="Content"]
+layout_mode = 2
+theme_override_constants/separation = 12
+[node name="Identity" type="VBoxContainer" parent="Content/Row"]
 layout_mode = 2
 size_flags_horizontal = 3
-custom_minimum_size = Vector2(44, 44)
-theme_type_variation = &"RookframeSecondaryButton"
-text = "None"
-[node name="Viewer" type="Button" parent="Choices"]
+size_flags_vertical = 4
+theme_override_constants/separation = 4
+[node name="Name" type="Label" parent="Content/Row/Identity"]
 layout_mode = 2
-size_flags_horizontal = 3
-custom_minimum_size = Vector2(44, 44)
-theme_type_variation = &"RookframeSecondaryButton"
-text = "Viewer"
-[node name="Owner" type="Button" parent="Choices"]
-layout_mode = 2
-size_flags_horizontal = 3
-custom_minimum_size = Vector2(44, 44)
-theme_type_variation = &"RookframeSecondaryButton"
-text = "Owner"
-[node name="Status" type="Label" parent="."]
-layout_mode = 2
+theme_type_variation = &"RookframeIdentity"
+text = "Player"
 autowrap_mode = 2
-text = "None"
-[connection signal="pressed" from="Choices/None" to="." method="set_none"]
-[connection signal="pressed" from="Choices/Viewer" to="." method="set_viewer"]
-[connection signal="pressed" from="Choices/Owner" to="." method="grant_owner"]
+[node name="Presence" type="Label" parent="Content/Row/Identity"]
+layout_mode = 2
+theme_type_variation = &"RookframeMeta"
+text = "Offline"
+[node name="Choices" type="HBoxContainer" parent="Content/Row"]
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_constants/separation = 0
+[node name="None" type="Button" parent="Content/Row/Choices"]
+layout_mode = 2
+size_flags_horizontal = 3
+custom_minimum_size = Vector2(72, 44)
+theme_type_variation = &"RookframeSecondaryButton"
+text = "NONE"
+toggle_mode = true
+button_group = SubResource("choices")
+[node name="Viewer" type="Button" parent="Content/Row/Choices"]
+layout_mode = 2
+size_flags_horizontal = 3
+custom_minimum_size = Vector2(88, 44)
+theme_type_variation = &"RookframeSecondaryButton"
+text = "VIEWER"
+toggle_mode = true
+button_group = SubResource("choices")
+[node name="Owner" type="Button" parent="Content/Row/Choices"]
+layout_mode = 2
+size_flags_horizontal = 3
+custom_minimum_size = Vector2(88, 44)
+theme_type_variation = &"RookframeSecondaryButton"
+text = "OWNER"
+toggle_mode = true
+button_group = SubResource("choices")
+[node name="Status" type="Label" parent="Content"]
+visible = false
+layout_mode = 2
+theme_type_variation = &"RookframeMeta"
+autowrap_mode = 2
+[connection signal="pressed" from="Content/Row/Choices/None" to="." method="set_none"]
+[connection signal="pressed" from="Content/Row/Choices/Viewer" to="." method="set_viewer"]
+[connection signal="pressed" from="Content/Row/Choices/Owner" to="." method="grant_owner"]
+[connection signal="resized" from="." to="." method="reflow"]
