@@ -1,9 +1,0 @@
-[gd_scene load_steps=2 format=3]
-[ext_resource type="Theme" path="res://rookframe/ui/theme/rookframe_theme.tres" id="theme"]
-[node name="Hint" type="Label"]
-offset_left = 88.0
-offset_top = 80.0
-theme = ExtResource("theme")
-theme_type_variation = &"RookframeMeta"
-text = "Workshop"
-mouse_filter = 2

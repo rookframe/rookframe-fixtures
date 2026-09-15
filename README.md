@@ -4,7 +4,7 @@ Public author projects and immutable releases for Rookframe application developm
 
 | Package | Public Manifest |
 | --- | --- |
-| Workshop System 0.8.0 | [Manifest](https://github.com/rookframe/rookframe-fixtures/releases/download/v0.8.0/Workshop-System-0.8.0.json) |
+| Workshop System 0.8.1 | [Manifest](https://github.com/rookframe/rookframe-fixtures/releases/download/v0.8.1/Workshop-System-0.8.1.json) |
 | Tabletop Pieces 0.9.0 | [Manifest](https://github.com/rookframe/rookframe-fixtures/releases/download/v0.9.0/Tabletop-Pieces-0.9.0.json) |
 
 Workshop System provides Hero Actors, a managed Workshop window, journal System Records, Player Actor Access controls, and Rules actions using accepted shared Targeting. Tabletop Pieces provides the Bevy Amber Warden and Goblin Raider Miniatures, plus Crate, Stone and Wood visual content. Select these two releases together for the remote-action QA World.
