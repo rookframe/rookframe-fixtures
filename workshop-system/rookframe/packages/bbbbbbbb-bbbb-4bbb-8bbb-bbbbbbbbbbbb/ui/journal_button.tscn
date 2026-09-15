@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3]
+[ext_resource type="Theme" path="res://rookframe/ui/theme/rookframe_theme.tres" id="theme"]
+[ext_resource type="Texture2D" path="res://rookframe/ui/icons/document.svg" id="icon"]
+[node name="WorldJournal" type="Button"]
+custom_minimum_size = Vector2(44, 44)
+theme = ExtResource("theme")
+theme_type_variation = &"RookframeShellControl"
+icon = ExtResource("icon")
+icon_alignment = 1
+expand_icon = true
+theme_override_constants/icon_max_width = 22
+tooltip_text = "World journal"
+accessibility_name = "World journal"

@@ -1,0 +1,6 @@
+[gd_resource type="Resource" load_steps=3 format=3]
+[ext_resource type="Script" path="res://rookframe/packages/bbbbbbbb-bbbb-4bbb-8bbb-bbbbbbbbbbbb/sdk/extension_surface.gd" id="script"]
+[ext_resource type="PackedScene" path="res://rookframe/packages/bbbbbbbb-bbbb-4bbb-8bbb-bbbbbbbbbbbb/ui/create_actor.tscn" id="scene"]
+[resource]
+script = ExtResource("script")
+scene = ExtResource("scene")

@@ -1,0 +1,47 @@
+[gd_scene load_steps=4 format=3]
+[ext_resource type="Script" path="res://rookframe/packages/bbbbbbbb-bbbb-4bbb-8bbb-bbbbbbbbbbbb/ui/create_actor.gd" id="script"]
+[ext_resource type="Theme" path="res://rookframe/ui/theme/rookframe_theme.tres" id="theme"]
+[ext_resource type="PackedScene" path="res://rookframe/ui/components/forms/text_field.tscn" id="field"]
+[node name="CreateActorForm" type="Control"]
+size_flags_horizontal = 3
+size_flags_vertical = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("theme")
+script = ExtResource("script")
+[node name="Layout" type="ScrollContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 24.0
+offset_top = 16.0
+offset_right = -24.0
+offset_bottom = -16.0
+horizontal_scroll_mode = 0
+[node name="Fields" type="VBoxContainer" parent="Layout"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 16
+[node name="Heading" type="Label" parent="Layout/Fields"]
+layout_mode = 2
+theme_type_variation = &"RookframeHeading"
+text = "CREATE AN ACTOR"
+autowrap_mode = 2
+[node name="ActorName" parent="Layout/Fields" instance=ExtResource("field")]
+layout_mode = 2
+label_text = "Actor name"
+[node name="CreateActor" type="Button" parent="Layout/Fields"]
+layout_mode = 2
+custom_minimum_size = Vector2(0, 44)
+theme_type_variation = &"RookframePrimaryButton"
+text = "Create Actor"
+[node name="Status" type="Label" parent="Layout/Fields"]
+layout_mode = 2
+theme_type_variation = &"RookframeMeta"
+autowrap_mode = 2
+[connection signal="pressed" from="Layout/Fields/CreateActor" to="." method="create_actor"]
