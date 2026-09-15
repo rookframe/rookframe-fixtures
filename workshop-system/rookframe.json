@@ -1,0 +1,47 @@
+{
+  "manifestVersion": 1,
+  "id": "bbbbbbbb-bbbb-4bbb-8bbb-bbbbbbbbbbbb",
+  "kind": "system-extension",
+  "name": "Workshop System",
+  "version": "0.8.0",
+  "sdk": {
+    "edition": "2029",
+    "minimumRevision": 2
+  },
+  "rookframeCompatibility": {
+    "minimum": "0.1.0",
+    "verified": "0.1.0"
+  },
+  "implementation": {
+    "entryPoint": "logic/implementation.gd"
+  },
+  "presentations": [
+    {
+      "id": "responsive",
+      "experiences": [
+        "desktop",
+        "tablet",
+        "phone"
+      ],
+      "entryPoint": "ui/presentation.gd"
+    }
+  ],
+  "content": [
+    {
+      "kind": "system",
+      "entries": [
+        {
+          "id": "hero",
+          "type": "actor_definition",
+          "payload": "content/hero.tres",
+          "displayName": "Workshop hero"
+        }
+      ],
+      "targetSystemPackageId": "bbbbbbbb-bbbb-4bbb-8bbb-bbbbbbbbbbbb",
+      "targetContractId": "workshop-actor-v1",
+      "compatibleVersions": ">=0.4.0 <1.0.0"
+    }
+  ],
+  "manifest": "https://github.com/rookframe/rookframe-fixtures/releases/download/v0.8.0/Workshop-System-0.8.0.json",
+  "download": "https://github.com/rookframe/rookframe-fixtures/releases/download/v0.8.0/Workshop-System-0.8.0.rookpackage"
+}

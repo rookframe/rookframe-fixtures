@@ -1,0 +1,10 @@
+[gd_resource type="Resource" load_steps=2 format=3]
+[ext_resource type="Script" path="res://rookframe/packages/bbbbbbbb-bbbb-4bbb-8bbb-bbbbbbbbbbbb/sdk/text_setting.gd" id="1"]
+[resource]
+script = ExtResource("1")
+key = "world_label"
+title = "Table heading"
+default_value = "Game table"
+minimum_length = 1
+maximum_length = 60
+application = 2

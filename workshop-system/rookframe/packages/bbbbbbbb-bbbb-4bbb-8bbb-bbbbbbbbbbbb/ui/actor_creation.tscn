@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3]
+[ext_resource type="Theme" path="res://rookframe/ui/theme/rookframe_theme.tres" id="theme"]
+[ext_resource type="Script" path="res://rookframe/packages/bbbbbbbb-bbbb-4bbb-8bbb-bbbbbbbbbbbb/ui/action.gd" id="script"]
+[node name="Action" type="Control"]
+custom_minimum_size = Vector2(140, 44)
+size_flags_horizontal = 3
+theme = ExtResource("theme")
+script = ExtResource("script")
+[node name="Button" type="Button" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_type_variation = &"RookframeSecondaryButton"
+text = "Create Actor"
+[connection signal="pressed" from="Button" to="." method="activate"]

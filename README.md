@@ -1,7 +1,26 @@
 # Rookframe fixture Packages
 
-Public release assets for the Rookframe Fixture System and Fixture Essentials. These small Packages support application development and cross-device acquisition verification.
+Public author projects and immutable releases for Rookframe application development and device QA. Install with **Install from URL** using a public Manifest below; an invited World supplies that URL for automatic acquisition. Downloads require no account or token. Catalogue listing is optional.
 
-Each release retains exact Manifest and archive bytes. Use the Manifest URL in Rookframe’s Install from URL flow; an invited World also supplies that URL for automatic preparation. No account or token is needed to download.
+| Package | Public Manifest |
+| --- | --- |
+| Workshop System 0.8.0 | [Manifest](https://github.com/rookframe/rookframe-fixtures/releases/download/v0.8.0/Workshop-System-0.8.0.json) |
+| Tabletop Pieces 0.7.0 | [Manifest](https://github.com/rookframe/rookframe-fixtures/releases/download/v0.7.0/Tabletop-Pieces-0.7.0.json) |
 
-Version 1.0.7 adds public acquisition links. It contains desktop, Android, iOS and dedicated-headless profiles built with Godot 4.7.2. Existing 1.0.6 offline fixture archives are unchanged.
+Workshop System provides Hero Actors, a managed Workshop window, journal System Records, Player Actor Access controls, and Rules actions using accepted shared Targeting. Tabletop Pieces provides Marker, Crate, Stone and Wood visual content. Select these two releases together for the remote-action QA World.
+
+## Author projects
+
+`workshop-system/` and `tabletop-pieces/` are ordinary Godot author projects. Each includes the gd-plug bootstrap and license, a pinned SDK 0.10.0 dependency, a separately pinned public UI Kit, and a committed authoring lock. From either project directory, install the dependencies:
+
+```sh
+Godot --headless --path . --script plug.gd install
+python3 addons/rookframe_sdk/rookframe_authoring.py check --project . --godot /path/to/Godot
+python3 addons/rookframe_sdk/rookframe_authoring.py build --project . --godot /path/to/Godot --output build/package.rookpackage
+```
+
+Publish the exact checked Manifest and archive before using a new version in application QA. Use Manifest-based acquisition; local archive imports are prohibited for QA. Releases retain their exact bytes and tags. Both projects produce one shared artifact with desktop, tablet and phone resources.
+
+## Existing fixture release
+
+The Rookframe Fixture System and Fixture Essentials 1.0.7 release remains available unchanged. It added public acquisition links and contains desktop, Android, iOS and dedicated-headless profiles built with Godot 4.7.2. Existing older release assets are unchanged.

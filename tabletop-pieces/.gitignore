@@ -1,0 +1,7 @@
+.godot/
+.plugged/
+addons/*
+!addons/gd-plug/
+rookframe/ui/
+build/
+__pycache__/

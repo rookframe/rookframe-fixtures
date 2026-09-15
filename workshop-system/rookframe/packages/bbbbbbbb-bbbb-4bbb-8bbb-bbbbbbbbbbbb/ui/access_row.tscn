@@ -1,0 +1,37 @@
+[gd_scene load_steps=2 format=3]
+[ext_resource type="Script" path="res://rookframe/packages/bbbbbbbb-bbbb-4bbb-8bbb-bbbbbbbbbbbb/ui/access_row.gd" id="script"]
+[node name="AccessRow" type="VBoxContainer"]
+script = ExtResource("script")
+size_flags_horizontal = 3
+theme_override_constants/separation = 6
+[node name="Name" type="Label" parent="."]
+layout_mode = 2
+text = "Player"
+[node name="Choices" type="HBoxContainer" parent="."]
+layout_mode = 2
+theme_override_constants/separation = 8
+[node name="None" type="Button" parent="Choices"]
+layout_mode = 2
+size_flags_horizontal = 3
+custom_minimum_size = Vector2(44, 44)
+theme_type_variation = &"RookframeSecondaryButton"
+text = "None"
+[node name="Viewer" type="Button" parent="Choices"]
+layout_mode = 2
+size_flags_horizontal = 3
+custom_minimum_size = Vector2(44, 44)
+theme_type_variation = &"RookframeSecondaryButton"
+text = "Viewer"
+[node name="Owner" type="Button" parent="Choices"]
+layout_mode = 2
+size_flags_horizontal = 3
+custom_minimum_size = Vector2(44, 44)
+theme_type_variation = &"RookframeSecondaryButton"
+text = "Owner"
+[node name="Status" type="Label" parent="."]
+layout_mode = 2
+autowrap_mode = 2
+text = "None"
+[connection signal="pressed" from="Choices/None" to="." method="set_none"]
+[connection signal="pressed" from="Choices/Viewer" to="." method="set_viewer"]
+[connection signal="pressed" from="Choices/Owner" to="." method="grant_owner"]

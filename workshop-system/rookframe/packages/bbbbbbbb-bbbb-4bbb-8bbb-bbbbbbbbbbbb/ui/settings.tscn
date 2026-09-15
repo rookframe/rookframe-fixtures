@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3]
+[ext_resource type="Script" path="res://rookframe/packages/bbbbbbbb-bbbb-4bbb-8bbb-bbbbbbbbbbbb/ui/settings.gd" id="script"]
+[ext_resource type="Theme" path="res://rookframe/ui/theme/rookframe_theme.tres" id="theme"]
+[ext_resource type="PackedScene" path="res://rookframe/ui/components/forms/text_field.tscn" id="field"]
+[node name="WorkshopSettings" type="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 16
+theme = ExtResource("theme")
+script = ExtResource("script")
+[node name="Heading" parent="." instance=ExtResource("field")]
+layout_mode = 2
+help_text = "Preview your heading before saving it."
+[node name="Preview" type="Label" parent="."]
+layout_mode = 2
+autowrap_mode = 2
+theme_type_variation = &"RookframeHeading"
+[connection signal="value_changed" from="Heading" to="." method="update_heading"]

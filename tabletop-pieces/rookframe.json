@@ -1,0 +1,54 @@
+{
+  "manifestVersion": 1,
+  "id": "cccccccc-cccc-4ccc-8ccc-cccccccccccc",
+  "kind": "optional",
+  "name": "Tabletop Pieces",
+  "version": "0.7.0",
+  "sdk": {
+    "edition": "2027",
+    "minimumRevision": 1
+  },
+  "rookframeCompatibility": {
+    "minimum": "0.1.0",
+    "verified": "0.1.0"
+  },
+  "systemExtensionCompatibility": [
+    {
+      "id": "bbbbbbbb-bbbb-4bbb-8bbb-bbbbbbbbbbbb",
+      "versions": ">=0.3.0 <1.0.0"
+    }
+  ],
+  "content": [
+    {
+      "kind": "visual",
+      "entries": [
+        {
+          "id": "marker",
+          "type": "miniature",
+          "payload": "content/marker.tscn",
+          "displayName": "Marker"
+        },
+        {
+          "id": "crate",
+          "type": "prop",
+          "payload": "content/crate.tscn",
+          "displayName": "Crate"
+        },
+        {
+          "id": "stone",
+          "type": "surface_finish",
+          "payload": "content/stone.tres",
+          "displayName": "Stone"
+        },
+        {
+          "id": "wood",
+          "type": "wall_style",
+          "payload": "content/wood.tres",
+          "displayName": "Wood"
+        }
+      ]
+    }
+  ],
+  "manifest": "https://github.com/rookframe/rookframe-fixtures/releases/download/v0.7.0/Tabletop-Pieces-0.7.0.json",
+  "download": "https://github.com/rookframe/rookframe-fixtures/releases/download/v0.7.0/Tabletop-Pieces-0.7.0.rookpackage"
+}

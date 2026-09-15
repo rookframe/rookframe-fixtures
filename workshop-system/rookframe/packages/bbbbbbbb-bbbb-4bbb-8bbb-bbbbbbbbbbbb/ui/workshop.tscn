@@ -1,0 +1,165 @@
+[gd_scene load_steps=4 format=3]
+[ext_resource type="Theme" path="res://rookframe/ui/theme/rookframe_theme.tres" id="theme"]
+[ext_resource type="Script" path="res://rookframe/packages/bbbbbbbb-bbbb-4bbb-8bbb-bbbbbbbbbbbb/ui/workshop.gd" id="script"]
+[ext_resource type="PackedScene" path="res://rookframe/ui/components/forms/text_field.tscn" id="field"]
+[node name="Workshop" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource("theme")
+script = ExtResource("script")
+[node name="Layout" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 16
+[node name="Header" type="Label" parent="Layout"]
+layout_mode = 2
+theme_type_variation = &"RookframeHeading"
+text = "Workshop"
+[node name="Views" type="HBoxContainer" parent="Layout"]
+layout_mode = 2
+theme_override_constants/separation = 8
+[node name="Actors" type="Button" parent="Layout/Views"]
+layout_mode = 2
+size_flags_horizontal = 3
+custom_minimum_size = Vector2(44, 44)
+theme_type_variation = &"RookframeSecondaryButton"
+text = "Actors"
+[node name="Journal" type="Button" parent="Layout/Views"]
+layout_mode = 2
+size_flags_horizontal = 3
+custom_minimum_size = Vector2(44, 44)
+theme_type_variation = &"RookframeSecondaryButton"
+text = "World journal"
+[node name="Body" type="ScrollContainer" parent="Layout"]
+layout_mode = 2
+size_flags_vertical = 3
+horizontal_scroll_mode = 0
+vertical_scroll_mode = 2
+follow_focus = true
+[node name="Fields" type="VBoxContainer" parent="Layout/Body"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 12
+
+[node name="ActorHeading" type="Label" parent="Layout/Body/Fields"]
+layout_mode = 2
+autowrap_mode = 2
+text = "Create an Actor"
+theme_type_variation = &"RookframeHeading"
+
+[node name="ActorName" parent="Layout/Body/Fields" instance=ExtResource("field")]
+layout_mode = 2
+label_text = "Actor name"
+
+[node name="CreateActor" type="Button" parent="Layout/Body/Fields"]
+layout_mode = 2
+custom_minimum_size = Vector2(44, 44)
+theme_type_variation = &"RookframePrimaryButton"
+text = "Confirm Actor creation"
+
+[node name="ActorSummary" type="Label" parent="Layout/Body/Fields"]
+layout_mode = 2
+autowrap_mode = 2
+text = "No Actor selected"
+
+[node name="TrainActor" type="Button" parent="Layout/Body/Fields"]
+layout_mode = 2
+custom_minimum_size = Vector2(44, 44)
+theme_type_variation = &"RookframeSecondaryButton"
+text = "Train selected Actor (+1 HP)"
+
+[node name="DeleteActor" type="Button" parent="Layout/Body/Fields"]
+layout_mode = 2
+custom_minimum_size = Vector2(44, 44)
+theme_type_variation = &"RookframeDangerButton"
+text = "Delete selected Actor"
+
+[node name="JournalHeading" type="Label" parent="Layout/Body/Fields"]
+layout_mode = 2
+autowrap_mode = 2
+text = "World journal"
+theme_type_variation = &"RookframeHeading"
+
+[node name="JournalTitle" parent="Layout/Body/Fields" instance=ExtResource("field")]
+layout_mode = 2
+label_text = "Journal title"
+
+[node name="CreateEntry" type="Button" parent="Layout/Body/Fields"]
+layout_mode = 2
+custom_minimum_size = Vector2(44, 44)
+theme_type_variation = &"RookframePrimaryButton"
+text = "Create journal entry"
+
+[node name="JournalSummary" type="Label" parent="Layout/Body/Fields"]
+layout_mode = 2
+autowrap_mode = 2
+text = "No journal entry selected"
+
+[node name="SaveEntry" type="Button" parent="Layout/Body/Fields"]
+layout_mode = 2
+custom_minimum_size = Vector2(44, 44)
+theme_type_variation = &"RookframeSecondaryButton"
+text = "Update selected entry"
+
+[node name="DeleteEntry" type="Button" parent="Layout/Body/Fields"]
+layout_mode = 2
+custom_minimum_size = Vector2(44, 44)
+theme_type_variation = &"RookframeDangerButton"
+text = "Delete selected entry"
+
+[node name="NextActor" type="Button" parent="Layout/Body/Fields"]
+layout_mode = 2
+custom_minimum_size = Vector2(44, 44)
+theme_type_variation = &"RookframeSecondaryButton"
+text = "Next Actor"
+
+[node name="Access" type="VBoxContainer" parent="Layout/Body/Fields"]
+layout_mode = 2
+theme_override_constants/separation = 12
+[node name="Heading" type="Label" parent="Layout/Body/Fields/Access"]
+layout_mode = 2
+theme_type_variation = &"RookframeHeading"
+text = "Actor Access"
+[node name="Description" type="Label" parent="Layout/Body/Fields/Access"]
+layout_mode = 2
+autowrap_mode = 2
+text = "Choose who can view or control this Actor. The GM always has full access."
+[node name="Rows" type="VBoxContainer" parent="Layout/Body/Fields/Access"]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="Targets" type="Label" parent="Layout"]
+layout_mode = 2
+text = "Shared targets: 0"
+
+[node name="Status" type="Label" parent="Layout"]
+layout_mode = 2
+autowrap_mode = 2
+text = "Create independent Actors and keep a World journal."
+
+[connection signal="pressed" from="Layout/Body/Fields/CreateActor" to="." method="create_actor"]
+
+[connection signal="pressed" from="Layout/Body/Fields/TrainActor" to="." method="train_actor"]
+
+[connection signal="pressed" from="Layout/Body/Fields/DeleteActor" to="." method="delete_actor"]
+
+[connection signal="pressed" from="Layout/Body/Fields/CreateEntry" to="." method="create_entry"]
+
+[connection signal="pressed" from="Layout/Body/Fields/SaveEntry" to="." method="save_entry"]
+
+[connection signal="pressed" from="Layout/Body/Fields/DeleteEntry" to="." method="delete_entry"]
+
+[connection signal="pressed" from="Layout/Views/Actors" to="." method="show_actors"]
+[connection signal="pressed" from="Layout/Views/Journal" to="." method="show_journal"]
+
+[connection signal="pressed" from="Layout/Body/Fields/NextActor" to="." method="next_actor"]
