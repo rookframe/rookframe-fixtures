@@ -35,7 +35,8 @@ blend_shape_mode = 0
 
 [node name="appearance" type="Node3D" unique_id=1458385286]
 metadata/content_kind = "surface_finish"
-metadata/authored_unit_span = 1.0
+metadata/authored_units_per_world_unit = 1.0
+metadata/authored_sample_span = 1.6
 metadata/source_commit = "1230e73777ee0fa2f4e17ec8c804e0c4061465de"
 metadata/source_sha256 = "a9d623e4f2b265ed90938c2ea6a65cfa1293153c191b3c15b50b7c0ea1d0b7e5"
 metadata/supports_floor = true

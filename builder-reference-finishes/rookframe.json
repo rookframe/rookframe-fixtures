@@ -3,7 +3,7 @@
   "id": "dd07cd6c-d4f5-40e1-b3f2-44d2d59c7f7f",
   "kind": "optional",
   "name": "Builder Reference Finishes",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "summary": "Three detailed Wall Styles and two Surface Finishes for live Builder Mode.",
   "sdk": {
     "edition": "2029",
@@ -55,6 +55,6 @@
       ]
     }
   ],
-  "manifest": "https://github.com/rookframe/rookframe-fixtures/releases/download/v0.1.0/Builder-Reference-Finishes-0.1.0.json",
-  "download": "https://github.com/rookframe/rookframe-fixtures/releases/download/v0.1.0/Builder-Reference-Finishes-0.1.0.rookpackage"
+  "manifest": "https://github.com/rookframe/rookframe-fixtures/releases/download/v0.1.1/Builder-Reference-Finishes-0.1.1.json",
+  "download": "https://github.com/rookframe/rookframe-fixtures/releases/download/v0.1.1/Builder-Reference-Finishes-0.1.1.rookpackage"
 }

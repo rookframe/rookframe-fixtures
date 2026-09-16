@@ -137,7 +137,8 @@ blend_shape_mode = 0
 
 [node name="appearance" type="Node3D" unique_id=1785636045]
 metadata/content_kind = "wall_style"
-metadata/authored_unit_span = 1.0
+metadata/authored_units_per_world_unit = 1.0
+metadata/authored_sample_span = 1.0
 metadata/source_commit = "1230e73777ee0fa2f4e17ec8c804e0c4061465de"
 metadata/source_sha256 = "a7a3908a02fea08e2a65860589bc409bcd6fb6b84d95dc9f29854bcbb14723c9"
 

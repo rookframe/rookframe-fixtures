@@ -10,7 +10,7 @@ One data-only optional Package containing the original Bevy Builder models:
 | `dark-stone-tiles` | Dark Stone Tiles | Surface Finish | Floor and Ceiling independently |
 | `oak-planks` | Oak Planks | Surface Finish | Floor and Ceiling independently |
 
-Package ID: `dd07cd6c-d4f5-40e1-b3f2-44d2d59c7f7f`, version `0.1.0`.
+Package ID: `dd07cd6c-d4f5-40e1-b3f2-44d2d59c7f7f`, version `0.1.1`.
 The Bevy UUID was not a current-contract UUIDv4; it is retained as provenance,
 not used as a Godot Package identity. All five original Package-local Content
 IDs remain unchanged. There is no Implementation, Presentation, executable
@@ -29,7 +29,7 @@ godot --editor --path .
 
 In Godot, use **Project → Tools → Rookframe: Check Package**, then
 **Rookframe: Build Package**. The enabled stock EditorPlugin invokes the existing
-SDK checker and builder. The output uses `build/<package-id>-0.1.0-<unique-output-id>.rookpackage`;
+SDK checker and builder. The output uses `build/<package-id>-0.1.1-<unique-output-id>.rookpackage`;
 an existing output is never overwritten. Publication uses the download filename
 recorded in the Manifest. Every deliberate rebuild receives a new immutable Build ID.
 Equivalent supported CLI actions are:
@@ -51,14 +51,16 @@ Each Manifest payload is an ordinary `PackedScene` (`appearance.tscn`) with
 native `Node3D`, `MeshInstance3D`, `ArrayMesh`, and `StandardMaterial3D` resources.
 The original glTF hierarchy and local transforms are retained below the imported
 root: `WallStyle/Common/Surface`, `Detail` and `Top` where authored, or
-`SurfaceFinish/Surface`. The module spans one World unit; no corrective scaling
+`SurfaceFinish/Surface`. Wall modules span one World unit; Surface Finish samples span 1.6 × 1.6 units.
+One authored coordinate unit equals one World unit. No corrective scaling
 or flat-material replacement is applied. UVs, vertex normals/tangents, albedo,
 normal and metallic/roughness maps, texture channels, double-sided culling and
 normal-map strength are preserved. Preview PNGs and extracted embedded texture
 bytes are copied exactly from the pinned source.
 
 Root metadata is pure Godot data: `content_kind` matches the Manifest's typed
-declaration, `authored_unit_span` is `1.0`, and `source_commit` / `source_sha256`
+declaration, `authored_units_per_world_unit` is `1.0`, `authored_sample_span` is `1.0`
+for Walls and `1.6` for Surface Finishes, and `source_commit` / `source_sha256`
 identify the original GLB. Both Surface Finish roots explicitly declare
 `supports_floor = true` and `supports_ceiling = true`. A Region stores independent
 Content References for its Floor and Ceiling even when both select one finish.
@@ -92,7 +94,7 @@ source never replaces a published archive.
 
 ## Published installation
 
-Public [0.1.0 Manifest](https://github.com/rookframe/rookframe-fixtures/releases/download/v0.1.0/Builder-Reference-Finishes-0.1.0.json).
+Public [0.1.1 Manifest](https://github.com/rookframe/rookframe-fixtures/releases/download/v0.1.1/Builder-Reference-Finishes-0.1.1.json).
 
 In stopped Manager, open Installed Packages → Install Package, paste this public
 HTTPS Manifest link, and choose Install from link. Include Builder Reference

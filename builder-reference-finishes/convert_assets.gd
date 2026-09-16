@@ -32,7 +32,8 @@ func _initialize() -> void:
 			fail("GLB scene generation failed: " + source)
 			return
 		scene.set_meta("content_kind", entry.type)
-		scene.set_meta("authored_unit_span", 1.0)
+		scene.set_meta("authored_units_per_world_unit", 1.0)
+		scene.set_meta("authored_sample_span", 1.6 if entry.type == "surface_finish" else 1.0)
 		scene.set_meta("source_commit", "1230e73777ee0fa2f4e17ec8c804e0c4061465de")
 		scene.set_meta("source_sha256", FileAccess.get_sha256(source))
 		if entry.type == "surface_finish":
