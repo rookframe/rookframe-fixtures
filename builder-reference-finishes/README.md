@@ -92,7 +92,7 @@ source never replaces a published archive.
 
 ## Published installation
 
-Public [0.1.0 Manifest](https://github.com/rookframe/rookframe-fixtures/releases/download/builder-reference-finishes-v0.1.0/Builder-Reference-Finishes-0.1.0.json).
+Public [0.1.0 Manifest](https://github.com/rookframe/rookframe-fixtures/releases/download/v0.1.0/Builder-Reference-Finishes-0.1.0.json).
 
 In stopped Manager, open Installed Packages → Install Package, paste this public
 HTTPS Manifest link, and choose Install from link. Include Builder Reference

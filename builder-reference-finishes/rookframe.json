@@ -55,6 +55,6 @@
       ]
     }
   ],
-  "manifest": "https://github.com/rookframe/rookframe-fixtures/releases/download/builder-reference-finishes-v0.1.0/Builder-Reference-Finishes-0.1.0.json",
-  "download": "https://github.com/rookframe/rookframe-fixtures/releases/download/builder-reference-finishes-v0.1.0/Builder-Reference-Finishes-0.1.0.rookpackage"
+  "manifest": "https://github.com/rookframe/rookframe-fixtures/releases/download/v0.1.0/Builder-Reference-Finishes-0.1.0.json",
+  "download": "https://github.com/rookframe/rookframe-fixtures/releases/download/v0.1.0/Builder-Reference-Finishes-0.1.0.rookpackage"
 }
