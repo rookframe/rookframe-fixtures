@@ -5,6 +5,13 @@ const TextField = preload("res://rookframe/ui/components/forms/text_field.gd")
 var selected_record: SDK.SystemRecordId
 var busy: bool = false
 
+func capture_reconnect_state() -> Dictionary:
+	return {"journal_title": journal_title.value}
+
+func restore_reconnect_state(state: Dictionary) -> void:
+	var title: String = state.get("journal_title", "")
+	journal_title.value = title
+
 func ready() -> void:
 	if sdk != null:
 		sdk.world_changed.connect(refresh)

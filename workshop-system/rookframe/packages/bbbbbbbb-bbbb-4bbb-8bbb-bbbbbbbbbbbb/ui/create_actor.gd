@@ -6,6 +6,13 @@ const SHEET: SDK.ExtensionSurface = preload("res://rookframe/packages/bbbbbbbb-b
 @onready var status: Label = get_node("Layout/Fields/Status")
 var busy: bool = false
 
+func capture_reconnect_state() -> Dictionary:
+	return {"actor_name": actor_name.value}
+
+func restore_reconnect_state(state: Dictionary) -> void:
+	var title: String = state.get("actor_name", "")
+	actor_name.value = title
+
 func create_actor() -> void:
 	if busy:
 		return

@@ -4,14 +4,14 @@ Public author projects and immutable releases for Rookframe application developm
 
 | Package | Public Manifest |
 | --- | --- |
-| Workshop System 0.10.0 | [Manifest](https://github.com/rookframe/rookframe-fixtures/releases/download/v0.10.0/Workshop-System-0.10.0.json) |
+| Workshop System 0.12.0 | [Manifest](https://github.com/rookframe/rookframe-fixtures/releases/download/v0.12.0/Workshop-System-0.12.0.json) |
 | Tabletop Pieces 0.9.0 | [Manifest](https://github.com/rookframe/rookframe-fixtures/releases/download/v0.9.0/Tabletop-Pieces-0.9.0.json) |
 
 Workshop System provides Hero Actors, Actor sheets and a separate Actor browser, journal System Records, Player Actor Access controls, and Rules actions using accepted shared Targeting. Tabletop Pieces provides the Bevy Amber Warden and Goblin Raider Miniatures, plus Crate, Stone and Wood visual content. Select these two releases together for the remote-action QA World.
 
 ## Author projects
 
-`workshop-system/` and `tabletop-pieces/` are ordinary Godot author projects. Each includes the gd-plug bootstrap and license, an exact SDK dependency (Workshop 0.11.0; Tabletop Pieces 0.10.1), a separately pinned public UI Kit, and a committed authoring lock. From either project directory, install the dependencies:
+`workshop-system/` and `tabletop-pieces/` are ordinary Godot author projects. Each includes the gd-plug bootstrap and license, an exact SDK dependency (Workshop 0.12.0; Tabletop Pieces 0.10.1), a separately pinned public UI Kit, and a committed authoring lock. From either project directory, install the dependencies:
 
 ```sh
 Godot --headless --path . --script plug.gd install
@@ -24,3 +24,5 @@ Publish the exact checked Manifest and archive before using a new version in app
 ## Existing fixture release
 
 The Rookframe Fixture System and Fixture Essentials 1.0.7 release remains available unchanged. It added public acquisition links and contains desktop, Android, iOS and dedicated-headless profiles built with Godot 4.7.2. Existing older release assets are unchanged.
+
+Workshop 0.12.0 preserves the current Actor-creation name and journal-title draft when the application reconnects. It restores only local text; pending actions are discarded and require a fresh user action.
