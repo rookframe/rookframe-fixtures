@@ -1,0 +1,6 @@
+.godot/
+.plugged/
+addons/rookframe_sdk/
+rookframe/ui/
+build/
+__pycache__/

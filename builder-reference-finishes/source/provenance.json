@@ -1,0 +1,220 @@
+{
+  "repository": "https://github.com/rookframe/rookframe",
+  "commit": "1230e73777ee0fa2f4e17ec8c804e0c4061465de",
+  "path": "fixtures/packages/builder-reference-finishes",
+  "legacyPackageId": "019d9a13-5b31-7c42-9a8b-6e2d4f1c0a77",
+  "files": [
+    {
+      "path": "source/README.md",
+      "sha256": "f7dc07959017b9460403cfa503b6d1795521f7dd6e8e5b2894cdbc961b5b2b22"
+    },
+    {
+      "path": "source/THIRD_PARTY_ASSETS.md",
+      "sha256": "1fe5f9a372e0978714a26e5bab28d6eadac63df90b8489354738e8e9b28af0a4"
+    },
+    {
+      "path": "source/authoring/README.md",
+      "sha256": "541076e1f7c91df674d34bf268dbe4d20aca85e47341a527f2648bee44d80375"
+    },
+    {
+      "path": "source/authoring/blend/dark-stone-tiles.blend",
+      "sha256": "807cbd8cd9edf289998b37b61ca7b9f7c0164d100c29a701ab092457a88d9bb5"
+    },
+    {
+      "path": "source/authoring/blend/oak-planks.blend",
+      "sha256": "02b84a34f7c269ac0740563d754a33e43096845117c6a614e07ae934e818619f"
+    },
+    {
+      "path": "source/authoring/blend/ornate-stone-panel-wall.blend",
+      "sha256": "597fc96bd4f8124eaf0460efe4c6978758d73cb9ef76da1cd6904407410e690e"
+    },
+    {
+      "path": "source/authoring/blend/rough-stone-wall.blend",
+      "sha256": "49e74db85e4f8681d2fe262e46ccc96745ef7e962d02d5798e2df553f6a067d9"
+    },
+    {
+      "path": "source/authoring/blend/timber-plaster-wall.blend",
+      "sha256": "4de14127af43dfa40c6f3ab44232c9f0664c77141c182917ea5eebca6fb91f7a"
+    },
+    {
+      "path": "source/authoring/generate_assets.py",
+      "sha256": "b086c947202e2bf1b1e41ba7b0372113c4fd230953f5d0265dae688a927c131d"
+    },
+    {
+      "path": "source/authoring/textures/dark-stone-tiles-basecolor.jpg",
+      "sha256": "0cbfcd1029cee72b3a6775bab8cac6746f6f3eb0651f62bfd824d5334059f988"
+    },
+    {
+      "path": "source/authoring/textures/dark-stone-tiles-normal.jpg",
+      "sha256": "9353697ce4f0bdbdfc68fe8611af2f9774f4f18239964fb4483f97918883ad01"
+    },
+    {
+      "path": "source/authoring/textures/dark-stone-tiles-roughness.jpg",
+      "sha256": "69bc09c8afb5c271614da6ddc5933b75c851965a3e8870105ac83d9a2084b8c4"
+    },
+    {
+      "path": "source/authoring/textures/oak-planks-basecolor.jpg",
+      "sha256": "df154cf5a2db02fc77bd6086ee81e757ccabd43f16a0f5feff653cffb0538642"
+    },
+    {
+      "path": "source/authoring/textures/oak-planks-normal.jpg",
+      "sha256": "a0280bca19e8162fcae09b5b149908a9ed495a5db084597bf9c18fcab21e36e2"
+    },
+    {
+      "path": "source/authoring/textures/oak-planks-roughness.jpg",
+      "sha256": "d8e07a185841eca6818ea13b6d5df85fd4d157ca28dd22f490aea9542321b48f"
+    },
+    {
+      "path": "source/authoring/textures/pale-marble-basecolor.jpg",
+      "sha256": "a34b55c889c6b3819d2c351b6409bfd0baf0a0a55b073441850627dfebcdcd1e"
+    },
+    {
+      "path": "source/authoring/textures/pale-marble-normal.jpg",
+      "sha256": "2e9a56525ffbb7e80854b19985a5c921f91192698ea337f4834192479ba0063b"
+    },
+    {
+      "path": "source/authoring/textures/pale-marble-roughness.jpg",
+      "sha256": "f7afd636d6cca0b470549959c514976186df58ac1013016b6c3919910a6d3a04"
+    },
+    {
+      "path": "source/authoring/textures/rough-timber-basecolor.jpg",
+      "sha256": "a6d7701ee2e6fe8e49561764a48f827917b4fa71f1b6849e802ee0485f3d0c08"
+    },
+    {
+      "path": "source/authoring/textures/rough-timber-normal.jpg",
+      "sha256": "49deca4f0fe8959a3a8abc7068ec731d7bd388970c00f2a0b949bcd89f729664"
+    },
+    {
+      "path": "source/authoring/textures/rough-timber-roughness.jpg",
+      "sha256": "2817bc6a5e521628955ab199950e8d1bdefd34c96867812833d838109ac3fa0d"
+    },
+    {
+      "path": "source/authoring/textures/stone-masonry-basecolor.jpg",
+      "sha256": "30e573c0240ee63e8c4eb6ad5d58247e501938664639888169211d96ab11c2bb"
+    },
+    {
+      "path": "source/authoring/textures/stone-masonry-normal.jpg",
+      "sha256": "b574f8bfab6669250a1e8ad53e71c2c963cf3b0c2dec25f6472687966f1b84ef"
+    },
+    {
+      "path": "source/authoring/textures/stone-masonry-roughness.jpg",
+      "sha256": "f56187e127fe651eaec2b00826ae74c23e866554212d3c8aeb6ebb14b88e56b3"
+    },
+    {
+      "path": "source/authoring/textures/top-course-stone-basecolor.jpg",
+      "sha256": "0b5f0418eb1e686190c5d33bb54c400b1f9ed58813b5e34aa5e573a5197302b5"
+    },
+    {
+      "path": "source/authoring/textures/top-course-stone-normal.jpg",
+      "sha256": "7a7146f51159a7667233c2c14c34ff18a9f4374cc8869d53a1162648d0941023"
+    },
+    {
+      "path": "source/authoring/textures/top-course-stone-roughness.jpg",
+      "sha256": "e98b9c8ffb35513bd7b36a8730bf9745d05325376a85fae87ebf56a7c071a123"
+    },
+    {
+      "path": "source/authoring/textures/warm-plaster-basecolor.jpg",
+      "sha256": "72104704d0b9bd3713c5f6238971252b63eccf6e61263059c674caa8f3d0fa6d"
+    },
+    {
+      "path": "source/authoring/textures/warm-plaster-normal.jpg",
+      "sha256": "cec747be50f91da0693986080b6f59ef868d53cb2ab7d577982165ece63ed75e"
+    },
+    {
+      "path": "source/authoring/textures/warm-plaster-roughness.jpg",
+      "sha256": "fc8328f47f4d2d82d5311a75bcb5c8cd8979d171a0ee097ad9e44ca9c5a00d60"
+    },
+    {
+      "path": "source/authoring/validate_assets.mjs",
+      "sha256": "c527eb33f8a24df42539ac4b76c9b5e93b50f6f709ab7edcba4ecb08b159b15f"
+    },
+    {
+      "path": "source/bun.lock",
+      "sha256": "5c56e120f2b8a5dfa517ee76e326beacf9551e8849d591a4b38fe6e2fb148741"
+    },
+    {
+      "path": "source/content/dark-stone-tiles/appearance.glb",
+      "sha256": "a9d623e4f2b265ed90938c2ea6a65cfa1293153c191b3c15b50b7c0ea1d0b7e5"
+    },
+    {
+      "path": "source/content/dark-stone-tiles/content.json",
+      "sha256": "10f57b6f3de5d3ad0cfd28bd47f91bb9d948edb6d9fd272cf4049a739c619312"
+    },
+    {
+      "path": "source/content/dark-stone-tiles/preview.png",
+      "sha256": "2f80ca741259774963649d369a6eda555843592d2a516adcc98b5a6d8757044f"
+    },
+    {
+      "path": "source/content/oak-planks/appearance.glb",
+      "sha256": "a0d535586f4fba89025df9fb94d883022e194df9770b0f9ba954f0ad6e1e9134"
+    },
+    {
+      "path": "source/content/oak-planks/content.json",
+      "sha256": "600e96bda3efd149658c0f4307be70d85a39407880911c2138383c3fd7bf0af9"
+    },
+    {
+      "path": "source/content/oak-planks/preview.png",
+      "sha256": "6c19b9db2003d14d9c65515d4022f7bdbd95429c0fd68492d7aaf1b21cb745a8"
+    },
+    {
+      "path": "source/content/ornate-stone-panel-wall/appearance.glb",
+      "sha256": "dd43e870353f894857c606a896726b4fb2ba4ed6c753fcbb891ea28516c5ee7d"
+    },
+    {
+      "path": "source/content/ornate-stone-panel-wall/content.json",
+      "sha256": "b7826628514f16670fef6e8e29b415b2fc693dd7e99aa339152616b7ce717f0f"
+    },
+    {
+      "path": "source/content/ornate-stone-panel-wall/preview.png",
+      "sha256": "a78e669bc2d0490bc21f617a96caa5efe3bfb9499f7cbf8975a681efb2c46b75"
+    },
+    {
+      "path": "source/content/rough-stone-wall/appearance.glb",
+      "sha256": "a7a3908a02fea08e2a65860589bc409bcd6fb6b84d95dc9f29854bcbb14723c9"
+    },
+    {
+      "path": "source/content/rough-stone-wall/content.json",
+      "sha256": "7b39506d8dc7dd9bb3b94b0e9d4092abe8c143a198421c613aeabb6ce5134e0b"
+    },
+    {
+      "path": "source/content/rough-stone-wall/preview.png",
+      "sha256": "b40563945131dd22f57c353e5729888c8474e7f006306263b87b3f818713b992"
+    },
+    {
+      "path": "source/content/timber-plaster-wall/appearance.glb",
+      "sha256": "02159124d8ba69d47b289deeddb2911f55cbc6098e220c8b1680c10e94d80e15"
+    },
+    {
+      "path": "source/content/timber-plaster-wall/content.json",
+      "sha256": "ebf4d542b1a121162535c06d674956e8c74ac588a58c7e04943a57faa611801e"
+    },
+    {
+      "path": "source/content/timber-plaster-wall/preview.png",
+      "sha256": "c399e23cee1223d78ca7a0bcd85830db88ca49dc9f17f6e614848fb312d70a1e"
+    },
+    {
+      "path": "source/package.json",
+      "sha256": "11d3bf138e5da603df29570869eeee9946c0fc864c844983d969682b1c7bc7ea"
+    },
+    {
+      "path": "source/tests/.gitkeep",
+      "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b"
+    },
+    {
+      "path": "source/tsconfig.json",
+      "sha256": "8b65d3a74040cc1b919b81f136f171a78a531679efa60bd512e378c330e06ea3"
+    },
+    {
+      "path": "source/vtt.build.json",
+      "sha256": "ffe3025979dd49998ae2f115a336366e06619549753c7c2c7b7fe842755ddcad"
+    },
+    {
+      "path": "source/vtt.package.json",
+      "sha256": "98d18a30e90111a2309ef8a9be967c3a23df8e8f6a13657c6164c4a9a0868a5f"
+    },
+    {
+      "path": "source/vtt.toolchain.lock.json",
+      "sha256": "74287853ef82076755b738d86597a49453a71dea78f21569746706b6dcf46112"
+    }
+  ]
+}

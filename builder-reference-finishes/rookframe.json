@@ -1,0 +1,60 @@
+{
+  "manifestVersion": 1,
+  "id": "dd07cd6c-d4f5-40e1-b3f2-44d2d59c7f7f",
+  "kind": "optional",
+  "name": "Builder Reference Finishes",
+  "version": "0.1.0",
+  "summary": "Three detailed Wall Styles and two Surface Finishes for live Builder Mode.",
+  "sdk": {
+    "edition": "2029",
+    "minimumRevision": 1
+  },
+  "rookframeCompatibility": {
+    "minimum": "0.1.0",
+    "verified": "0.1.0"
+  },
+  "content": [
+    {
+      "kind": "visual",
+      "entries": [
+        {
+          "id": "dark-stone-tiles",
+          "type": "surface_finish",
+          "payload": "content/dark-stone-tiles/appearance.tscn",
+          "preview": "content/dark-stone-tiles/preview.png",
+          "displayName": "Dark Stone Tiles"
+        },
+        {
+          "id": "oak-planks",
+          "type": "surface_finish",
+          "payload": "content/oak-planks/appearance.tscn",
+          "preview": "content/oak-planks/preview.png",
+          "displayName": "Oak Planks"
+        },
+        {
+          "id": "ornate-stone-panel-wall",
+          "type": "wall_style",
+          "payload": "content/ornate-stone-panel-wall/appearance.tscn",
+          "preview": "content/ornate-stone-panel-wall/preview.png",
+          "displayName": "Ornate Stone Panel Wall"
+        },
+        {
+          "id": "rough-stone-wall",
+          "type": "wall_style",
+          "payload": "content/rough-stone-wall/appearance.tscn",
+          "preview": "content/rough-stone-wall/preview.png",
+          "displayName": "Rough Stone Wall"
+        },
+        {
+          "id": "timber-plaster-wall",
+          "type": "wall_style",
+          "payload": "content/timber-plaster-wall/appearance.tscn",
+          "preview": "content/timber-plaster-wall/preview.png",
+          "displayName": "Timber and Plaster Wall"
+        }
+      ]
+    }
+  ],
+  "manifest": "https://github.com/rookframe/rookframe-fixtures/releases/download/builder-reference-finishes-v0.1.0/Builder-Reference-Finishes-0.1.0.json",
+  "download": "https://github.com/rookframe/rookframe-fixtures/releases/download/builder-reference-finishes-v0.1.0/Builder-Reference-Finishes-0.1.0.rookpackage"
+}

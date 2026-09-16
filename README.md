@@ -5,6 +5,7 @@ Public author projects and immutable releases for Rookframe application developm
 | Package | Public Manifest |
 | --- | --- |
 | Workshop System 0.12.0 | [Manifest](https://github.com/rookframe/rookframe-fixtures/releases/download/v0.12.0/Workshop-System-0.12.0.json) |
+| Builder Reference Finishes 0.1.0 | [Manifest](https://github.com/rookframe/rookframe-fixtures/releases/download/builder-reference-finishes-v0.1.0/Builder-Reference-Finishes-0.1.0.json) |
 | Tabletop Pieces 0.9.0 | [Manifest](https://github.com/rookframe/rookframe-fixtures/releases/download/v0.9.0/Tabletop-Pieces-0.9.0.json) |
 
 Workshop System provides Hero Actors, Actor sheets and a separate Actor browser, journal System Records, Player Actor Access controls, and Rules actions using accepted shared Targeting. Tabletop Pieces provides the Bevy Amber Warden and Goblin Raider Miniatures, plus Crate, Stone and Wood visual content. Select these two releases together for the remote-action QA World.
@@ -26,3 +27,5 @@ Publish the exact checked Manifest and archive before using a new version in app
 The Rookframe Fixture System and Fixture Essentials 1.0.7 release remains available unchanged. It added public acquisition links and contains desktop, Android, iOS and dedicated-headless profiles built with Godot 4.7.2. Existing older release assets are unchanged.
 
 Workshop 0.12.0 preserves the current Actor-creation name and journal-title draft when the application reconnects. It restores only local text; pending actions are discarded and require a fresh user action.
+
+`builder-reference-finishes/` is the data-only Godot author project for the five original Bevy architectural models. It uses SDK 0.12.1, preserves the original GLBs and Blender sources, and publishes ordinary typed Wall Style and Surface Finish Content. Both Surface Finishes support independent Floor and Ceiling selection.

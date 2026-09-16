@@ -1,0 +1,47 @@
+[gd_scene format=3]
+
+[ext_resource type="Texture2D" path="res://rookframe/packages/dd07cd6c-d4f5-40e1-b3f2-44d2d59c7f7f/content/oak-planks/texture-1.jpg" id="1_evxcj"]
+[ext_resource type="Texture2D" path="res://rookframe/packages/dd07cd6c-d4f5-40e1-b3f2-44d2d59c7f7f/content/oak-planks/texture-2.png" id="2_qmkii"]
+[ext_resource type="Texture2D" path="res://rookframe/packages/dd07cd6c-d4f5-40e1-b3f2-44d2d59c7f7f/content/oak-planks/texture-0.jpg" id="3_h7v56"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vgqxr"]
+resource_name = "Oak Planks"
+cull_mode = 2
+albedo_texture = ExtResource("1_evxcj")
+metallic_texture = ExtResource("2_qmkii")
+metallic_texture_channel = 2
+roughness_texture = ExtResource("2_qmkii")
+roughness_texture_channel = 1
+normal_enabled = true
+normal_texture = ExtResource("3_h7v56")
+metadata/_gltf_primary_texture_coord = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_5flwa"]
+resource_name = "appearance_SurfaceMesh"
+_surfaces = [{
+"aabb": AABB(-0.8, 0, -0.8, 1.6, 1e-05, 1.6),
+"attribute_data": PackedByteArray(0, 0, 255, 255, 255, 255, 255, 255, 255, 255, 0, 0, 0, 0, 0, 0),
+"format": 34896613399,
+"index_count": 6,
+"index_data": PackedByteArray(0, 0, 2, 0, 1, 0, 0, 0, 3, 0, 2, 0),
+"material": SubResource("StandardMaterial3D_vgqxr"),
+"name": "Oak Planks",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 4,
+"vertex_data": PackedByteArray(0, 0, 0, 0, 255, 255, 255, 191, 255, 255, 0, 0, 255, 255, 255, 191, 255, 255, 0, 0, 0, 0, 255, 191, 0, 0, 0, 0, 0, 0, 255, 191, 255, 255, 255, 127, 255, 255, 255, 127, 255, 255, 255, 127, 255, 255, 255, 127)
+}]
+blend_shape_mode = 0
+
+[node name="appearance" type="Node3D" unique_id=1073540705]
+metadata/content_kind = "surface_finish"
+metadata/authored_unit_span = 1.0
+metadata/source_commit = "1230e73777ee0fa2f4e17ec8c804e0c4061465de"
+metadata/source_sha256 = "a0d535586f4fba89025df9fb94d883022e194df9770b0f9ba954f0ad6e1e9134"
+metadata/supports_floor = true
+metadata/supports_ceiling = true
+
+[node name="SurfaceFinish" type="Node3D" parent="." unique_id=888437348]
+
+[node name="Surface" type="MeshInstance3D" parent="SurfaceFinish" unique_id=1393067315]
+mesh = SubResource("ArrayMesh_5flwa")

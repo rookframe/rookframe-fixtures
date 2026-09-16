@@ -1,0 +1,47 @@
+[gd_scene format=3]
+
+[ext_resource type="Texture2D" path="res://rookframe/packages/dd07cd6c-d4f5-40e1-b3f2-44d2d59c7f7f/content/dark-stone-tiles/texture-1.jpg" id="1_5e6nw"]
+[ext_resource type="Texture2D" path="res://rookframe/packages/dd07cd6c-d4f5-40e1-b3f2-44d2d59c7f7f/content/dark-stone-tiles/texture-2.png" id="2_ifok7"]
+[ext_resource type="Texture2D" path="res://rookframe/packages/dd07cd6c-d4f5-40e1-b3f2-44d2d59c7f7f/content/dark-stone-tiles/texture-0.jpg" id="3_dln3u"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rxvlx"]
+resource_name = "Dark Stone Tiles"
+cull_mode = 2
+albedo_texture = ExtResource("1_5e6nw")
+metallic_texture = ExtResource("2_ifok7")
+metallic_texture_channel = 2
+roughness_texture = ExtResource("2_ifok7")
+roughness_texture_channel = 1
+normal_enabled = true
+normal_texture = ExtResource("3_dln3u")
+metadata/_gltf_primary_texture_coord = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_jwv8e"]
+resource_name = "appearance_SurfaceMesh"
+_surfaces = [{
+"aabb": AABB(-0.8, 0, -0.8, 1.6, 1e-05, 1.6),
+"attribute_data": PackedByteArray(0, 0, 255, 255, 255, 255, 255, 255, 255, 255, 0, 0, 0, 0, 0, 0),
+"format": 34896613399,
+"index_count": 6,
+"index_data": PackedByteArray(0, 0, 2, 0, 1, 0, 0, 0, 3, 0, 2, 0),
+"material": SubResource("StandardMaterial3D_rxvlx"),
+"name": "Dark Stone Tiles",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 4,
+"vertex_data": PackedByteArray(0, 0, 0, 0, 255, 255, 255, 191, 255, 255, 0, 0, 255, 255, 255, 191, 255, 255, 0, 0, 0, 0, 255, 191, 0, 0, 0, 0, 0, 0, 255, 191, 255, 255, 255, 127, 255, 255, 255, 127, 255, 255, 255, 127, 255, 255, 255, 127)
+}]
+blend_shape_mode = 0
+
+[node name="appearance" type="Node3D" unique_id=1458385286]
+metadata/content_kind = "surface_finish"
+metadata/authored_unit_span = 1.0
+metadata/source_commit = "1230e73777ee0fa2f4e17ec8c804e0c4061465de"
+metadata/source_sha256 = "a9d623e4f2b265ed90938c2ea6a65cfa1293153c191b3c15b50b7c0ea1d0b7e5"
+metadata/supports_floor = true
+metadata/supports_ceiling = true
+
+[node name="SurfaceFinish" type="Node3D" parent="." unique_id=681593050]
+
+[node name="Surface" type="MeshInstance3D" parent="SurfaceFinish" unique_id=438967733]
+mesh = SubResource("ArrayMesh_jwv8e")
