@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3]
+
+[ext_resource type="PackedScene" path="res://rookframe/packages/cccccccc-cccc-4ccc-8ccc-cccccccccccc/content/wall-height-bookshelf/appearance.tscn" id="1_model"]
+
+[sub_resource type="BoxShape3D" id="BoxShape_bookshelf"]
+size = Vector3(1.5, 2.8, 0.5)
+
+[node name="WallHeightBookshelf" type="Node3D"]
+
+[node name="Model" parent="." instance=ExtResource("1_model")]
+
+[node name="PropCollision" type="StaticBody3D" parent="."]
+collision_layer = 1
+collision_mask = 0
+
+[node name="Shape" type="CollisionShape3D" parent="PropCollision"]
+position = Vector3(0, 1.4, 0.01)
+shape = SubResource("BoxShape_bookshelf")

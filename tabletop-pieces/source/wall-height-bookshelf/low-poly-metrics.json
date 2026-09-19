@@ -1,0 +1,31 @@
+{
+  "sourceTriangles": 87036,
+  "lowPolyTriangles": 3620,
+  "reductionPercent": 95.84,
+  "meshObjects": 1,
+  "materials": 1,
+  "textureSize": 2048,
+  "textureMaps": [
+    "albedo",
+    "normal",
+    "packed roughness/metallic"
+  ],
+  "books": 61,
+  "dimensionsMeters": [
+    1.5,
+    0.5,
+    2.8
+  ],
+  "exportVerified": {
+    "triangles": 3620,
+    "meshPrimitives": 1,
+    "materials": 1,
+    "images": 3,
+    "nodes": [
+      "WallHeightBookshelf"
+    ],
+    "doubleSided": false,
+    "bytes": 11813044,
+    "sha256": "f2debdad2c821c488a3461ca9eb0307bac5643c4a0a0c178e0811b2d77213f54"
+  }
+}

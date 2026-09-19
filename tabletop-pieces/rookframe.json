@@ -3,7 +3,7 @@
   "id": "cccccccc-cccc-4ccc-8ccc-cccccccccccc",
   "kind": "optional",
   "name": "Tabletop Pieces",
-  "version": "0.9.0",
+  "version": "0.9.1",
   "sdk": {
     "edition": "2027",
     "minimumRevision": 1
@@ -41,6 +41,12 @@
           "displayName": "Crate"
         },
         {
+          "id": "wall-height-bookshelf",
+          "type": "prop",
+          "payload": "content/wall-height-bookshelf.tscn",
+          "displayName": "Wall-height Bookshelf"
+        },
+        {
           "id": "stone",
           "type": "surface_finish",
           "payload": "content/stone.tres",
@@ -55,6 +61,6 @@
       ]
     }
   ],
-  "manifest": "https://github.com/rookframe/rookframe-fixtures/releases/download/v0.9.0/Tabletop-Pieces-0.9.0.json",
-  "download": "https://github.com/rookframe/rookframe-fixtures/releases/download/v0.9.0/Tabletop-Pieces-0.9.0.rookpackage"
+  "manifest": "https://github.com/rookframe/rookframe-fixtures/releases/download/v0.9.1/Tabletop-Pieces-0.9.1.json",
+  "download": "https://github.com/rookframe/rookframe-fixtures/releases/download/v0.9.1/Tabletop-Pieces-0.9.1.rookpackage"
 }
