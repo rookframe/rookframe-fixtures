@@ -13,6 +13,6 @@ size = Vector3(1.5, 2.8, 0.5)
 collision_layer = 1
 collision_mask = 0
 
-[node name="Shape" type="CollisionShape3D" parent="PropCollision"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PropCollision"]
 position = Vector3(0, 1.4, 0.01)
 shape = SubResource("BoxShape_bookshelf")
