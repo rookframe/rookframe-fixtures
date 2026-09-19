@@ -6,7 +6,7 @@ Public author projects and immutable releases for Rookframe application developm
 | --- | --- |
 | Workshop System 0.12.0 | [Manifest](https://github.com/rookframe/rookframe-fixtures/releases/download/v0.12.0/Workshop-System-0.12.0.json) |
 | Builder Reference Finishes 0.1.1 | [Manifest](https://github.com/rookframe/rookframe-fixtures/releases/download/v0.1.1/Builder-Reference-Finishes-0.1.1.json) |
-| Tabletop Pieces 0.9.2 | [Manifest](https://github.com/rookframe/rookframe-fixtures/releases/download/v0.9.2/Tabletop-Pieces-0.9.2.json) |
+| Tabletop Pieces 0.9.3 | [Manifest](https://github.com/rookframe/rookframe-fixtures/releases/download/v0.9.3/Tabletop-Pieces-0.9.3.json) |
 
 Workshop System provides Hero Actors, Actor sheets and a separate Actor browser, journal System Records, Player Actor Access controls, and Rules actions using accepted shared Targeting. Tabletop Pieces provides the Bevy Amber Warden and Goblin Raider Miniatures, plus Crate, Stone and Wood visual content. Select these two releases together for the remote-action QA World.
 
@@ -31,3 +31,5 @@ Workshop 0.12.0 preserves the current Actor-creation name and journal-title draf
 `builder-reference-finishes/` is the data-only Godot author project for the five original Bevy architectural models. It uses SDK 0.12.1, preserves the original GLBs and Blender sources, and publishes ordinary typed Wall Style and Surface Finish Content. Both Surface Finishes support independent Floor and Ceiling selection.
 
 Tabletop Pieces 0.9.2 adds the wall-height bookshelf Prop: 3,620 triangles, one PBR material, 1.5 × 2.8 × 0.5 m, with an ordinary authored collision shape.
+
+Tabletop Pieces 0.9.3 adds Lattice Lamp (multiple mesh materials, alpha blend and cutout, native light) and Sprite Banner (tinted alpha billboard) for representative Interior Reveal inspection. These use existing admitted stock nodes and materials. It also corrects Crate’s authored Prop collision path.

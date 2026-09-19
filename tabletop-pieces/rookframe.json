@@ -3,7 +3,7 @@
   "id": "cccccccc-cccc-4ccc-8ccc-cccccccccccc",
   "kind": "optional",
   "name": "Tabletop Pieces",
-  "version": "0.9.2",
+  "version": "0.9.3",
   "sdk": {
     "edition": "2027",
     "minimumRevision": 1
@@ -57,10 +57,22 @@
           "type": "wall_style",
           "payload": "content/wood.tres",
           "displayName": "Wood"
+        },
+        {
+          "id": "lattice-lamp",
+          "type": "prop",
+          "payload": "content/lattice-lamp.tscn",
+          "displayName": "Lattice Lamp"
+        },
+        {
+          "id": "sprite-banner",
+          "type": "prop",
+          "payload": "content/sprite-banner.tscn",
+          "displayName": "Sprite Banner"
         }
       ]
     }
   ],
-  "manifest": "https://github.com/rookframe/rookframe-fixtures/releases/download/v0.9.2/Tabletop-Pieces-0.9.2.json",
-  "download": "https://github.com/rookframe/rookframe-fixtures/releases/download/v0.9.2/Tabletop-Pieces-0.9.2.rookpackage"
+  "manifest": "https://github.com/rookframe/rookframe-fixtures/releases/download/v0.9.3/Tabletop-Pieces-0.9.3.json",
+  "download": "https://github.com/rookframe/rookframe-fixtures/releases/download/v0.9.3/Tabletop-Pieces-0.9.3.rookpackage"
 }
