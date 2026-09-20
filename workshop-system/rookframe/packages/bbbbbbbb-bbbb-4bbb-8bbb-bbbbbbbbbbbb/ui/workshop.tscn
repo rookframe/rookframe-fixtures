@@ -68,13 +68,13 @@ text = "DICE ACTION"
 [node name="ActionHelp" type="Label" parent="Layout/Body/Fields"]
 layout_mode = 2
 theme_type_variation = &"RookframeBody"
-text = "Physically roll an attack d20 and 2d6 damage, then share the Workshop System interpretation."
+text = "Request an attack d20 and 2d6 damage Throw from this Participant, then share the Workshop System interpretation."
 autowrap_mode = 2
 [node name="ResolveAttack" type="Button" parent="Layout/Body/Fields"]
 layout_mode = 2
 custom_minimum_size = Vector2(0, 44)
 theme_type_variation = &"RookframePrimaryButton"
-text = "Resolve attack"
+text = "Request attack Throw"
 [node name="Status" type="Label" parent="Layout"]
 layout_mode = 2
 theme_type_variation = &"RookframeMeta"

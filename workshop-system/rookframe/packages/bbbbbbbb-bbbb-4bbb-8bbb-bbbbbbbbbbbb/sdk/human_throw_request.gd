@@ -2,9 +2,14 @@
 extends Resource
 
 const DiceTerm = preload("res://rookframe/packages/bbbbbbbb-bbbb-4bbb-8bbb-bbbbbbbbbbbb/sdk/dice_term.gd")
-## Terms retain this order. Their total count may not exceed sixteen dice.
+## Stable Package-owned UUID. Retrying it recovers the same immutable request.
+@export var request_id: String
+## Stable World Participant identity that must perform the physical Throw.
+@export var participant_id: String
 @export var terms: Array[DiceTerm] = []
-func _init(requested_terms: Array[DiceTerm] = []) -> void:
+func _init(identity: String = "", participant: String = "", requested_terms: Array[DiceTerm] = []) -> void:
+	request_id = identity
+	participant_id = participant
 	terms = requested_terms
 func to_records() -> Array:
 	var records: Array = []

@@ -4,7 +4,7 @@ Public author projects and immutable releases for Rookframe application developm
 
 | Package | Public Manifest |
 | --- | --- |
-| Workshop System 0.14.0 | [Manifest](https://github.com/rookframe/rookframe-fixtures/releases/download/v0.14.0/Workshop-System-0.14.0.json) |
+| Workshop System 0.15.0 | [Manifest](https://github.com/rookframe/rookframe-fixtures/releases/download/v0.15.0/Workshop-System-0.15.0.json) |
 | Builder Reference Finishes 0.1.1 | [Manifest](https://github.com/rookframe/rookframe-fixtures/releases/download/v0.1.1/Builder-Reference-Finishes-0.1.1.json) |
 | Tabletop Pieces 0.9.4 | [Manifest](https://github.com/rookframe/rookframe-fixtures/releases/download/v0.9.4/Tabletop-Pieces-0.9.4.json) |
 
@@ -12,7 +12,7 @@ Workshop System provides Hero Actors, Actor sheets and a separate Actor browser,
 
 ## Author projects
 
-`workshop-system/` and `tabletop-pieces/` are ordinary Godot author projects. Each includes the gd-plug bootstrap and license, an exact SDK dependency (Workshop 0.14.0; Tabletop Pieces 0.10.1), a separately pinned public UI Kit, and a committed authoring lock. From either project directory, install the dependencies:
+`workshop-system/` and `tabletop-pieces/` are ordinary Godot author projects. Each includes the gd-plug bootstrap and license, an exact SDK dependency (Workshop 0.15.0; Tabletop Pieces 0.10.1), a separately pinned public UI Kit, and a committed authoring lock. From either project directory, install the dependencies:
 
 ```sh
 Godot --headless --path . --script plug.gd install
@@ -26,7 +26,7 @@ Publish the exact checked Manifest and archive before using a new version in app
 
 The Rookframe Fixture System and Fixture Essentials 1.0.7 release remains available unchanged. It added public acquisition links and contains desktop, Android, iOS and dedicated-headless profiles built with Godot 4.7.2. Existing older release assets are unchanged.
 
-Workshop 0.14.0 demonstrates an immediate System Extension action with named attack and damage dice. Rookframe shares the raw Roll, then Workshop applies its DR 12 rule and explicitly publishes the interpreted HIT or MISS report. It also preserves the current Actor-creation name and journal-title draft when the application reconnects. It restores only local text; pending actions are discarded and require a fresh user action.
+Workshop 0.15.0 requests a human attack Throw through the native Dice Tray with named attack and damage dice. Its durable waiting record survives reconnects, and the Extension recovers the terminal result before applying its DR 12 rule and explicitly publishing the interpreted HIT, MISS, or cancellation report. Actor-creation and journal drafts also survive reconnects without implicit submission.
 
 `builder-reference-finishes/` is the data-only Godot author project for the five original Bevy architectural models. It uses SDK 0.12.1, preserves the original GLBs and Blender sources, and publishes ordinary typed Wall Style and Surface Finish Content. Both Surface Finishes support independent Floor and Ceiling selection.
 

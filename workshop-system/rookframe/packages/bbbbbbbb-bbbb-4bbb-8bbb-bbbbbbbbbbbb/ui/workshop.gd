@@ -31,36 +31,91 @@ func refresh() -> void:
 	get_node("Layout/Body/Fields/Journal/CreateEntry").disabled = busy or not sdk.context().is_gm
 	get_node("Layout/Body/Fields/Journal/SaveEntry").disabled = busy or selected_record == null or not sdk.context().is_gm
 	get_node("Layout/Body/Fields/Journal/DeleteEntry").disabled = busy or selected_record == null or not sdk.context().is_gm
-	get_node("Layout/Body/Fields/ResolveAttack").disabled = busy
+	get_node("Layout/Body/Fields/ResolveAttack").disabled = busy or not sdk.context().is_gm
+	if not busy:
+		resume_attack()
 
 func resolve_attack() -> void:
-	if busy:
+	if busy or not sdk.context().is_gm:
 		return
 	busy = true
 	refresh()
-	var request := SDK.DiceRequest.new([
+	var request_id: String = sdk.dice.new_request_id()
+	var participant_id: String = sdk.context().participant_id
+	var waiting: SDK.SystemRecordResult = await sdk.system_records.create(
+		"requested-throw-action", {
+			"request_id": request_id,
+			"participant_id": participant_id,
+			"reason": "Waiting for the target Participant's attack Throw."
+		})
+	if not waiting.ok:
+		finish(waiting, "")
+		return
+	var request := SDK.HumanThrowRequest.new(request_id, participant_id, [
 		SDK.DiceTerm.new("attack", 20),
 		SDK.DiceTerm.new("damage", 6, 2)
 	])
-	var rolled: SDK.DiceRollResult = await sdk.dice.roll(request)
-	if not rolled.ok:
-		finish(rolled, "")
+	var requested: SDK.HumanThrowResult = await sdk.dice.request_throw(request)
+	if not requested.ok:
+		await sdk.system_records.delete(waiting.system_record.id)
+		finish(requested, "")
 		return
-	var attack: int = rolled.terms[0].results[0]
+	busy = false
+	refresh()
+	status.text = "Waiting for the requested human Throw."
+
+func resume_attack() -> void:
+	var waiting: SDK.SystemRecordListResult = sdk.system_records.list("requested-throw-action")
+	if not waiting.ok or waiting.items.is_empty():
+		return
+	var data: Dictionary = waiting.items[0].data
+	var request := SDK.HumanThrowRequest.new(data.get("request_id", ""),
+		data.get("participant_id", ""), [
+			SDK.DiceTerm.new("attack", 20),
+			SDK.DiceTerm.new("damage", 6, 2)
+		])
+	busy = true
+	get_node("Layout/Body/Fields/ResolveAttack").disabled = true
+	var requested: SDK.HumanThrowResult = await sdk.dice.request_throw(request)
+	if not requested.ok:
+		busy = false
+		status.text = requested.message
+		return
+	if requested.status == "pending":
+		busy = false
+		status.text = "Waiting for the requested human Throw."
+		return
+	if requested.status == "cancelled":
+		var report := SDK.ActionLogMessage.new("Workshop attack cancelled")
+		report.text = [SDK.ActionLogText.new("The requested human Throw was cancelled.")]
+		report.result = "CANCELLED"
+		report.tone = "attention"
+		var published: SDK.ActionLogResult = await sdk.action_log.publish(report)
+		if published.ok:
+			await sdk.system_records.delete(waiting.items[0].id)
+		busy = false
+		get_node("Layout/Body/Fields/ResolveAttack").disabled = false
+		status.text = "The requested human Throw was cancelled and shared." if published.ok else published.message
+		return
+	var attack: int = requested.terms[0].results[0]
 	var damage: int = 0
-	for value in rolled.terms[1].results:
+	for value in requested.terms[1].results:
 		damage += value
 	var hit: bool = attack >= 12
 	var report := SDK.ActionLogMessage.new("Workshop attack")
 	report.text = [SDK.ActionLogText.new("Attack %d " % attack, "strong"),
 		SDK.ActionLogText.new("meets DR 12." if hit else "misses DR 12.")]
-	for term in rolled.terms:
+	for term in requested.terms:
 		for value in term.results:
 			report.dice.append(SDK.ActionLogDie.new(term.faces, value))
 	report.result = ("HIT · %d" % damage) if hit else "MISS"
 	report.tone = "success" if hit else "attention"
 	var published: SDK.ActionLogResult = await sdk.action_log.publish(report)
-	finish(published, "Attack resolved and shared.")
+	if published.ok:
+		await sdk.system_records.delete(waiting.items[0].id)
+	busy = false
+	get_node("Layout/Body/Fields/ResolveAttack").disabled = false
+	status.text = "Attack resolved and shared." if published.ok else published.message
 
 func create_entry() -> void:
 	if busy or journal_title.value.strip_edges().is_empty():
