@@ -3,10 +3,10 @@
   "id": "bbbbbbbb-bbbb-4bbb-8bbb-bbbbbbbbbbbb",
   "kind": "system-extension",
   "name": "Workshop System",
-  "version": "0.12.0",
+  "version": "0.14.0",
   "sdk": {
     "edition": "2029",
-    "minimumRevision": 4
+    "minimumRevision": 6
   },
   "rookframeCompatibility": {
     "minimum": "0.1.0",
@@ -42,6 +42,6 @@
       "compatibleVersions": ">=0.4.0 <1.0.0"
     }
   ],
-  "manifest": "https://github.com/rookframe/rookframe-fixtures/releases/download/v0.12.0/Workshop-System-0.12.0.json",
-  "download": "https://github.com/rookframe/rookframe-fixtures/releases/download/v0.12.0/Workshop-System-0.12.0.rookpackage"
+  "manifest": "https://github.com/rookframe/rookframe-fixtures/releases/download/v0.14.0/Workshop-System-0.14.0.json",
+  "download": "https://github.com/rookframe/rookframe-fixtures/releases/download/v0.14.0/Workshop-System-0.14.0.rookpackage"
 }

@@ -61,6 +61,20 @@ layout_mode = 2
 custom_minimum_size = Vector2(0, 44)
 theme_type_variation = &"RookframeDangerButton"
 text = "Delete entry"
+[node name="ActionHeading" type="Label" parent="Layout/Body/Fields"]
+layout_mode = 2
+theme_type_variation = &"RookframeSubtitle"
+text = "DICE ACTION"
+[node name="ActionHelp" type="Label" parent="Layout/Body/Fields"]
+layout_mode = 2
+theme_type_variation = &"RookframeBody"
+text = "Physically roll an attack d20 and 2d6 damage, then share the Workshop System interpretation."
+autowrap_mode = 2
+[node name="ResolveAttack" type="Button" parent="Layout/Body/Fields"]
+layout_mode = 2
+custom_minimum_size = Vector2(0, 44)
+theme_type_variation = &"RookframePrimaryButton"
+text = "Resolve attack"
 [node name="Status" type="Label" parent="Layout"]
 layout_mode = 2
 theme_type_variation = &"RookframeMeta"
@@ -69,3 +83,4 @@ autowrap_mode = 2
 [connection signal="pressed" from="Layout/Body/Fields/Journal/CreateEntry" to="." method="create_entry"]
 [connection signal="pressed" from="Layout/Body/Fields/Journal/SaveEntry" to="." method="save_entry"]
 [connection signal="pressed" from="Layout/Body/Fields/Journal/DeleteEntry" to="." method="delete_entry"]
+[connection signal="pressed" from="Layout/Body/Fields/ResolveAttack" to="." method="resolve_attack"]
