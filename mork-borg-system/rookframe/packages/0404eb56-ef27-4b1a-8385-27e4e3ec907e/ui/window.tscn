@@ -44,7 +44,7 @@ autowrap_mode = 2
 [node name="Subtitle" type="Label" parent="Layout/Header"]
 layout_mode = 2
 theme_type_variation = &"RookframeMeta"
-text = "Twelve immutable definitions · durable private Actors"
+text = "Immutable definitions · private Actors"
 autowrap_mode = 2
 
 [node name="Routes" type="VBoxContainer" parent="Layout/Header"]
@@ -146,7 +146,7 @@ placeholder = "Search creatures…"
 [node name="DefinitionHeading" type="Label" parent="Layout/Body/Content"]
 layout_mode = 2
 theme_type_variation = &"RookframeSubtitle"
-text = "CATALOGUE · IMMUTABLE DEFINITIONS"
+text = "CATALOGUE"
 
 [node name="DefinitionList" type="VBoxContainer" parent="Layout/Body/Content"]
 layout_mode = 2
@@ -156,7 +156,7 @@ theme_override_constants/separation = 6
 [node name="LiveHeading" type="Label" parent="Layout/Body/Content"]
 layout_mode = 2
 theme_type_variation = &"RookframeSubtitle"
-text = "LIVE PRIVATE CREATURES"
+text = "LIVE CREATURES"
 
 [node name="LiveList" type="VBoxContainer" parent="Layout/Body/Content"]
 layout_mode = 2
@@ -209,7 +209,7 @@ text = "PRIVATE ENCOUNTER SHEET · GM"
 [node name="PrivateNotice" type="Label" parent="Layout/Body/Content/Detail/PrivateFields"]
 layout_mode = 2
 theme_type_variation = &"RookframeBody"
-text = "Players receive only the separate public Rook label. Private statistics and Actor links remain access-controlled."
+text = "Players see only the public label."
 autowrap_mode = 2
 
 [node name="EditFields" type="VBoxContainer" parent="Layout/Body/Content/Detail"]
@@ -263,7 +263,7 @@ title = "ITEMS"
 [node name="InventoryNotice" type="Label" parent="Layout/Body/Content/Detail/Inventory"]
 layout_mode = 2
 theme_type_variation = &"RookframeMeta"
-text = "Equipped weapons are the source of later Attack actions."
+text = "Items remain private to the GM."
 autowrap_mode = 2
 
 [node name="ActionBar" type="VBoxContainer" parent="Layout/Body/Content"]

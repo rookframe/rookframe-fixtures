@@ -4,6 +4,7 @@ const CREATURE_KIND := "actor_definition"
 const StructuredRow = preload("res://rookframe/ui/components/data/structured_row.gd")
 
 var _route := "creatures"
+var _compact := false
 var _definitions: Array[SDK.ContentEntry] = []
 var _actors: Array[SDK.Actor] = []
 var _selected_definition: SDK.ContentEntry
@@ -58,19 +59,19 @@ func ready() -> void:
 	if sdk == null:
 		_set_status("Install the published MÖRK BORG System to load Creature definitions.", true)
 		return
-	var compact := not sdk.presentation_experience().is_desktop
-	_routes_desktop.visible = not compact
-	_routes_compact.visible = compact
-	_action_desktop.visible = not compact
-	_action_compact.visible = compact
-	var route_first_row: Node = _routes.get_node(^"Compact/RowOne") if compact else _routes.get_node(^"Desktop")
-	var route_second_row: Node = _routes.get_node(^"Compact/RowTwo") if compact else route_first_row
+	_compact = not sdk.presentation_experience().is_desktop
+	_routes_desktop.visible = not _compact
+	_routes_compact.visible = _compact
+	_action_desktop.visible = not _compact
+	_action_compact.visible = _compact
+	var route_first_row: Node = _routes.get_node(^"Compact/RowOne") if _compact else _routes.get_node(^"Desktop")
+	var route_second_row: Node = _routes.get_node(^"Compact/RowTwo") if _compact else route_first_row
 	_route_creatures = route_first_row.get_node(^"Creatures") as Button
 	_route_creature = route_first_row.get_node(^"Creature") as Button
 	_route_edit = route_second_row.get_node(^"EditCreature") as Button
 	_route_inventory = route_second_row.get_node(^"CreatureInventory") as Button
-	var action_group: Node = _action_bar.get_node(^"Compact") if compact else _action_bar.get_node(^"Desktop")
-	if compact:
+	var action_group: Node = _action_bar.get_node(^"Compact") if _compact else _action_bar.get_node(^"Desktop")
+	if _compact:
 		_create_button = action_group.get_node(^"RowOne/CreateCreature") as Button
 		_edit_button = action_group.get_node(^"RowOne/EditCreature") as Button
 		_inventory_button = action_group.get_node(^"RowTwo/CreatureInventory") as Button
@@ -79,6 +80,7 @@ func ready() -> void:
 		_save_button = action_group.get_node(^"RowThree/SaveChanges") as Button
 		_add_item_button = action_group.get_node(^"RowFour/AddItem") as Button
 		_back_button = action_group.get_node(^"RowFour/Back") as Button
+		_edit_button.text = "Edit"
 	else:
 		_create_button = action_group.get_node(^"CreateCreature") as Button
 		_edit_button = action_group.get_node(^"EditCreature") as Button
@@ -202,7 +204,7 @@ func _render_actor() -> void:
 	_header_title.text = "Private Creature"
 	_header_subtitle.text = "Private Creature sheet · GM"
 	_detail_title.text = "Private Creature"
-	_detail_summary.text = "Private statistics and inventory remain visible to the GM."
+	_detail_summary.text = "Private sheet · GM"
 	if _selected_actor.public_label.is_empty():
 		_public_identity.text = "Public label: Unassigned"
 	else:
@@ -235,7 +237,7 @@ func _show_route(route: String) -> void:
 	var inventory := route == "creature-inventory"
 	if catalogue:
 		_header_title.text = "Creature catalogue"
-		_header_subtitle.text = "Twelve immutable definitions · durable private Actors"
+		_header_subtitle.text = "Immutable definitions · private Actors" if _compact else "Twelve immutable definitions · durable private Actors"
 		_set_status("Ready — immutable definitions are available to the GM.")
 	_search.set("visible", catalogue)
 	_definition_heading.visible = catalogue
