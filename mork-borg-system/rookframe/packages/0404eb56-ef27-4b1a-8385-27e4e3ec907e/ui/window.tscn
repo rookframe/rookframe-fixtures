@@ -278,10 +278,4 @@ theme_type_variation = &"RookframeMeta"
 text = ""
 autowrap_mode = 2
 
-[connection signal="pressed" from="Layout/Header/Routes/Creatures" to="." method="_on_creatures_route"]
-[connection signal="pressed" from="Layout/Header/Routes/Creature" to="." method="_on_creature_route"]
-[connection signal="pressed" from="Layout/Header/Routes/EditCreature" to="." method="_on_edit_route"]
-[connection signal="pressed" from="Layout/Header/Routes/CreatureInventory" to="." method="_on_inventory_route"]
-[connection signal="pressed" from="Layout/Body/Content/ActionBar/EditCreature" to="." method="_on_edit_route"]
-[connection signal="pressed" from="Layout/Body/Content/ActionBar/CreatureInventory" to="." method="_on_inventory_route"]
 [connection signal="pressed" from="Layout/Body/Content/ActionBar/Back" to="." method="_on_back"]
