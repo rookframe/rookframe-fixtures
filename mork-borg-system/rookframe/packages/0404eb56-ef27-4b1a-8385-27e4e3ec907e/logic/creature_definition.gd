@@ -18,7 +18,8 @@ const CORE_DEFINITIONS: Dictionary = {
 }
 
 
-func create_data(choices: Dictionary) -> Variant:
+func create_data(raw_choices: Variant) -> Variant:
+	var choices: Dictionary = raw_choices
 	var definition: Dictionary = CORE_DEFINITIONS.get(resource_name, {}).duplicate(true)
 	var data: Dictionary = {
 		"schema": "mork-borg-adversary/v1",
