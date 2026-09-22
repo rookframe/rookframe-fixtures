@@ -1,0 +1,17 @@
+[gd_resource type="Resource" load_steps=6 format=3]
+
+[ext_resource type="Script" path="res://rookframe/packages/0404eb56-ef27-4b1a-8385-27e4e3ec907e/sdk/window_button.gd" id="entry"]
+[ext_resource type="Script" path="res://rookframe/packages/0404eb56-ef27-4b1a-8385-27e4e3ec907e/sdk/extension_surface.gd" id="surface"]
+[ext_resource type="PackedScene" path="res://rookframe/packages/0404eb56-ef27-4b1a-8385-27e4e3ec907e/ui/window_button.tscn" id="button"]
+[ext_resource type="PackedScene" path="res://rookframe/packages/0404eb56-ef27-4b1a-8385-27e4e3ec907e/ui/window.tscn" id="window"]
+
+[sub_resource type="Resource" id="ExtensionWindowDesktop"]
+script = ExtResource("surface")
+scene = ExtResource("window")
+initial_placement = "floating"
+initial_floating_rect = Rect2(480, 68, 960, 944)
+
+[resource]
+script = ExtResource("entry")
+button_scene = ExtResource("button")
+window = SubResource("ExtensionWindowDesktop")
