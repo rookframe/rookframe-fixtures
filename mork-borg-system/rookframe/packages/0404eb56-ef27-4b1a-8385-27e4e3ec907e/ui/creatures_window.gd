@@ -485,8 +485,10 @@ func _place_rook() -> void:
 	var identity: SDK.OperationResult = await sdk.public_identities.assign(_selected_actor.id, label)
 	if identity.ok:
 		_selected_actor.public_label = label
-	_set_busy(false, identity.message if not identity.ok else "Rook placed with public identity.", not identity.ok)
-	_refresh_world()
+		_refresh_world()
+		_set_busy(false, "Rook placed with public identity.")
+	else:
+		_set_busy(false, identity.message, true)
 
 
 func _add_item() -> void:
