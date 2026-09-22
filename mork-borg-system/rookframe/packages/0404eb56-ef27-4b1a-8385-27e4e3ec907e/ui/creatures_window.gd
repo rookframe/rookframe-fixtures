@@ -454,6 +454,8 @@ func _save_creature() -> void:
 		if not identity.ok:
 			updated.ok = false
 			updated.message = identity.message
+		else:
+			updated.actor.public_label = label
 	_set_busy(false, updated.message if not updated.ok else "Creature changes saved.", not updated.ok)
 	if updated.ok:
 		_selected_actor = updated.actor
@@ -481,6 +483,8 @@ func _place_rook() -> void:
 	if label.is_empty():
 		label = str(_private_name.get("value")).strip_edges()
 	var identity: SDK.OperationResult = await sdk.public_identities.assign(_selected_actor.id, label)
+	if identity.ok:
+		_selected_actor.public_label = label
 	_set_busy(false, identity.message if not identity.ok else "Rook placed with public identity.", not identity.ok)
 	_refresh_world()
 
