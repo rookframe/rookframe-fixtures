@@ -1,0 +1,8 @@
+config_version=5
+[application]
+config/name="M\u00d6RK BORG System"
+run/main_scene="res://rookframe/packages/0404eb56-ef27-4b1a-8385-27e4e3ec907e/ui/window.tscn"
+[editor_plugins]
+enabled=PackedStringArray("res://addons/rookframe_sdk/plugin.cfg")
+[rendering]
+renderer/rendering_method="gl_compatibility"

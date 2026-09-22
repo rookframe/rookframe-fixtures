@@ -7,12 +7,13 @@ Public author projects and immutable releases for Rookframe application developm
 | Workshop System 0.16.0 | [Manifest](https://github.com/rookframe/rookframe-fixtures/releases/download/v0.16.0/Workshop-System-0.16.0.json) |
 | Builder Reference Finishes 0.1.1 | [Manifest](https://github.com/rookframe/rookframe-fixtures/releases/download/v0.1.1/Builder-Reference-Finishes-0.1.1.json) |
 | Tabletop Pieces 0.9.4 | [Manifest](https://github.com/rookframe/rookframe-fixtures/releases/download/v0.9.4/Tabletop-Pieces-0.9.4.json) |
+| MÖRK BORG System 1.0.0 | [Manifest](https://github.com/rookframe/rookframe-fixtures/releases/download/v1.0.0/0404eb56-ef27-4b1a-8385-27e4e3ec907e-1.0.0.json) |
 
-Workshop System provides Hero Actors, Actor sheets and a separate Actor browser, journal System Records, Player Actor Access controls, and Rules actions using accepted shared Targeting. Tabletop Pieces provides the Bevy Amber Warden and Goblin Raider Miniatures, plus Crate, Stone and Wood visual content. Select these two releases together for the remote-action QA World.
+Workshop System provides Hero Actors, Actor sheets and a separate Actor browser, journal System Records, Player Actor Access controls, and Rules actions using accepted shared Targeting. Tabletop Pieces provides the Bevy Amber Warden and Goblin Raider Miniatures, plus Crate, Stone and Wood visual content. MÖRK BORG System provides twelve immutable Creature definitions, private durable encounter sheets, and separate public Rook labels. Select the compatible releases together for the remote-action QA World.
 
 ## Author projects
 
-`workshop-system/` and `tabletop-pieces/` are ordinary Godot author projects. Each includes the gd-plug bootstrap and license, an exact SDK dependency (Workshop 0.16.0; Tabletop Pieces 0.10.1), a separately pinned public UI Kit, and a committed authoring lock. From either project directory, install the dependencies:
+`workshop-system/`, `tabletop-pieces/`, and `mork-borg-system/` are ordinary Godot author projects. Each includes the gd-plug bootstrap and license, an exact SDK dependency (Workshop 0.16.0; Tabletop Pieces 0.10.1; MÖRK BORG System 0.16.0), a separately pinned public UI Kit, and a committed authoring lock. From either project directory, install the dependencies:
 
 ```sh
 Godot --headless --path . --script plug.gd install

@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3]
+
+[ext_resource type="Theme" path="res://rookframe/ui/theme/rookframe_theme.tres" id="theme"]
+[ext_resource type="Texture2D" path="res://rookframe/ui/icons/document.svg" id="icon"]
+
+[node name="PackageRailEntry" type="Button"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+theme = ExtResource("theme")
+theme_type_variation = &"RookframeShellControl"
+theme_override_constants/icon_max_width = 21
+icon = ExtResource("icon")
+expand_icon = false
+tooltip_text = "M\u00d6RK BORG System"
+accessibility_name = "Open M\u00d6RK BORG System"

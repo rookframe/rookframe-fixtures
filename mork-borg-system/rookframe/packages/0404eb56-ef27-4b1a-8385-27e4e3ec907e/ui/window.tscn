@@ -1,0 +1,287 @@
+[gd_scene load_steps=6 format=3]
+
+[ext_resource type="Theme" path="res://rookframe/ui/theme/rookframe_theme.tres" id="1_theme"]
+[ext_resource type="Script" path="res://rookframe/packages/0404eb56-ef27-4b1a-8385-27e4e3ec907e/ui/creatures_window.gd" id="2_script"]
+[ext_resource type="PackedScene" path="res://rookframe/ui/components/forms/search_field.tscn" id="3_search_field"]
+[ext_resource type="PackedScene" path="res://rookframe/ui/components/forms/text_field.tscn" id="4_text_field"]
+[ext_resource type="PackedScene" path="res://rookframe/ui/components/data/structured_row.tscn" id="5_structured_row"]
+
+[node name="CreatureSurface" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_theme")
+script = ExtResource("2_script")
+
+[node name="Layout" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 20.0
+offset_top = 16.0
+offset_right = -20.0
+offset_bottom = -16.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 12
+
+[node name="Header" type="VBoxContainer" parent="Layout"]
+layout_mode = 2
+theme_override_constants/separation = 4
+
+[node name="Brand" type="Label" parent="Layout/Header"]
+layout_mode = 2
+theme_type_variation = &"RookframeMeta"
+text = "MÖRK BORG"
+
+[node name="Title" type="Label" parent="Layout/Header"]
+layout_mode = 2
+theme_type_variation = &"RookframeHeading"
+text = "Creature catalogue"
+autowrap_mode = 2
+
+[node name="Subtitle" type="Label" parent="Layout/Header"]
+layout_mode = 2
+theme_type_variation = &"RookframeMeta"
+text = "Twelve immutable definitions · durable private Actors"
+autowrap_mode = 2
+
+[node name="Routes" type="HBoxContainer" parent="Layout/Header"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="Creatures" type="Button" parent="Layout/Header/Routes"]
+custom_minimum_size = Vector2(0, 44)
+layout_mode = 2
+theme_type_variation = &"RookframeSecondaryButton"
+text = "Creatures"
+
+[node name="Creature" type="Button" parent="Layout/Header/Routes"]
+custom_minimum_size = Vector2(0, 44)
+layout_mode = 2
+theme_type_variation = &"RookframeSecondaryButton"
+text = "Creature"
+
+[node name="EditCreature" type="Button" parent="Layout/Header/Routes"]
+custom_minimum_size = Vector2(0, 44)
+layout_mode = 2
+theme_type_variation = &"RookframeSecondaryButton"
+text = "Edit"
+
+[node name="CreatureInventory" type="Button" parent="Layout/Header/Routes"]
+custom_minimum_size = Vector2(0, 44)
+layout_mode = 2
+theme_type_variation = &"RookframeSecondaryButton"
+text = "Inventory"
+
+[node name="Body" type="ScrollContainer" parent="Layout"]
+layout_mode = 2
+size_flags_vertical = 3
+horizontal_scroll_mode = 0
+vertical_scroll_mode = 1
+
+[node name="Content" type="VBoxContainer" parent="Layout/Body"]
+custom_minimum_size = Vector2(0, 520)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 12
+
+[node name="Search" parent="Layout/Body/Content" instance=ExtResource("3_search_field")]
+layout_mode = 2
+label_text = "SEARCH CREATURES"
+show_label = false
+placeholder = "Search creatures…"
+
+[node name="DefinitionHeading" type="Label" parent="Layout/Body/Content"]
+layout_mode = 2
+theme_type_variation = &"RookframeSubtitle"
+text = "CATALOGUE · IMMUTABLE DEFINITIONS"
+
+[node name="DefinitionList" type="VBoxContainer" parent="Layout/Body/Content"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 6
+
+[node name="LiveHeading" type="Label" parent="Layout/Body/Content"]
+layout_mode = 2
+theme_type_variation = &"RookframeSubtitle"
+text = "LIVE PRIVATE CREATURES"
+
+[node name="LiveList" type="VBoxContainer" parent="Layout/Body/Content"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 6
+
+[node name="PublicHeading" type="Label" parent="Layout/Body/Content"]
+layout_mode = 2
+theme_type_variation = &"RookframeSubtitle"
+text = "PUBLIC NAMES"
+
+[node name="PublicList" type="VBoxContainer" parent="Layout/Body/Content"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 6
+
+[node name="Detail" type="VBoxContainer" parent="Layout/Body/Content"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 10
+visible = false
+
+[node name="Title" type="Label" parent="Layout/Body/Content/Detail"]
+layout_mode = 2
+theme_type_variation = &"RookframeHeading"
+text = "Creature"
+autowrap_mode = 2
+
+[node name="Summary" type="Label" parent="Layout/Body/Content/Detail"]
+layout_mode = 2
+theme_type_variation = &"RookframeBody"
+text = "Select a definition or live Creature."
+autowrap_mode = 2
+
+[node name="PublicIdentity" type="Label" parent="Layout/Body/Content/Detail"]
+layout_mode = 2
+theme_type_variation = &"RookframeMeta"
+text = "Public label: Unassigned"
+autowrap_mode = 2
+
+[node name="PrivateFields" type="VBoxContainer" parent="Layout/Body/Content/Detail"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="PrivateHeading" type="Label" parent="Layout/Body/Content/Detail/PrivateFields"]
+layout_mode = 2
+theme_type_variation = &"RookframeSubtitle"
+text = "PRIVATE ENCOUNTER SHEET · GM"
+
+[node name="PrivateNotice" type="Label" parent="Layout/Body/Content/Detail/PrivateFields"]
+layout_mode = 2
+theme_type_variation = &"RookframeBody"
+text = "Players receive only the separate public Rook label. Private statistics and Actor links remain access-controlled."
+autowrap_mode = 2
+
+[node name="EditFields" type="VBoxContainer" parent="Layout/Body/Content/Detail"]
+layout_mode = 2
+theme_override_constants/separation = 8
+visible = false
+
+[node name="PrivateName" parent="Layout/Body/Content/Detail/EditFields" instance=ExtResource("4_text_field")]
+layout_mode = 2
+label_text = "PRIVATE NAME"
+placeholder = "Private name"
+
+[node name="PublicLabel" parent="Layout/Body/Content/Detail/EditFields" instance=ExtResource("4_text_field")]
+layout_mode = 2
+label_text = "PUBLIC LABEL"
+placeholder = "Public label shown to Players"
+
+[node name="HitPoints" parent="Layout/Body/Content/Detail/EditFields" instance=ExtResource("4_text_field")]
+layout_mode = 2
+label_text = "HIT POINTS"
+placeholder = "Private hit points"
+
+[node name="MaximumHitPoints" parent="Layout/Body/Content/Detail/EditFields" instance=ExtResource("4_text_field")]
+layout_mode = 2
+label_text = "MAXIMUM HIT POINTS"
+placeholder = "Private maximum hit points"
+
+[node name="Morale" parent="Layout/Body/Content/Detail/EditFields" instance=ExtResource("4_text_field")]
+layout_mode = 2
+label_text = "MORALE"
+placeholder = "Private morale"
+
+[node name="Inventory" type="VBoxContainer" parent="Layout/Body/Content/Detail"]
+layout_mode = 2
+theme_override_constants/separation = 8
+visible = false
+
+[node name="InventoryHeading" type="Label" parent="Layout/Body/Content/Detail/Inventory"]
+layout_mode = 2
+theme_type_variation = &"RookframeSubtitle"
+text = "INVENTORY"
+
+[node name="Items" type="VBoxContainer" parent="Layout/Body/Content/Detail/Inventory"]
+layout_mode = 2
+theme_override_constants/separation = 6
+
+[node name="InventorySummary" parent="Layout/Body/Content/Detail/Inventory/Items" instance=ExtResource("5_structured_row")]
+layout_mode = 2
+title = "ITEMS"
+
+[node name="InventoryNotice" type="Label" parent="Layout/Body/Content/Detail/Inventory"]
+layout_mode = 2
+theme_type_variation = &"RookframeMeta"
+text = "Equipped weapons are the source of later Attack actions."
+autowrap_mode = 2
+
+[node name="ActionBar" type="HBoxContainer" parent="Layout/Body/Content"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="CreateCreature" type="Button" parent="Layout/Body/Content/ActionBar"]
+custom_minimum_size = Vector2(0, 44)
+layout_mode = 2
+theme_type_variation = &"RookframePrimaryButton"
+text = "Create Creature"
+disabled = true
+
+[node name="EditCreature" type="Button" parent="Layout/Body/Content/ActionBar"]
+custom_minimum_size = Vector2(0, 44)
+layout_mode = 2
+theme_type_variation = &"RookframeSecondaryButton"
+text = "Edit private sheet"
+
+[node name="CreatureInventory" type="Button" parent="Layout/Body/Content/ActionBar"]
+custom_minimum_size = Vector2(0, 44)
+layout_mode = 2
+theme_type_variation = &"RookframeSecondaryButton"
+text = "Inventory"
+
+[node name="Duplicate" type="Button" parent="Layout/Body/Content/ActionBar"]
+custom_minimum_size = Vector2(0, 44)
+layout_mode = 2
+theme_type_variation = &"RookframeSecondaryButton"
+text = "Duplicate"
+
+[node name="PlaceRook" type="Button" parent="Layout/Body/Content/ActionBar"]
+custom_minimum_size = Vector2(0, 44)
+layout_mode = 2
+theme_type_variation = &"RookframePrimaryButton"
+text = "Place Rook"
+
+[node name="SaveChanges" type="Button" parent="Layout/Body/Content/ActionBar"]
+custom_minimum_size = Vector2(0, 44)
+layout_mode = 2
+theme_type_variation = &"RookframePrimaryButton"
+text = "Save changes"
+
+[node name="AddItem" type="Button" parent="Layout/Body/Content/ActionBar"]
+custom_minimum_size = Vector2(0, 44)
+layout_mode = 2
+theme_type_variation = &"RookframePrimaryButton"
+text = "Add item"
+
+[node name="Back" type="Button" parent="Layout/Body/Content/ActionBar"]
+custom_minimum_size = Vector2(0, 44)
+layout_mode = 2
+theme_type_variation = &"RookframeSecondaryButton"
+text = "Back"
+
+[node name="Status" type="Label" parent="Layout"]
+layout_mode = 2
+theme_type_variation = &"RookframeMeta"
+text = ""
+autowrap_mode = 2
+
+[connection signal="pressed" from="Layout/Header/Routes/Creatures" to="." method="_on_creatures_route"]
+[connection signal="pressed" from="Layout/Header/Routes/Creature" to="." method="_on_creature_route"]
+[connection signal="pressed" from="Layout/Header/Routes/EditCreature" to="." method="_on_edit_route"]
+[connection signal="pressed" from="Layout/Header/Routes/CreatureInventory" to="." method="_on_inventory_route"]
+[connection signal="pressed" from="Layout/Body/Content/ActionBar/EditCreature" to="." method="_on_edit_route"]
+[connection signal="pressed" from="Layout/Body/Content/ActionBar/CreatureInventory" to="." method="_on_inventory_route"]
+[connection signal="pressed" from="Layout/Body/Content/ActionBar/Back" to="." method="_on_back"]
