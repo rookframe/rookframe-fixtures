@@ -37,7 +37,7 @@ var _busy := false
 @onready var _inventory := get_node(^"Layout/Body/Content/Detail/Inventory") as VBoxContainer
 @onready var _inventory_items := get_node(^"Layout/Body/Content/Detail/Inventory/Items") as VBoxContainer
 @onready var _inventory_summary: StructuredRow = get_node(^"Layout/Body/Content/Detail/Inventory/Items/InventorySummary")
-@onready var _action_bar := get_node(^"Layout/Body/Content/ActionBar") as HBoxContainer
+@onready var _action_bar = get_node(^"Layout/Body/Content/ActionBar")
 @onready var _create_button := get_node(^"Layout/Body/Content/ActionBar/CreateCreature") as Button
 @onready var _edit_button := get_node(^"Layout/Body/Content/ActionBar/EditCreature") as Button
 @onready var _inventory_button := get_node(^"Layout/Body/Content/ActionBar/CreatureInventory") as Button
@@ -197,6 +197,10 @@ func _show_route(route: String) -> void:
 	var sheet := route == "creature"
 	var edit := route == "edit-creature"
 	var inventory := route == "creature-inventory"
+	if catalogue:
+		_header_title.text = "Creature catalogue"
+		_header_subtitle.text = "Twelve immutable definitions · durable private Actors"
+		_set_status("Ready — immutable definitions are available to the GM.")
 	_search.set("visible", catalogue)
 	_definition_heading.visible = catalogue
 	_definition_list.visible = catalogue

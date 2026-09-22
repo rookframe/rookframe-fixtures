@@ -52,9 +52,11 @@ theme_type_variation = &"RookframeMeta"
 text = "Twelve immutable definitions · durable private Actors"
 autowrap_mode = 2
 
-[node name="Routes" type="HBoxContainer" parent="Layout/Header"]
+[node name="Routes" type="HFlowContainer" parent="Layout/Header"]
 layout_mode = 2
-theme_override_constants/separation = 8
+size_flags_horizontal = 3
+theme_override_constants/h_separation = 8
+theme_override_constants/v_separation = 6
 
 [node name="Creatures" type="Button" parent="Layout/Header/Routes"]
 custom_minimum_size = Vector2(0, 44)
@@ -221,9 +223,11 @@ theme_type_variation = &"RookframeMeta"
 text = "Equipped weapons are the source of later Attack actions."
 autowrap_mode = 2
 
-[node name="ActionBar" type="HBoxContainer" parent="Layout/Body/Content"]
+[node name="ActionBar" type="HFlowContainer" parent="Layout/Body/Content"]
 layout_mode = 2
-theme_override_constants/separation = 8
+size_flags_horizontal = 3
+theme_override_constants/h_separation = 8
+theme_override_constants/v_separation = 6
 
 [node name="CreateCreature" type="Button" parent="Layout/Body/Content/ActionBar"]
 custom_minimum_size = Vector2(0, 44)
