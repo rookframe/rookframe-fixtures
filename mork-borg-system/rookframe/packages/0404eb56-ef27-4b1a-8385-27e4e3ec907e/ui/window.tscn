@@ -18,17 +18,17 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 20.0
-offset_top = 16.0
-offset_right = -20.0
-offset_bottom = -16.0
+offset_left = 16.0
+offset_top = 12.0
+offset_right = -16.0
+offset_bottom = -12.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/separation = 12
+theme_override_constants/separation = 8
 
 [node name="Header" type="VBoxContainer" parent="Layout"]
 layout_mode = 2
-theme_override_constants/separation = 4
+theme_override_constants/separation = 3
 
 [node name="Brand" type="Label" parent="Layout/Header"]
 layout_mode = 2
@@ -38,7 +38,7 @@ text = "MÖRK BORG"
 [node name="Title" type="Label" parent="Layout/Header"]
 layout_mode = 2
 theme_type_variation = &"RookframeHeading"
-text = "Creature catalogue"
+text = "CREATURES"
 autowrap_mode = 2
 
 [node name="Subtitle" type="Label" parent="Layout/Header"]
@@ -47,10 +47,10 @@ theme_type_variation = &"RookframeMeta"
 text = "Immutable definitions · private Actors"
 autowrap_mode = 2
 
-[node name="Routes" type="VBoxContainer" parent="Layout/Header"]
+[node name="Routes" type="HBoxContainer" parent="Layout/Header"]
 layout_mode = 2
 size_flags_horizontal = 3
-theme_override_constants/separation = 6
+theme_override_constants/separation = 8
 
 [node name="Desktop" type="HBoxContainer" parent="Layout/Header/Routes"]
 layout_mode = 2
@@ -60,60 +60,59 @@ theme_override_constants/separation = 8
 [node name="Creatures" type="Button" parent="Layout/Header/Routes/Desktop"]
 custom_minimum_size = Vector2(0, 44)
 layout_mode = 2
+size_flags_horizontal = 3
 theme_type_variation = &"RookframeSecondaryButton"
-text = "List"
+text = "Creatures"
 
 [node name="Creature" type="Button" parent="Layout/Header/Routes/Desktop"]
 custom_minimum_size = Vector2(0, 44)
 layout_mode = 2
+size_flags_horizontal = 3
 theme_type_variation = &"RookframeSecondaryButton"
 text = "Creature"
 
 [node name="EditCreature" type="Button" parent="Layout/Header/Routes/Desktop"]
 custom_minimum_size = Vector2(0, 44)
 layout_mode = 2
+size_flags_horizontal = 3
 theme_type_variation = &"RookframeSecondaryButton"
 text = "Edit"
 
 [node name="CreatureInventory" type="Button" parent="Layout/Header/Routes/Desktop"]
 custom_minimum_size = Vector2(0, 44)
 layout_mode = 2
+size_flags_horizontal = 3
 theme_type_variation = &"RookframeSecondaryButton"
 text = "Inventory"
 
-[node name="Compact" type="VBoxContainer" parent="Layout/Header/Routes"]
+[node name="Compact" type="HBoxContainer" parent="Layout/Header/Routes"]
 visible = false
-layout_mode = 2
-size_flags_horizontal = 3
-theme_override_constants/separation = 6
-
-[node name="RowOne" type="HBoxContainer" parent="Layout/Header/Routes/Compact"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_constants/separation = 8
 
-[node name="Creatures" type="Button" parent="Layout/Header/Routes/Compact/RowOne"]
+[node name="Creatures" type="Button" parent="Layout/Header/Routes/Compact"]
 custom_minimum_size = Vector2(0, 44)
 layout_mode = 2
 size_flags_horizontal = 3
 theme_type_variation = &"RookframeSecondaryButton"
-text = "Creatures"
+text = "List"
 
-[node name="Creature" type="Button" parent="Layout/Header/Routes/Compact/RowOne"]
+[node name="Creature" type="Button" parent="Layout/Header/Routes/Compact"]
 custom_minimum_size = Vector2(0, 44)
 layout_mode = 2
 size_flags_horizontal = 3
 theme_type_variation = &"RookframeSecondaryButton"
-text = "Sheet"
+text = "Creature"
 
-[node name="EditCreature" type="Button" parent="Layout/Header/Routes/Compact/RowOne"]
+[node name="EditCreature" type="Button" parent="Layout/Header/Routes/Compact"]
 custom_minimum_size = Vector2(0, 44)
 layout_mode = 2
 size_flags_horizontal = 3
 theme_type_variation = &"RookframeSecondaryButton"
 text = "Edit"
 
-[node name="CreatureInventory" type="Button" parent="Layout/Header/Routes/Compact/RowOne"]
+[node name="CreatureInventory" type="Button" parent="Layout/Header/Routes/Compact"]
 custom_minimum_size = Vector2(0, 44)
 layout_mode = 2
 size_flags_horizontal = 3
@@ -130,7 +129,7 @@ vertical_scroll_mode = 1
 custom_minimum_size = Vector2(0, 520)
 layout_mode = 2
 size_flags_horizontal = 3
-theme_override_constants/separation = 12
+theme_override_constants/separation = 10
 
 [node name="Search" parent="Layout/Body/Content" instance=ExtResource("3_search_field")]
 layout_mode = 2
@@ -146,7 +145,7 @@ text = "CATALOGUE"
 [node name="DefinitionList" type="VBoxContainer" parent="Layout/Body/Content"]
 layout_mode = 2
 size_flags_horizontal = 3
-theme_override_constants/separation = 6
+theme_override_constants/separation = 4
 
 [node name="LiveHeading" type="Label" parent="Layout/Body/Content"]
 layout_mode = 2
@@ -156,17 +155,19 @@ text = "LIVE CREATURES"
 [node name="LiveList" type="VBoxContainer" parent="Layout/Body/Content"]
 layout_mode = 2
 size_flags_horizontal = 3
-theme_override_constants/separation = 6
+theme_override_constants/separation = 4
 
 [node name="PublicHeading" type="Label" parent="Layout/Body/Content"]
 layout_mode = 2
 theme_type_variation = &"RookframeSubtitle"
 text = "PUBLIC NAMES"
+visible = false
 
 [node name="PublicList" type="VBoxContainer" parent="Layout/Body/Content"]
 layout_mode = 2
 size_flags_horizontal = 3
-theme_override_constants/separation = 6
+theme_override_constants/separation = 4
+visible = false
 
 [node name="Detail" type="VBoxContainer" parent="Layout/Body/Content"]
 layout_mode = 2
@@ -177,40 +178,215 @@ visible = false
 [node name="Title" type="Label" parent="Layout/Body/Content/Detail"]
 layout_mode = 2
 theme_type_variation = &"RookframeHeading"
-text = "Creature"
+text = "Seth, Goblin"
 autowrap_mode = 2
+visible = false
 
 [node name="Summary" type="Label" parent="Layout/Body/Content/Detail"]
 layout_mode = 2
-theme_type_variation = &"RookframeBody"
-text = "Select a definition or live Creature."
-autowrap_mode = 2
-
-[node name="PublicIdentity" type="Label" parent="Layout/Body/Content/Detail"]
-layout_mode = 2
 theme_type_variation = &"RookframeMeta"
-text = "Public label: Unassigned"
+text = "Private Creature sheet · GM"
 autowrap_mode = 2
+visible = false
 
-[node name="PrivateFields" type="VBoxContainer" parent="Layout/Body/Content/Detail"]
+[node name="Stats" type="HBoxContainer" parent="Layout/Body/Content/Detail"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 4
+
+[node name="HitPoints" type="PanelContainer" parent="Layout/Body/Content/Detail/Stats"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_type_variation = &"RookframeInsetSurface"
+
+[node name="Content" type="VBoxContainer" parent="Layout/Body/Content/Detail/Stats/HitPoints"]
+layout_mode = 2
+theme_override_constants/separation = 3
+
+[node name="Label" type="Label" parent="Layout/Body/Content/Detail/Stats/HitPoints/Content"]
+layout_mode = 2
+theme_type_variation = &"RookframeLabel"
+text = "HP"
+
+[node name="Value" type="Label" parent="Layout/Body/Content/Detail/Stats/HitPoints/Content"]
+layout_mode = 2
+theme_type_variation = &"RookframeValue"
+text = "6 / 6"
+
+[node name="Morale" type="PanelContainer" parent="Layout/Body/Content/Detail/Stats"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_type_variation = &"RookframeInsetSurface"
+
+[node name="Content" type="VBoxContainer" parent="Layout/Body/Content/Detail/Stats/Morale"]
+layout_mode = 2
+theme_override_constants/separation = 3
+
+[node name="Label" type="Label" parent="Layout/Body/Content/Detail/Stats/Morale/Content"]
+layout_mode = 2
+theme_type_variation = &"RookframeLabel"
+text = "MORALE"
+
+[node name="Value" type="Label" parent="Layout/Body/Content/Detail/Stats/Morale/Content"]
+layout_mode = 2
+theme_type_variation = &"RookframeValue"
+text = "7"
+
+[node name="Protection" type="PanelContainer" parent="Layout/Body/Content/Detail/Stats"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_type_variation = &"RookframeInsetSurface"
+
+[node name="Content" type="VBoxContainer" parent="Layout/Body/Content/Detail/Stats/Protection"]
+layout_mode = 2
+theme_override_constants/separation = 3
+
+[node name="Label" type="Label" parent="Layout/Body/Content/Detail/Stats/Protection/Content"]
+layout_mode = 2
+theme_type_variation = &"RookframeLabel"
+text = "PROTECTION"
+
+[node name="Value" type="Label" parent="Layout/Body/Content/Detail/Stats/Protection/Content"]
+layout_mode = 2
+theme_type_variation = &"RookframeValue"
+text = "−d2"
+
+[node name="IdentitySection" type="PanelContainer" parent="Layout/Body/Content/Detail"]
+layout_mode = 2
+theme_type_variation = &"RookframeSection"
+
+[node name="Content" type="VBoxContainer" parent="Layout/Body/Content/Detail/IdentitySection"]
 layout_mode = 2
 theme_override_constants/separation = 8
 
-[node name="PrivateHeading" type="Label" parent="Layout/Body/Content/Detail/PrivateFields"]
+[node name="Header" type="HBoxContainer" parent="Layout/Body/Content/Detail/IdentitySection/Content"]
 layout_mode = 2
-theme_type_variation = &"RookframeSubtitle"
-text = "PRIVATE SHEET · GM"
 
-[node name="PrivateNotice" type="Label" parent="Layout/Body/Content/Detail/PrivateFields"]
+[node name="Title" type="Label" parent="Layout/Body/Content/Detail/IdentitySection/Content/Header"]
+layout_mode = 2
+theme_type_variation = &"RookframeHeading"
+text = "PUBLIC IDENTITY"
+
+[node name="Description" type="Label" parent="Layout/Body/Content/Detail/IdentitySection/Content/Header"]
+layout_mode = 2
+theme_type_variation = &"RookframeMeta"
+text = "Players see the chosen public name on the tabletop."
+
+[node name="BodySlot" type="VBoxContainer" parent="Layout/Body/Content/Detail/IdentitySection/Content"]
+layout_mode = 2
+theme_override_constants/separation = 4
+
+[node name="PublicNameLabel" type="Label" parent="Layout/Body/Content/Detail/IdentitySection/Content/BodySlot"]
+layout_mode = 2
+theme_type_variation = &"RookframeLabel"
+text = "PUBLIC NAME"
+
+[node name="PublicIdentity" type="Label" parent="Layout/Body/Content/Detail/IdentitySection/Content/BodySlot"]
 layout_mode = 2
 theme_type_variation = &"RookframeBody"
-text = "Players see only the public label."
+text = "Hooded stranger"
+autowrap_mode = 2
+
+[node name="PrivateNotice" type="Label" parent="Layout/Body/Content/Detail/IdentitySection/Content/BodySlot"]
+layout_mode = 2
+theme_type_variation = &"RookframeMeta"
+text = "GM only · private statistics never replicate to Players."
+autowrap_mode = 2
+
+[node name="EquipmentSection" type="PanelContainer" parent="Layout/Body/Content/Detail"]
+layout_mode = 2
+theme_type_variation = &"RookframeSection"
+
+[node name="Content" type="VBoxContainer" parent="Layout/Body/Content/Detail/EquipmentSection"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="Header" type="HBoxContainer" parent="Layout/Body/Content/Detail/EquipmentSection/Content"]
+layout_mode = 2
+
+[node name="Title" type="Label" parent="Layout/Body/Content/Detail/EquipmentSection/Content/Header"]
+layout_mode = 2
+theme_type_variation = &"RookframeHeading"
+text = "EQUIPMENT"
+
+[node name="Description" type="Label" parent="Layout/Body/Content/Detail/EquipmentSection/Content/Header"]
+layout_mode = 2
+theme_type_variation = &"RookframeMeta"
+text = "Private encounter equipment and attacks."
+
+[node name="BodySlot" type="VBoxContainer" parent="Layout/Body/Content/Detail/EquipmentSection/Content"]
+layout_mode = 2
+theme_override_constants/separation = 4
+
+[node name="EquipmentList" type="VBoxContainer" parent="Layout/Body/Content/Detail/EquipmentSection/Content/BodySlot"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 4
+
+[node name="SpecialRulesSection" type="PanelContainer" parent="Layout/Body/Content/Detail"]
+layout_mode = 2
+theme_type_variation = &"RookframeSection"
+
+[node name="Content" type="VBoxContainer" parent="Layout/Body/Content/Detail/SpecialRulesSection"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="Header" type="HBoxContainer" parent="Layout/Body/Content/Detail/SpecialRulesSection/Content"]
+layout_mode = 2
+
+[node name="Title" type="Label" parent="Layout/Body/Content/Detail/SpecialRulesSection/Content/Header"]
+layout_mode = 2
+theme_type_variation = &"RookframeHeading"
+text = "SPECIAL RULES"
+
+[node name="BodySlot" type="VBoxContainer" parent="Layout/Body/Content/Detail/SpecialRulesSection/Content"]
+layout_mode = 2
+
+[node name="Rules" type="Label" parent="Layout/Body/Content/Detail/SpecialRulesSection/Content/BodySlot"]
+layout_mode = 2
+theme_type_variation = &"RookframeBody"
+text = "Quick, attacks and defence are DR14."
+autowrap_mode = 2
+
+[node name="AccessSection" type="PanelContainer" parent="Layout/Body/Content/Detail"]
+layout_mode = 2
+theme_type_variation = &"RookframeSection"
+
+[node name="Content" type="VBoxContainer" parent="Layout/Body/Content/Detail/AccessSection"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="Header" type="HBoxContainer" parent="Layout/Body/Content/Detail/AccessSection/Content"]
+layout_mode = 2
+
+[node name="Title" type="Label" parent="Layout/Body/Content/Detail/AccessSection/Content/Header"]
+layout_mode = 2
+theme_type_variation = &"RookframeHeading"
+text = "ACCESS"
+
+[node name="Description" type="Label" parent="Layout/Body/Content/Detail/AccessSection/Content/Header"]
+layout_mode = 2
+theme_type_variation = &"RookframeMeta"
+text = "GM only"
+
+[node name="BodySlot" type="VBoxContainer" parent="Layout/Body/Content/Detail/AccessSection/Content"]
+layout_mode = 2
+
+[node name="Access" type="Label" parent="Layout/Body/Content/Detail/AccessSection/Content/BodySlot"]
+layout_mode = 2
+theme_type_variation = &"RookframeMeta"
+text = "Players see the public name, not this sheet."
 autowrap_mode = 2
 
 [node name="EditFields" type="VBoxContainer" parent="Layout/Body/Content/Detail"]
 layout_mode = 2
 theme_override_constants/separation = 8
 visible = false
+
+[node name="IdentityHeading" type="Label" parent="Layout/Body/Content/Detail/EditFields"]
+layout_mode = 2
+theme_type_variation = &"RookframeSubtitle"
+text = "IDENTITY"
 
 [node name="PrivateName" parent="Layout/Body/Content/Detail/EditFields" instance=ExtResource("4_text_field")]
 layout_mode = 2
@@ -219,8 +395,9 @@ placeholder = "Private name"
 
 [node name="PublicLabel" parent="Layout/Body/Content/Detail/EditFields" instance=ExtResource("4_text_field")]
 layout_mode = 2
-label_text = "PUBLIC LABEL"
-placeholder = "Public label shown to Players"
+label_text = "PUBLIC NAME"
+placeholder = "Public name shown to Players"
+help_text = "Only the public name appears to Players."
 
 [node name="HitPoints" parent="Layout/Body/Content/Detail/EditFields" instance=ExtResource("4_text_field")]
 layout_mode = 2
@@ -237,172 +414,139 @@ layout_mode = 2
 label_text = "MORALE"
 placeholder = "Private morale"
 
-[node name="Inventory" type="VBoxContainer" parent="Layout/Body/Content/Detail"]
+[node name="Inventory" type="PanelContainer" parent="Layout/Body/Content/Detail"]
 layout_mode = 2
-theme_override_constants/separation = 8
+theme_type_variation = &"RookframeSection"
 visible = false
 
-[node name="InventoryHeading" type="Label" parent="Layout/Body/Content/Detail/Inventory"]
+[node name="Content" type="VBoxContainer" parent="Layout/Body/Content/Detail/Inventory"]
 layout_mode = 2
-theme_type_variation = &"RookframeSubtitle"
+theme_override_constants/separation = 8
+
+[node name="Header" type="HBoxContainer" parent="Layout/Body/Content/Detail/Inventory/Content"]
+layout_mode = 2
+
+[node name="Title" type="Label" parent="Layout/Body/Content/Detail/Inventory/Content/Header"]
+layout_mode = 2
+theme_type_variation = &"RookframeHeading"
 text = "INVENTORY"
 
-[node name="Items" type="VBoxContainer" parent="Layout/Body/Content/Detail/Inventory"]
+[node name="Description" type="Label" parent="Layout/Body/Content/Detail/Inventory/Content/Header"]
+layout_mode = 2
+theme_type_variation = &"RookframeMeta"
+text = "Private equipment; attacks start from equipped items."
+
+[node name="BodySlot" type="VBoxContainer" parent="Layout/Body/Content/Detail/Inventory/Content"]
 layout_mode = 2
 theme_override_constants/separation = 6
 
-[node name="InventorySummary" parent="Layout/Body/Content/Detail/Inventory/Items" instance=ExtResource("5_structured_row")]
+[node name="Items" type="VBoxContainer" parent="Layout/Body/Content/Detail/Inventory/Content/BodySlot"]
+layout_mode = 2
+theme_override_constants/separation = 6
+
+[node name="InventorySummary" parent="Layout/Body/Content/Detail/Inventory/Content/BodySlot/Items" instance=ExtResource("5_structured_row")]
 layout_mode = 2
 variant = 3
-title = "ITEMS"
+title = "EQUIPPED"
+detail = "Knife · d4 · 5 ft · Equipped"
+value_text = "Attack"
 
-[node name="InventoryNotice" type="Label" parent="Layout/Body/Content/Detail/Inventory"]
+[node name="InventoryNotice" type="Label" parent="Layout/Body/Content/Detail/Inventory/Content/BodySlot"]
 layout_mode = 2
 theme_type_variation = &"RookframeMeta"
 text = "Items remain private to the GM."
 autowrap_mode = 2
 
-[node name="ActionBar" type="VBoxContainer" parent="Layout/Body/Content"]
+[node name="ActionBar" type="VBoxContainer" parent="Layout/Body/Content/Detail"]
 layout_mode = 2
-size_flags_horizontal = 3
 theme_override_constants/separation = 6
 
-[node name="Desktop" type="HBoxContainer" parent="Layout/Body/Content/ActionBar"]
+[node name="LeadingSlot" type="HFlowContainer" parent="Layout/Body/Content/Detail/ActionBar"]
 layout_mode = 2
 size_flags_horizontal = 3
-theme_override_constants/separation = 8
+theme_override_constants/h_separation = 8
+theme_override_constants/v_separation = 8
 
-[node name="CreateCreature" type="Button" parent="Layout/Body/Content/ActionBar/Desktop"]
+[node name="TrailingSlot" type="HBoxContainer" parent="Layout/Body/Content/Detail/ActionBar"]
+layout_mode = 2
+size_flags_horizontal = 8
+alignment = 2
+
+[node name="CreateCreature" type="Button" parent="Layout/Body/Content/Detail/ActionBar/LeadingSlot"]
 custom_minimum_size = Vector2(0, 44)
 layout_mode = 2
 theme_type_variation = &"RookframePrimaryButton"
 text = "Create Creature"
 disabled = true
 
-[node name="EditCreature" type="Button" parent="Layout/Body/Content/ActionBar/Desktop"]
+[node name="EditCreature" type="Button" parent="Layout/Body/Content/Detail/ActionBar/LeadingSlot"]
 custom_minimum_size = Vector2(0, 44)
 layout_mode = 2
 theme_type_variation = &"RookframeSecondaryButton"
-text = "Edit private sheet"
+text = "Edit values"
 
-[node name="CreatureInventory" type="Button" parent="Layout/Body/Content/ActionBar/Desktop"]
+[node name="CreatureInventory" type="Button" parent="Layout/Body/Content/Detail/ActionBar/LeadingSlot"]
 custom_minimum_size = Vector2(0, 44)
 layout_mode = 2
 theme_type_variation = &"RookframeSecondaryButton"
 text = "Inventory"
 
-[node name="Duplicate" type="Button" parent="Layout/Body/Content/ActionBar/Desktop"]
+[node name="Duplicate" type="Button" parent="Layout/Body/Content/Detail/ActionBar/LeadingSlot"]
 custom_minimum_size = Vector2(0, 44)
 layout_mode = 2
 theme_type_variation = &"RookframeSecondaryButton"
 text = "Duplicate"
 
-[node name="PlaceRook" type="Button" parent="Layout/Body/Content/ActionBar/Desktop"]
+[node name="PlaceRook" type="Button" parent="Layout/Body/Content/Detail/ActionBar/LeadingSlot"]
 custom_minimum_size = Vector2(0, 44)
 layout_mode = 2
 theme_type_variation = &"RookframePrimaryButton"
 text = "Place Rook"
 
-[node name="SaveChanges" type="Button" parent="Layout/Body/Content/ActionBar/Desktop"]
+[node name="SaveChanges" type="Button" parent="Layout/Body/Content/Detail/ActionBar/LeadingSlot"]
 custom_minimum_size = Vector2(0, 44)
 layout_mode = 2
 theme_type_variation = &"RookframePrimaryButton"
 text = "Save changes"
 
-[node name="AddItem" type="Button" parent="Layout/Body/Content/ActionBar/Desktop"]
+[node name="AddItem" type="Button" parent="Layout/Body/Content/Detail/ActionBar/LeadingSlot"]
 custom_minimum_size = Vector2(0, 44)
 layout_mode = 2
 theme_type_variation = &"RookframePrimaryButton"
 text = "Add item"
 
-[node name="Back" type="Button" parent="Layout/Body/Content/ActionBar/Desktop"]
+[node name="Back" type="Button" parent="Layout/Body/Content/Detail/ActionBar/TrailingSlot"]
 custom_minimum_size = Vector2(0, 44)
 layout_mode = 2
 theme_type_variation = &"RookframeSecondaryButton"
 text = "Back"
 
-[node name="Compact" type="VBoxContainer" parent="Layout/Body/Content/ActionBar"]
+[node name="CatalogueBar" type="HBoxContainer" parent="Layout"]
+layout_mode = 2
+theme_override_constants/separation = 8
 visible = false
+
+[node name="LeadingSlot" type="HBoxContainer" parent="Layout/CatalogueBar"]
 layout_mode = 2
 size_flags_horizontal = 3
-theme_override_constants/separation = 6
 
-[node name="RowOne" type="HBoxContainer" parent="Layout/Body/Content/ActionBar/Compact"]
-layout_mode = 2
-size_flags_horizontal = 3
-theme_override_constants/separation = 8
-
-[node name="CreateCreature" type="Button" parent="Layout/Body/Content/ActionBar/Compact/RowOne"]
+[node name="Back" type="Button" parent="Layout/CatalogueBar/LeadingSlot"]
 custom_minimum_size = Vector2(0, 44)
 layout_mode = 2
-size_flags_horizontal = 3
+theme_type_variation = &"RookframeSecondaryButton"
+text = "Back"
+
+[node name="TrailingSlot" type="HBoxContainer" parent="Layout/CatalogueBar"]
+layout_mode = 2
+size_flags_horizontal = 8
+alignment = 2
+
+[node name="CreateCreature" type="Button" parent="Layout/CatalogueBar/TrailingSlot"]
+custom_minimum_size = Vector2(0, 44)
+layout_mode = 2
 theme_type_variation = &"RookframePrimaryButton"
 text = "Create Creature"
 disabled = true
-
-[node name="EditCreature" type="Button" parent="Layout/Body/Content/ActionBar/Compact/RowOne"]
-custom_minimum_size = Vector2(0, 44)
-layout_mode = 2
-size_flags_horizontal = 3
-theme_type_variation = &"RookframeSecondaryButton"
-text = "Edit private sheet"
-
-[node name="RowTwo" type="HBoxContainer" parent="Layout/Body/Content/ActionBar/Compact"]
-layout_mode = 2
-size_flags_horizontal = 3
-theme_override_constants/separation = 8
-
-[node name="CreatureInventory" type="Button" parent="Layout/Body/Content/ActionBar/Compact/RowTwo"]
-custom_minimum_size = Vector2(0, 44)
-layout_mode = 2
-size_flags_horizontal = 3
-theme_type_variation = &"RookframeSecondaryButton"
-text = "Inventory"
-
-[node name="Duplicate" type="Button" parent="Layout/Body/Content/ActionBar/Compact/RowTwo"]
-custom_minimum_size = Vector2(0, 44)
-layout_mode = 2
-size_flags_horizontal = 3
-theme_type_variation = &"RookframeSecondaryButton"
-text = "Duplicate"
-
-[node name="RowThree" type="HBoxContainer" parent="Layout/Body/Content/ActionBar/Compact"]
-layout_mode = 2
-size_flags_horizontal = 3
-theme_override_constants/separation = 8
-
-[node name="PlaceRook" type="Button" parent="Layout/Body/Content/ActionBar/Compact/RowThree"]
-custom_minimum_size = Vector2(0, 44)
-layout_mode = 2
-size_flags_horizontal = 3
-theme_type_variation = &"RookframePrimaryButton"
-text = "Place Rook"
-
-[node name="SaveChanges" type="Button" parent="Layout/Body/Content/ActionBar/Compact/RowThree"]
-custom_minimum_size = Vector2(0, 44)
-layout_mode = 2
-size_flags_horizontal = 3
-theme_type_variation = &"RookframePrimaryButton"
-text = "Save changes"
-
-[node name="RowFour" type="HBoxContainer" parent="Layout/Body/Content/ActionBar/Compact"]
-layout_mode = 2
-size_flags_horizontal = 3
-theme_override_constants/separation = 8
-
-[node name="AddItem" type="Button" parent="Layout/Body/Content/ActionBar/Compact/RowFour"]
-custom_minimum_size = Vector2(0, 44)
-layout_mode = 2
-size_flags_horizontal = 3
-theme_type_variation = &"RookframePrimaryButton"
-text = "Add item"
-
-[node name="Back" type="Button" parent="Layout/Body/Content/ActionBar/Compact/RowFour"]
-custom_minimum_size = Vector2(0, 44)
-layout_mode = 2
-size_flags_horizontal = 3
-theme_type_variation = &"RookframeSecondaryButton"
-text = "Back"
 
 [node name="Status" type="Label" parent="Layout"]
 layout_mode = 2

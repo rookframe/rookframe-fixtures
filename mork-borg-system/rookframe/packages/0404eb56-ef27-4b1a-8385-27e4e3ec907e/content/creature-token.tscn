@@ -1,0 +1,20 @@
+[gd_scene format=3]
+
+[node name="MorkBorgCreatureToken" type="Node2D"]
+
+[node name="Base" type="Polygon2D" parent="."]
+polygon = PackedVector2Array(-19, 12, -9, 25, 9, 25, 19, 12, 9, 3, -9, 3)
+color = Color(0.960784, 0.72549, 0.12549, 1)
+
+[node name="Cloak" type="Polygon2D" parent="."]
+polygon = PackedVector2Array(-14, 15, 0, -17, 14, 15, 9, 20, -9, 20)
+color = Color(0.258824, 0.458824, 0.529412, 1)
+
+[node name="Crest" type="Polygon2D" parent="."]
+polygon = PackedVector2Array(0, -28, 7, -17, 0, -9, -7, -17)
+color = Color(0.294118, 0.933333, 0.933333, 1)
+
+[node name="Outline" type="Line2D" parent="."]
+points = PackedVector2Array(0, -28, 7, -17, 14, 15, 9, 20, -9, 20, -14, 15, -7, -17, 0, -28)
+width = 2.5
+default_color = Color(0.294118, 0.933333, 0.933333, 1)
