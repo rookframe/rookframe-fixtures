@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" path="res://rookframe/ui/components/data/structured_row.tscn" id="5_structured_row"]
 
 [node name="CreatureSurface" type="Control"]
+custom_minimum_size = Vector2(360, 0)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -290,7 +291,7 @@ autowrap_mode = 2
 [node name="PrivateNotice" type="Label" parent="Layout/Body/Content/Detail/IdentitySection/Content/BodySlot"]
 layout_mode = 2
 theme_type_variation = &"RookframeMeta"
-text = "GM only · private statistics never replicate to Players."
+text = "Shown on the tabletop and in public reports."
 autowrap_mode = 2
 
 [node name="EquipmentSection" type="PanelContainer" parent="Layout/Body/Content/Detail"]
@@ -424,6 +425,12 @@ layout_mode = 2
 theme_type_variation = &"RookframePrimaryButton"
 text = "Place Rook"
 
+[node name="Back" type="Button" parent="Layout/Body/Content/Detail/ActionBar/LeadingSlot"]
+custom_minimum_size = Vector2(0, 44)
+layout_mode = 2
+theme_type_variation = &"RookframeSecondaryButton"
+text = "Back"
+
 [node name="SaveChanges" type="Button" parent="Layout/Body/Content/Detail/ActionBar/LeadingSlot"]
 custom_minimum_size = Vector2(0, 44)
 layout_mode = 2
@@ -435,12 +442,6 @@ custom_minimum_size = Vector2(0, 44)
 layout_mode = 2
 theme_type_variation = &"RookframePrimaryButton"
 text = "Add item"
-
-[node name="Back" type="Button" parent="Layout/Body/Content/Detail/ActionBar/LeadingSlot"]
-custom_minimum_size = Vector2(0, 44)
-layout_mode = 2
-theme_type_variation = &"RookframeSecondaryButton"
-text = "Back"
 
 [node name="EditFields" type="VBoxContainer" parent="Layout/Body/Content/Detail"]
 layout_mode = 2

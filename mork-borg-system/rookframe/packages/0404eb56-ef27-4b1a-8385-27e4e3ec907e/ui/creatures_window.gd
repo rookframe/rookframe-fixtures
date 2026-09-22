@@ -128,6 +128,7 @@ func ready() -> void:
 	if sdk.world_changed.is_connected(_refresh_world) == false:
 		sdk.world_changed.connect(_refresh_world)
 	_apply_density()
+	_show_route("creatures")
 	_refresh_world()
 
 
