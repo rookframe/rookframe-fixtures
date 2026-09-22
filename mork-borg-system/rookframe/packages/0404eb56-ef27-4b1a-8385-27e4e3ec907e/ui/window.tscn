@@ -61,7 +61,7 @@ theme_override_constants/separation = 8
 custom_minimum_size = Vector2(0, 44)
 layout_mode = 2
 theme_type_variation = &"RookframeSecondaryButton"
-text = "Creatures"
+text = "List"
 
 [node name="Creature" type="Button" parent="Layout/Header/Routes/Desktop"]
 custom_minimum_size = Vector2(0, 44)
@@ -104,26 +104,21 @@ custom_minimum_size = Vector2(0, 44)
 layout_mode = 2
 size_flags_horizontal = 3
 theme_type_variation = &"RookframeSecondaryButton"
-text = "Creature"
+text = "Sheet"
 
-[node name="RowTwo" type="HBoxContainer" parent="Layout/Header/Routes/Compact"]
-layout_mode = 2
-size_flags_horizontal = 3
-theme_override_constants/separation = 8
-
-[node name="EditCreature" type="Button" parent="Layout/Header/Routes/Compact/RowTwo"]
+[node name="EditCreature" type="Button" parent="Layout/Header/Routes/Compact/RowOne"]
 custom_minimum_size = Vector2(0, 44)
 layout_mode = 2
 size_flags_horizontal = 3
 theme_type_variation = &"RookframeSecondaryButton"
 text = "Edit"
 
-[node name="CreatureInventory" type="Button" parent="Layout/Header/Routes/Compact/RowTwo"]
+[node name="CreatureInventory" type="Button" parent="Layout/Header/Routes/Compact/RowOne"]
 custom_minimum_size = Vector2(0, 44)
 layout_mode = 2
 size_flags_horizontal = 3
 theme_type_variation = &"RookframeSecondaryButton"
-text = "Inventory"
+text = "Items"
 
 [node name="Body" type="ScrollContainer" parent="Layout"]
 layout_mode = 2
@@ -204,7 +199,7 @@ theme_override_constants/separation = 8
 [node name="PrivateHeading" type="Label" parent="Layout/Body/Content/Detail/PrivateFields"]
 layout_mode = 2
 theme_type_variation = &"RookframeSubtitle"
-text = "PRIVATE ENCOUNTER SHEET · GM"
+text = "PRIVATE SHEET · GM"
 
 [node name="PrivateNotice" type="Label" parent="Layout/Body/Content/Detail/PrivateFields"]
 layout_mode = 2
@@ -258,6 +253,7 @@ theme_override_constants/separation = 6
 
 [node name="InventorySummary" parent="Layout/Body/Content/Detail/Inventory/Items" instance=ExtResource("5_structured_row")]
 layout_mode = 2
+variant = 3
 title = "ITEMS"
 
 [node name="InventoryNotice" type="Label" parent="Layout/Body/Content/Detail/Inventory"]

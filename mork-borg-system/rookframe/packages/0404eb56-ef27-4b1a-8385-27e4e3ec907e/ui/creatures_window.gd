@@ -65,7 +65,7 @@ func ready() -> void:
 	_action_desktop.visible = not _compact
 	_action_compact.visible = _compact
 	var route_first_row: Node = _routes.get_node(^"Compact/RowOne") if _compact else _routes.get_node(^"Desktop")
-	var route_second_row: Node = _routes.get_node(^"Compact/RowTwo") if _compact else route_first_row
+	var route_second_row: Node = route_first_row
 	_route_creatures = route_first_row.get_node(^"Creatures") as Button
 	_route_creature = route_first_row.get_node(^"Creature") as Button
 	_route_edit = route_second_row.get_node(^"EditCreature") as Button
