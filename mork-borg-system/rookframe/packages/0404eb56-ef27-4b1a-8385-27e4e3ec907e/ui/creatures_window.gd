@@ -87,7 +87,7 @@ func ready() -> void:
 	_place_button = _action_bar.get_node(^"LeadingSlot/PlaceRook") as Button
 	_save_button = _action_bar.get_node(^"LeadingSlot/SaveChanges") as Button
 	_add_item_button = _action_bar.get_node(^"LeadingSlot/AddItem") as Button
-	_back_button = _action_bar.get_node(^"TrailingSlot/Back") as Button
+	_back_button = _action_bar.get_node(^"LeadingSlot/Back") as Button
 	_catalogue_create = _catalogue_bar.get_node(^"TrailingSlot/CreateCreature") as Button
 	_catalogue_back = _catalogue_bar.get_node(^"LeadingSlot/Back") as Button
 
@@ -136,10 +136,18 @@ func _apply_density() -> void:
 	_header.add_theme_constant_override("separation", 2 if _compact else 4)
 	_content.add_theme_constant_override("separation", 8 if _compact else 12)
 	_detail.add_theme_constant_override("separation", 8 if _compact else 12)
+	_content.custom_minimum_size = Vector2(0, 0) if _compact else Vector2(0, 520)
 	_brand.visible = not _compact
 	_header_subtitle.visible = not _compact
+	_header_title.visible = true
 	_status.visible = not _compact
 	_body.add_theme_constant_override("scrollbar_width", 8 if _compact else 12)
+	_stats.add_theme_constant_override("separation", 2 if _compact else 4)
+	if _compact:
+		get_node(^"Layout/Body/Content/Detail/IdentitySection/Content/Header/Description").visible = false
+		get_node(^"Layout/Body/Content/Detail/EquipmentSection/Content/Header/Description").visible = false
+		get_node(^"Layout/Body/Content/Detail/AccessSection/Content/Header/Description").visible = false
+		_protection_label.text = "ARMOR"
 
 
 func _refresh_world() -> void:
@@ -184,7 +192,10 @@ func _render_live_actors() -> void:
 		child.queue_free()
 	for actor in _actors:
 		var button := Button.new()
-		button.text = "Private Creature  ·  Public name pending"
+		var actor_data: Dictionary = actor.data
+		var private_name: String = actor_data.get("name", "Private Creature")
+		var public_name := actor.public_label if not actor.public_label.is_empty() else "Public name pending"
+		button.text = "%s  ·  Public: %s" % [private_name, public_name]
 		button.custom_minimum_size = Vector2(0, 44)
 		button.focus_mode = 2
 		button.alignment = 0
@@ -331,7 +342,7 @@ func _show_route(route: String) -> void:
 	var sheet := route == "creature"
 	var edit := route == "edit-creature"
 	var inventory := route == "creature-inventory"
-	_routes.visible = not catalogue
+	_routes.visible = not catalogue and not edit
 	_route_creatures.visible = false
 	_route_creature.visible = not catalogue
 	_route_edit.visible = false
@@ -360,7 +371,8 @@ func _show_route(route: String) -> void:
 	_place_button.visible = sheet and sdk.context().is_gm
 	_save_button.visible = edit and sdk.context().is_gm
 	_add_item_button.visible = inventory and sdk.context().is_gm
-	_back_button.visible = inventory
+	_back_button.visible = inventory or edit
+	_back_button.text = "Cancel" if edit else "Back"
 	if catalogue:
 		_header_title.text = "CREATURES"
 		_header_subtitle.text = "Immutable definitions · private Actors"

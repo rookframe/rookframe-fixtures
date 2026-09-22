@@ -378,6 +378,70 @@ theme_type_variation = &"RookframeMeta"
 text = "Players see the public name, not this sheet."
 autowrap_mode = 2
 
+[node name="ActionBar" type="VBoxContainer" parent="Layout/Body/Content/Detail"]
+layout_mode = 2
+theme_override_constants/separation = 6
+
+[node name="LeadingSlot" type="HFlowContainer" parent="Layout/Body/Content/Detail/ActionBar"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/h_separation = 8
+theme_override_constants/v_separation = 8
+
+[node name="TrailingSlot" type="HBoxContainer" parent="Layout/Body/Content/Detail/ActionBar"]
+layout_mode = 2
+size_flags_horizontal = 8
+alignment = 2
+
+[node name="CreateCreature" type="Button" parent="Layout/Body/Content/Detail/ActionBar/LeadingSlot"]
+custom_minimum_size = Vector2(0, 44)
+layout_mode = 2
+theme_type_variation = &"RookframePrimaryButton"
+text = "Create Creature"
+disabled = true
+
+[node name="EditCreature" type="Button" parent="Layout/Body/Content/Detail/ActionBar/LeadingSlot"]
+custom_minimum_size = Vector2(0, 44)
+layout_mode = 2
+theme_type_variation = &"RookframeSecondaryButton"
+text = "Edit values"
+
+[node name="CreatureInventory" type="Button" parent="Layout/Body/Content/Detail/ActionBar/LeadingSlot"]
+custom_minimum_size = Vector2(0, 44)
+layout_mode = 2
+theme_type_variation = &"RookframeSecondaryButton"
+text = "Inventory"
+
+[node name="Duplicate" type="Button" parent="Layout/Body/Content/Detail/ActionBar/LeadingSlot"]
+custom_minimum_size = Vector2(0, 44)
+layout_mode = 2
+theme_type_variation = &"RookframeSecondaryButton"
+text = "Duplicate"
+
+[node name="PlaceRook" type="Button" parent="Layout/Body/Content/Detail/ActionBar/LeadingSlot"]
+custom_minimum_size = Vector2(0, 44)
+layout_mode = 2
+theme_type_variation = &"RookframePrimaryButton"
+text = "Place Rook"
+
+[node name="SaveChanges" type="Button" parent="Layout/Body/Content/Detail/ActionBar/LeadingSlot"]
+custom_minimum_size = Vector2(0, 44)
+layout_mode = 2
+theme_type_variation = &"RookframePrimaryButton"
+text = "Save changes"
+
+[node name="AddItem" type="Button" parent="Layout/Body/Content/Detail/ActionBar/LeadingSlot"]
+custom_minimum_size = Vector2(0, 44)
+layout_mode = 2
+theme_type_variation = &"RookframePrimaryButton"
+text = "Add item"
+
+[node name="Back" type="Button" parent="Layout/Body/Content/Detail/ActionBar/LeadingSlot"]
+custom_minimum_size = Vector2(0, 44)
+layout_mode = 2
+theme_type_variation = &"RookframeSecondaryButton"
+text = "Back"
+
 [node name="EditFields" type="VBoxContainer" parent="Layout/Body/Content/Detail"]
 layout_mode = 2
 theme_override_constants/separation = 8
@@ -456,70 +520,6 @@ layout_mode = 2
 theme_type_variation = &"RookframeMeta"
 text = "Items remain private to the GM."
 autowrap_mode = 2
-
-[node name="ActionBar" type="VBoxContainer" parent="Layout/Body/Content/Detail"]
-layout_mode = 2
-theme_override_constants/separation = 6
-
-[node name="LeadingSlot" type="HFlowContainer" parent="Layout/Body/Content/Detail/ActionBar"]
-layout_mode = 2
-size_flags_horizontal = 3
-theme_override_constants/h_separation = 8
-theme_override_constants/v_separation = 8
-
-[node name="TrailingSlot" type="HBoxContainer" parent="Layout/Body/Content/Detail/ActionBar"]
-layout_mode = 2
-size_flags_horizontal = 8
-alignment = 2
-
-[node name="CreateCreature" type="Button" parent="Layout/Body/Content/Detail/ActionBar/LeadingSlot"]
-custom_minimum_size = Vector2(0, 44)
-layout_mode = 2
-theme_type_variation = &"RookframePrimaryButton"
-text = "Create Creature"
-disabled = true
-
-[node name="EditCreature" type="Button" parent="Layout/Body/Content/Detail/ActionBar/LeadingSlot"]
-custom_minimum_size = Vector2(0, 44)
-layout_mode = 2
-theme_type_variation = &"RookframeSecondaryButton"
-text = "Edit values"
-
-[node name="CreatureInventory" type="Button" parent="Layout/Body/Content/Detail/ActionBar/LeadingSlot"]
-custom_minimum_size = Vector2(0, 44)
-layout_mode = 2
-theme_type_variation = &"RookframeSecondaryButton"
-text = "Inventory"
-
-[node name="Duplicate" type="Button" parent="Layout/Body/Content/Detail/ActionBar/LeadingSlot"]
-custom_minimum_size = Vector2(0, 44)
-layout_mode = 2
-theme_type_variation = &"RookframeSecondaryButton"
-text = "Duplicate"
-
-[node name="PlaceRook" type="Button" parent="Layout/Body/Content/Detail/ActionBar/LeadingSlot"]
-custom_minimum_size = Vector2(0, 44)
-layout_mode = 2
-theme_type_variation = &"RookframePrimaryButton"
-text = "Place Rook"
-
-[node name="SaveChanges" type="Button" parent="Layout/Body/Content/Detail/ActionBar/LeadingSlot"]
-custom_minimum_size = Vector2(0, 44)
-layout_mode = 2
-theme_type_variation = &"RookframePrimaryButton"
-text = "Save changes"
-
-[node name="AddItem" type="Button" parent="Layout/Body/Content/Detail/ActionBar/LeadingSlot"]
-custom_minimum_size = Vector2(0, 44)
-layout_mode = 2
-theme_type_variation = &"RookframePrimaryButton"
-text = "Add item"
-
-[node name="Back" type="Button" parent="Layout/Body/Content/Detail/ActionBar/TrailingSlot"]
-custom_minimum_size = Vector2(0, 44)
-layout_mode = 2
-theme_type_variation = &"RookframeSecondaryButton"
-text = "Back"
 
 [node name="CatalogueBar" type="HBoxContainer" parent="Layout"]
 layout_mode = 2
