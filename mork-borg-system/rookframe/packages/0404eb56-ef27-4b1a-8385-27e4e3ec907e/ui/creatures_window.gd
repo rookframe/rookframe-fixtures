@@ -221,7 +221,7 @@ func _render_actor() -> void:
 	_maximum_hit_points.set("value", str(maximum_hit_points))
 	_morale.set("value", str(morale_value))
 	_inventory_summary.title = "ITEMS"
-	_inventory_summary.value_text = "Inventory remains private to the GM."
+	_inventory_summary.value_text = "GM-only"
 	_save_button.disabled = not sdk.context().is_gm
 	_duplicate_button.disabled = not sdk.context().is_gm
 	_place_button.disabled = not sdk.context().is_gm
