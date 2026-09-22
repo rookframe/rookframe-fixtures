@@ -47,33 +47,81 @@ theme_type_variation = &"RookframeMeta"
 text = "Twelve immutable definitions · durable private Actors"
 autowrap_mode = 2
 
-[node name="Routes" type="HFlowContainer" parent="Layout/Header"]
+[node name="Routes" type="VBoxContainer" parent="Layout/Header"]
 layout_mode = 2
 size_flags_horizontal = 3
-theme_override_constants/h_separation = 8
-theme_override_constants/v_separation = 6
+theme_override_constants/separation = 6
 
-[node name="Creatures" type="Button" parent="Layout/Header/Routes"]
+[node name="Desktop" type="HBoxContainer" parent="Layout/Header/Routes"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 8
+
+[node name="Creatures" type="Button" parent="Layout/Header/Routes/Desktop"]
 custom_minimum_size = Vector2(0, 44)
 layout_mode = 2
 theme_type_variation = &"RookframeSecondaryButton"
 text = "Creatures"
 
-[node name="Creature" type="Button" parent="Layout/Header/Routes"]
+[node name="Creature" type="Button" parent="Layout/Header/Routes/Desktop"]
 custom_minimum_size = Vector2(0, 44)
 layout_mode = 2
 theme_type_variation = &"RookframeSecondaryButton"
 text = "Creature"
 
-[node name="EditCreature" type="Button" parent="Layout/Header/Routes"]
+[node name="EditCreature" type="Button" parent="Layout/Header/Routes/Desktop"]
 custom_minimum_size = Vector2(0, 44)
 layout_mode = 2
 theme_type_variation = &"RookframeSecondaryButton"
 text = "Edit"
 
-[node name="CreatureInventory" type="Button" parent="Layout/Header/Routes"]
+[node name="CreatureInventory" type="Button" parent="Layout/Header/Routes/Desktop"]
 custom_minimum_size = Vector2(0, 44)
 layout_mode = 2
+theme_type_variation = &"RookframeSecondaryButton"
+text = "Inventory"
+
+[node name="Compact" type="VBoxContainer" parent="Layout/Header/Routes"]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 6
+
+[node name="RowOne" type="HBoxContainer" parent="Layout/Header/Routes/Compact"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 8
+
+[node name="Creatures" type="Button" parent="Layout/Header/Routes/Compact/RowOne"]
+custom_minimum_size = Vector2(0, 44)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_type_variation = &"RookframeSecondaryButton"
+text = "Creatures"
+
+[node name="Creature" type="Button" parent="Layout/Header/Routes/Compact/RowOne"]
+custom_minimum_size = Vector2(0, 44)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_type_variation = &"RookframeSecondaryButton"
+text = "Creature"
+
+[node name="RowTwo" type="HBoxContainer" parent="Layout/Header/Routes/Compact"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 8
+
+[node name="EditCreature" type="Button" parent="Layout/Header/Routes/Compact/RowTwo"]
+custom_minimum_size = Vector2(0, 44)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_type_variation = &"RookframeSecondaryButton"
+text = "Edit"
+
+[node name="CreatureInventory" type="Button" parent="Layout/Header/Routes/Compact/RowTwo"]
+custom_minimum_size = Vector2(0, 44)
+layout_mode = 2
+size_flags_horizontal = 3
 theme_type_variation = &"RookframeSecondaryButton"
 text = "Inventory"
 
@@ -218,58 +266,145 @@ theme_type_variation = &"RookframeMeta"
 text = "Equipped weapons are the source of later Attack actions."
 autowrap_mode = 2
 
-[node name="ActionBar" type="HFlowContainer" parent="Layout/Body/Content"]
+[node name="ActionBar" type="VBoxContainer" parent="Layout/Body/Content"]
 layout_mode = 2
 size_flags_horizontal = 3
-theme_override_constants/h_separation = 8
-theme_override_constants/v_separation = 6
+theme_override_constants/separation = 6
 
-[node name="CreateCreature" type="Button" parent="Layout/Body/Content/ActionBar"]
+[node name="Desktop" type="HBoxContainer" parent="Layout/Body/Content/ActionBar"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 8
+
+[node name="CreateCreature" type="Button" parent="Layout/Body/Content/ActionBar/Desktop"]
 custom_minimum_size = Vector2(0, 44)
 layout_mode = 2
 theme_type_variation = &"RookframePrimaryButton"
 text = "Create Creature"
 disabled = true
 
-[node name="EditCreature" type="Button" parent="Layout/Body/Content/ActionBar"]
+[node name="EditCreature" type="Button" parent="Layout/Body/Content/ActionBar/Desktop"]
 custom_minimum_size = Vector2(0, 44)
 layout_mode = 2
 theme_type_variation = &"RookframeSecondaryButton"
 text = "Edit private sheet"
 
-[node name="CreatureInventory" type="Button" parent="Layout/Body/Content/ActionBar"]
+[node name="CreatureInventory" type="Button" parent="Layout/Body/Content/ActionBar/Desktop"]
 custom_minimum_size = Vector2(0, 44)
 layout_mode = 2
 theme_type_variation = &"RookframeSecondaryButton"
 text = "Inventory"
 
-[node name="Duplicate" type="Button" parent="Layout/Body/Content/ActionBar"]
+[node name="Duplicate" type="Button" parent="Layout/Body/Content/ActionBar/Desktop"]
 custom_minimum_size = Vector2(0, 44)
 layout_mode = 2
 theme_type_variation = &"RookframeSecondaryButton"
 text = "Duplicate"
 
-[node name="PlaceRook" type="Button" parent="Layout/Body/Content/ActionBar"]
+[node name="PlaceRook" type="Button" parent="Layout/Body/Content/ActionBar/Desktop"]
 custom_minimum_size = Vector2(0, 44)
 layout_mode = 2
 theme_type_variation = &"RookframePrimaryButton"
 text = "Place Rook"
 
-[node name="SaveChanges" type="Button" parent="Layout/Body/Content/ActionBar"]
+[node name="SaveChanges" type="Button" parent="Layout/Body/Content/ActionBar/Desktop"]
 custom_minimum_size = Vector2(0, 44)
 layout_mode = 2
 theme_type_variation = &"RookframePrimaryButton"
 text = "Save changes"
 
-[node name="AddItem" type="Button" parent="Layout/Body/Content/ActionBar"]
+[node name="AddItem" type="Button" parent="Layout/Body/Content/ActionBar/Desktop"]
 custom_minimum_size = Vector2(0, 44)
 layout_mode = 2
 theme_type_variation = &"RookframePrimaryButton"
 text = "Add item"
 
-[node name="Back" type="Button" parent="Layout/Body/Content/ActionBar"]
+[node name="Back" type="Button" parent="Layout/Body/Content/ActionBar/Desktop"]
 custom_minimum_size = Vector2(0, 44)
 layout_mode = 2
+theme_type_variation = &"RookframeSecondaryButton"
+text = "Back"
+
+[node name="Compact" type="VBoxContainer" parent="Layout/Body/Content/ActionBar"]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 6
+
+[node name="RowOne" type="HBoxContainer" parent="Layout/Body/Content/ActionBar/Compact"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 8
+
+[node name="CreateCreature" type="Button" parent="Layout/Body/Content/ActionBar/Compact/RowOne"]
+custom_minimum_size = Vector2(0, 44)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_type_variation = &"RookframePrimaryButton"
+text = "Create Creature"
+disabled = true
+
+[node name="EditCreature" type="Button" parent="Layout/Body/Content/ActionBar/Compact/RowOne"]
+custom_minimum_size = Vector2(0, 44)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_type_variation = &"RookframeSecondaryButton"
+text = "Edit private sheet"
+
+[node name="RowTwo" type="HBoxContainer" parent="Layout/Body/Content/ActionBar/Compact"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 8
+
+[node name="CreatureInventory" type="Button" parent="Layout/Body/Content/ActionBar/Compact/RowTwo"]
+custom_minimum_size = Vector2(0, 44)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_type_variation = &"RookframeSecondaryButton"
+text = "Inventory"
+
+[node name="Duplicate" type="Button" parent="Layout/Body/Content/ActionBar/Compact/RowTwo"]
+custom_minimum_size = Vector2(0, 44)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_type_variation = &"RookframeSecondaryButton"
+text = "Duplicate"
+
+[node name="RowThree" type="HBoxContainer" parent="Layout/Body/Content/ActionBar/Compact"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 8
+
+[node name="PlaceRook" type="Button" parent="Layout/Body/Content/ActionBar/Compact/RowThree"]
+custom_minimum_size = Vector2(0, 44)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_type_variation = &"RookframePrimaryButton"
+text = "Place Rook"
+
+[node name="SaveChanges" type="Button" parent="Layout/Body/Content/ActionBar/Compact/RowThree"]
+custom_minimum_size = Vector2(0, 44)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_type_variation = &"RookframePrimaryButton"
+text = "Save changes"
+
+[node name="RowFour" type="HBoxContainer" parent="Layout/Body/Content/ActionBar/Compact"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 8
+
+[node name="AddItem" type="Button" parent="Layout/Body/Content/ActionBar/Compact/RowFour"]
+custom_minimum_size = Vector2(0, 44)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_type_variation = &"RookframePrimaryButton"
+text = "Add item"
+
+[node name="Back" type="Button" parent="Layout/Body/Content/ActionBar/Compact/RowFour"]
+custom_minimum_size = Vector2(0, 44)
+layout_mode = 2
+size_flags_horizontal = 3
 theme_type_variation = &"RookframeSecondaryButton"
 text = "Back"
 
@@ -278,5 +413,3 @@ layout_mode = 2
 theme_type_variation = &"RookframeMeta"
 text = ""
 autowrap_mode = 2
-
-[connection signal="pressed" from="Layout/Body/Content/ActionBar/Back" to="." method="_on_back"]

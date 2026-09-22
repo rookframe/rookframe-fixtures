@@ -12,10 +12,13 @@ var _busy := false
 
 @onready var _header_title := get_node(^"Layout/Header/Title") as Label
 @onready var _header_subtitle := get_node(^"Layout/Header/Subtitle") as Label
-@onready var _route_creatures := get_node(^"Layout/Header/Routes/Creatures") as Button
-@onready var _route_creature := get_node(^"Layout/Header/Routes/Creature") as Button
-@onready var _route_edit := get_node(^"Layout/Header/Routes/EditCreature") as Button
-@onready var _route_inventory := get_node(^"Layout/Header/Routes/CreatureInventory") as Button
+@onready var _routes = get_node(^"Layout/Header/Routes")
+@onready var _routes_desktop := get_node(^"Layout/Header/Routes/Desktop") as Control
+@onready var _routes_compact := get_node(^"Layout/Header/Routes/Compact") as Control
+var _route_creatures: Button
+var _route_creature: Button
+var _route_edit: Button
+var _route_inventory: Button
 @onready var _search = get_node(^"Layout/Body/Content/Search")
 @onready var _definition_heading := get_node(^"Layout/Body/Content/DefinitionHeading") as Label
 @onready var _definition_list := get_node(^"Layout/Body/Content/DefinitionList") as VBoxContainer
@@ -38,18 +41,53 @@ var _busy := false
 @onready var _inventory_items := get_node(^"Layout/Body/Content/Detail/Inventory/Items") as VBoxContainer
 @onready var _inventory_summary: StructuredRow = get_node(^"Layout/Body/Content/Detail/Inventory/Items/InventorySummary")
 @onready var _action_bar = get_node(^"Layout/Body/Content/ActionBar")
-@onready var _create_button := get_node(^"Layout/Body/Content/ActionBar/CreateCreature") as Button
-@onready var _edit_button := get_node(^"Layout/Body/Content/ActionBar/EditCreature") as Button
-@onready var _inventory_button := get_node(^"Layout/Body/Content/ActionBar/CreatureInventory") as Button
-@onready var _duplicate_button := get_node(^"Layout/Body/Content/ActionBar/Duplicate") as Button
-@onready var _place_button := get_node(^"Layout/Body/Content/ActionBar/PlaceRook") as Button
-@onready var _save_button := get_node(^"Layout/Body/Content/ActionBar/SaveChanges") as Button
-@onready var _add_item_button := get_node(^"Layout/Body/Content/ActionBar/AddItem") as Button
-@onready var _back_button := get_node(^"Layout/Body/Content/ActionBar/Back") as Button
+@onready var _action_desktop := get_node(^"Layout/Body/Content/ActionBar/Desktop") as Control
+@onready var _action_compact := get_node(^"Layout/Body/Content/ActionBar/Compact") as Control
+var _create_button: Button
+var _edit_button: Button
+var _inventory_button: Button
+var _duplicate_button: Button
+var _place_button: Button
+var _save_button: Button
+var _add_item_button: Button
+var _back_button: Button
 @onready var _status := get_node(^"Layout/Status") as Label
 
 
 func ready() -> void:
+	if sdk == null:
+		_set_status("Install the published MÖRK BORG System to load Creature definitions.", true)
+		return
+	var compact := not sdk.presentation_experience().is_desktop
+	_routes_desktop.visible = not compact
+	_routes_compact.visible = compact
+	_action_desktop.visible = not compact
+	_action_compact.visible = compact
+	var route_first_row: Node = _routes.get_node(^"Compact/RowOne") if compact else _routes.get_node(^"Desktop")
+	var route_second_row: Node = _routes.get_node(^"Compact/RowTwo") if compact else route_first_row
+	_route_creatures = route_first_row.get_node(^"Creatures") as Button
+	_route_creature = route_first_row.get_node(^"Creature") as Button
+	_route_edit = route_second_row.get_node(^"EditCreature") as Button
+	_route_inventory = route_second_row.get_node(^"CreatureInventory") as Button
+	var action_group: Node = _action_bar.get_node(^"Compact") if compact else _action_bar.get_node(^"Desktop")
+	if compact:
+		_create_button = action_group.get_node(^"RowOne/CreateCreature") as Button
+		_edit_button = action_group.get_node(^"RowOne/EditCreature") as Button
+		_inventory_button = action_group.get_node(^"RowTwo/CreatureInventory") as Button
+		_duplicate_button = action_group.get_node(^"RowTwo/Duplicate") as Button
+		_place_button = action_group.get_node(^"RowThree/PlaceRook") as Button
+		_save_button = action_group.get_node(^"RowThree/SaveChanges") as Button
+		_add_item_button = action_group.get_node(^"RowFour/AddItem") as Button
+		_back_button = action_group.get_node(^"RowFour/Back") as Button
+	else:
+		_create_button = action_group.get_node(^"CreateCreature") as Button
+		_edit_button = action_group.get_node(^"EditCreature") as Button
+		_inventory_button = action_group.get_node(^"CreatureInventory") as Button
+		_duplicate_button = action_group.get_node(^"Duplicate") as Button
+		_place_button = action_group.get_node(^"PlaceRook") as Button
+		_save_button = action_group.get_node(^"SaveChanges") as Button
+		_add_item_button = action_group.get_node(^"AddItem") as Button
+		_back_button = action_group.get_node(^"Back") as Button
 	for button in [
 		_route_creatures,
 		_route_creature,
@@ -70,9 +108,7 @@ func ready() -> void:
 	_save_button.pressed.connect(_save_creature)
 	_place_button.pressed.connect(_place_rook)
 	_add_item_button.pressed.connect(_add_item)
-	if sdk == null:
-		_set_status("Install the published MÖRK BORG System to load Creature definitions.", true)
-		return
+	_back_button.pressed.connect(_on_back)
 	if sdk.world_changed.is_connected(_refresh_world) == false:
 		sdk.world_changed.connect(_refresh_world)
 	_refresh_world()

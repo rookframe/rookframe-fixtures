@@ -3,7 +3,7 @@
   "id": "0404eb56-ef27-4b1a-8385-27e4e3ec907e",
   "kind": "system-extension",
   "name": "M\u00d6RK BORG System",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "summary": "M\u00d6RK BORG Creature Actors and private encounter sheets.",
   "sdk": {
     "edition": "2029",
@@ -109,6 +109,6 @@
       "compatibleVersions": ">=1.0.0 <2.0.0"
     }
   ],
-  "manifest": "https://github.com/rookframe/rookframe-fixtures/releases/download/v1.0.6/0404eb56-ef27-4b1a-8385-27e4e3ec907e-1.0.6.json",
-  "download": "https://github.com/rookframe/rookframe-fixtures/releases/download/v1.0.6/0404eb56-ef27-4b1a-8385-27e4e3ec907e-1.0.6.rookpackage"
+  "manifest": "https://github.com/rookframe/rookframe-fixtures/releases/download/v1.0.7/0404eb56-ef27-4b1a-8385-27e4e3ec907e-1.0.7.json",
+  "download": "https://github.com/rookframe/rookframe-fixtures/releases/download/v1.0.7/0404eb56-ef27-4b1a-8385-27e4e3ec907e-1.0.7.rookpackage"
 }
