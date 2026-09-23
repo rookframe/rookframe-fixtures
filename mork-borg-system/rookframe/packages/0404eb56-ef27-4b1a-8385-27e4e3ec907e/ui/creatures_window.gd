@@ -565,6 +565,10 @@ func _place_rook() -> void:
 	if not miniatures.ok or miniatures.items.is_empty():
 		_set_status("Choose a published Miniature Package before placing this Rook.", true)
 		return
+	var label := _selected_actor.public_label.strip_edges()
+	if label.is_empty():
+		_set_busy(false, "Choose a public name before placing this Rook.", true)
+		return
 	_set_busy(true, "Placing Rook and assigning its public identity…")
 	var created: SDK.RookResult = await sdk.rooks.create(miniatures.items[0].reference, SDK.SceneId.new("main"), Vector2(0, 0))
 	if not created.ok:
@@ -578,23 +582,9 @@ func _place_rook() -> void:
 			link_message += " Cleanup failed: %s" % deleted.message
 		_set_busy(false, link_message, true)
 		return
-	var label := _selected_actor.public_label
-	if label.is_empty():
-		label = str(_private_name.get("value")).strip_edges()
-	var identity: SDK.OperationResult = await sdk.public_identities.assign(_selected_actor.id, label)
-	if identity.ok:
-		_selected_actor.public_label = label
-		_refresh_world()
-		_set_busy(false, "Rook placed with public identity: %s." % label)
-	else:
-		var unlinked: SDK.OperationResult = await sdk.rooks.unlink(created.rook.id)
-		var deleted: SDK.OperationResult = await sdk.rooks.delete(created.rook.id)
-		var identity_message := identity.message
-		if not unlinked.ok:
-			identity_message += " Link cleanup failed: %s" % unlinked.message
-		if not deleted.ok:
-			identity_message += " Rook cleanup failed: %s" % deleted.message
-		_set_busy(false, identity_message, true)
+	_selected_actor.public_label = label
+	_refresh_world()
+	_set_busy(false, "Rook placed with public identity: %s." % label)
 
 
 func _add_item() -> void:
