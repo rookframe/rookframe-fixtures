@@ -145,7 +145,10 @@ func _apply_density() -> void:
 	_sheet_grid.vertical = _compact
 	_sheet_grid.add_theme_constant_override("separation", 12 if _compact else 20)
 	_content.custom_minimum_size = Vector2(0, 0) if _compact else Vector2(0, 520)
-	_brand.visible = not _compact
+	# The managed host chrome already identifies the Package. Keep the body
+	# focused on the active route so desktop does not repeat that identity above
+	# the actor title.
+	_brand.visible = false
 	_header_subtitle.visible = not _compact
 	_header_title.visible = true
 	_status.visible = not _compact
