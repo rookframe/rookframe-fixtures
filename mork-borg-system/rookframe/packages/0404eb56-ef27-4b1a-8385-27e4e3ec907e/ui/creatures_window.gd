@@ -294,8 +294,10 @@ func _detail_title_if_present(private_name: String) -> void:
 	var summary := get_node(^"Layout/Body/Content/Detail/Summary") as Label
 	title.text = private_name.to_upper()
 	summary.text = "Private Creature sheet · GM"
-	title.visible = not _compact
-	summary.visible = not _compact
+	# The host/header already owns the route title. Keep the sheet body focused
+	# on its stats and sections at every profile, including desktop.
+	title.visible = false
+	summary.visible = false
 
 
 func _set_window_title(title: String) -> void:
@@ -488,12 +490,18 @@ func _duplicate_creature() -> void:
 	if not source.ok or source.actor == null:
 		_set_status(source.message if not source.ok else "Private Creature data is unavailable.", true)
 		return
-	if _selected_definition == null:
-		_set_status("Select an immutable Creature definition before duplicating.", true)
+	var definition_id: String = str(source.actor.data.get("definition_id", "")).strip_edges()
+	var definition: SDK.ContentEntry
+	for entry in _definitions:
+		if entry.reference.local_id == definition_id:
+			definition = entry
+			break
+	if definition == null:
+		_set_status("The saved Creature definition is unavailable; duplicate was not created.", true)
 		return
-	var data: Dictionary = source.actor.data
+	var data: Dictionary = source.actor.data.duplicate(true)
 	_set_busy(true, "Duplicating private Creature sheet…")
-	var result: SDK.ActorResult = await sdk.actors.create(_selected_definition.reference, data)
+	var result: SDK.ActorResult = await sdk.actors.create(definition.reference, data)
 	_set_busy(false, result.message if not result.ok else "Creature duplicated.", not result.ok)
 	if result.ok:
 		_selected_actor = result.actor
@@ -508,7 +516,9 @@ func _save_creature() -> void:
 	if not source.ok or source.actor == null:
 		_set_status(source.message if not source.ok else "Private Creature data is unavailable.", true)
 		return
-	var data: Dictionary = source.actor.data
+	var original_data: Dictionary = source.actor.data.duplicate(true)
+	var data: Dictionary = original_data.duplicate(true)
+	var original_label: String = source.actor.public_label
 	data["name"] = str(_private_name.get("value")).strip_edges()
 	data["hit_points"] = int(_hit_points.get("value"))
 	data["maximum_hit_points"] = int(_maximum_hit_points.get("value"))
@@ -523,8 +533,16 @@ func _save_creature() -> void:
 		var label := str(_public_label.get("value")).strip_edges()
 		var identity: SDK.OperationResult = await sdk.public_identities.assign(_selected_actor.id, label)
 		if not identity.ok:
+			var rollback: SDK.ActorResult = await sdk.actors.update(_selected_actor.id, original_data)
+			var restored_identity: SDK.OperationResult
+			if rollback.ok:
+				restored_identity = await sdk.public_identities.assign(_selected_actor.id, original_label)
 			updated.ok = false
 			updated.message = identity.message
+			if not rollback.ok:
+				updated.message += " Actor rollback failed: %s" % rollback.message
+			elif not restored_identity.ok:
+				updated.message += " Identity rollback failed: %s" % restored_identity.message
 		else:
 			updated.actor.public_label = label
 	_set_busy(false, updated.message if not updated.ok else "Creature changes saved.", not updated.ok)
@@ -548,7 +566,11 @@ func _place_rook() -> void:
 		return
 	var linked: SDK.OperationResult = await sdk.rooks.link(created.rook.id, _selected_actor.id)
 	if not linked.ok:
-		_set_busy(false, linked.message, true)
+		var deleted: SDK.OperationResult = await sdk.rooks.delete(created.rook.id)
+		var link_message := linked.message
+		if not deleted.ok:
+			link_message += " Cleanup failed: %s" % deleted.message
+		_set_busy(false, link_message, true)
 		return
 	var label := _selected_actor.public_label
 	if label.is_empty():
@@ -559,7 +581,14 @@ func _place_rook() -> void:
 		_refresh_world()
 		_set_busy(false, "Rook placed with public identity: %s." % label)
 	else:
-		_set_busy(false, identity.message, true)
+		var unlinked: SDK.OperationResult = await sdk.rooks.unlink(created.rook.id)
+		var deleted: SDK.OperationResult = await sdk.rooks.delete(created.rook.id)
+		var identity_message := identity.message
+		if not unlinked.ok:
+			identity_message += " Link cleanup failed: %s" % unlinked.message
+		if not deleted.ok:
+			identity_message += " Rook cleanup failed: %s" % deleted.message
+		_set_busy(false, identity_message, true)
 
 
 func _add_item() -> void:
