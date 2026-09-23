@@ -9,6 +9,7 @@ var _actors: Array[SDK.Actor] = []
 var _selected_definition: SDK.ContentEntry
 var _selected_actor: SDK.Actor
 var _busy := false
+var _preserve_error := false
 
 @onready var _layout := get_node(^"Layout") as VBoxContainer
 @onready var _header := get_node(^"Layout/Header") as VBoxContainer
@@ -163,7 +164,7 @@ func _apply_density() -> void:
 
 
 func _refresh_world() -> void:
-	if _busy or sdk == null:
+	if _busy or _preserve_error or sdk == null:
 		return
 	_set_status("Loading Creature catalogue…")
 	var content: SDK.ContentEntryListResult = sdk.content.list(SDK.ContentKind.Value.ACTOR_DEFINITION)
@@ -384,6 +385,7 @@ func _inventory_row(attack: Dictionary, equipped: bool) -> Control:
 
 
 func _show_route(route: String) -> void:
+	_preserve_error = false
 	_route = route
 	var catalogue := route == "creatures"
 	var sheet := route == "creature"
@@ -610,6 +612,7 @@ func _on_back() -> void:
 
 func _set_busy(value: bool, message: String, error: bool = false) -> void:
 	_busy = value
+	_preserve_error = not value and error
 	_set_status(message, error)
 	_create_button.disabled = value or _selected_definition == null
 	_catalogue_create.disabled = value or _selected_definition == null
