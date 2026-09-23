@@ -394,6 +394,8 @@ func _show_route(route: String) -> void:
 	_route_creature.button_pressed = sheet
 	_route_edit.button_pressed = edit
 	_route_inventory.button_pressed = inventory
+	_header_title.visible = not _compact
+	_header_subtitle.visible = not _compact
 	_catalogue_bar.visible = catalogue
 	_detail.visible = sheet or edit or inventory
 	_search.visible = catalogue
@@ -429,7 +431,6 @@ func _show_route(route: String) -> void:
 		_header_subtitle.visible = not _compact
 		_set_status("Ready — immutable definitions are available to the GM.")
 	elif _selected_actor != null:
-		_header_title.visible = true
 		_render_actor()
 	if edit:
 		_header_title.text = "EDIT CREATURE"
@@ -515,6 +516,7 @@ func _save_creature() -> void:
 	_set_busy(true, "Saving private Creature sheet…")
 	# Keep the pending state observable for one rendered frame before the
 	# authority update completes.
+	await get_tree().process_frame
 	await get_tree().process_frame
 	var updated: SDK.ActorResult = await sdk.actors.update(_selected_actor.id, data)
 	if updated.ok and sdk.context().is_gm:
