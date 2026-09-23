@@ -37,13 +37,14 @@ var _route_inventory: Button
 @onready var _morale_metric := get_node(^"Layout/Body/Content/Detail/Stats/Morale/Content/Value") as Label
 @onready var _protection_metric := get_node(^"Layout/Body/Content/Detail/Stats/Protection/Content/Value") as Label
 @onready var _protection_label := get_node(^"Layout/Body/Content/Detail/Stats/Protection/Content/Label") as Label
-@onready var _identity_section := get_node(^"Layout/Body/Content/Detail/IdentitySection") as Control
-@onready var _public_identity := get_node(^"Layout/Body/Content/Detail/IdentitySection/Content/BodySlot/PublicIdentity") as Label
-@onready var _equipment_section := get_node(^"Layout/Body/Content/Detail/EquipmentSection") as Control
-@onready var _equipment_list := get_node(^"Layout/Body/Content/Detail/EquipmentSection/Content/BodySlot/EquipmentList") as VBoxContainer
-@onready var _rules_section := get_node(^"Layout/Body/Content/Detail/SpecialRulesSection") as Control
-@onready var _rules := get_node(^"Layout/Body/Content/Detail/SpecialRulesSection/Content/BodySlot/Rules") as Label
-@onready var _access_section := get_node(^"Layout/Body/Content/Detail/AccessSection") as Control
+@onready var _sheet_grid := get_node(^"Layout/Body/Content/Detail/SheetGrid") as BoxContainer
+@onready var _identity_section := get_node(^"Layout/Body/Content/Detail/SheetGrid/Left/IdentitySection") as Control
+@onready var _public_identity := get_node(^"Layout/Body/Content/Detail/SheetGrid/Left/IdentitySection/Content/BodySlot/PublicIdentity") as Label
+@onready var _equipment_section := get_node(^"Layout/Body/Content/Detail/SheetGrid/Left/EquipmentSection") as Control
+@onready var _equipment_list := get_node(^"Layout/Body/Content/Detail/SheetGrid/Left/EquipmentSection/Content/BodySlot/EquipmentList") as VBoxContainer
+@onready var _rules_section := get_node(^"Layout/Body/Content/Detail/SheetGrid/Right/SpecialRulesSection") as Control
+@onready var _rules := get_node(^"Layout/Body/Content/Detail/SheetGrid/Right/SpecialRulesSection/Content/BodySlot/Rules") as Label
+@onready var _access_section := get_node(^"Layout/Body/Content/Detail/SheetGrid/Right/AccessSection") as Control
 @onready var _edit_fields := get_node(^"Layout/Body/Content/Detail/EditFields") as VBoxContainer
 @onready var _private_name = get_node(^"Layout/Body/Content/Detail/EditFields/PrivateName")
 @onready var _public_label = get_node(^"Layout/Body/Content/Detail/EditFields/PublicLabel")
@@ -52,7 +53,9 @@ var _route_inventory: Button
 @onready var _morale = get_node(^"Layout/Body/Content/Detail/EditFields/Morale")
 @onready var _inventory := get_node(^"Layout/Body/Content/Detail/Inventory") as Control
 @onready var _inventory_items := get_node(^"Layout/Body/Content/Detail/Inventory/Content/BodySlot/Items") as VBoxContainer
-@onready var _action_bar := get_node(^"Layout/Body/Content/Detail/ActionBar") as Control
+@onready var _inventory_carried := get_node(^"Layout/Body/Content/Detail/Inventory/Content/BodySlot/CarriedItems") as VBoxContainer
+@onready var _inventory_add := get_node(^"Layout/Body/Content/Detail/Inventory/Content/Header/AddItem") as Button
+@onready var _action_bar := get_node(^"Layout/Body/Content/Detail/SheetGrid/Right/ActionBar") as Control
 @onready var _catalogue_bar := get_node(^"Layout/CatalogueBar") as Control
 @onready var _status := get_node(^"Layout/Status") as Label
 var _create_button: Button
@@ -104,6 +107,7 @@ func ready() -> void:
 		_place_button,
 		_save_button,
 		_add_item_button,
+		_inventory_add,
 		_back_button,
 		_catalogue_create,
 		_catalogue_back,
@@ -123,6 +127,7 @@ func ready() -> void:
 	_save_button.pressed.connect(_save_creature)
 	_place_button.pressed.connect(_place_rook)
 	_add_item_button.pressed.connect(_add_item)
+	_inventory_add.pressed.connect(_add_item)
 	_back_button.pressed.connect(_on_back)
 	_catalogue_back.pressed.connect(_on_back)
 	if sdk.world_changed.is_connected(_refresh_world) == false:
@@ -137,6 +142,8 @@ func _apply_density() -> void:
 	_header.add_theme_constant_override("separation", 2 if _compact else 4)
 	_content.add_theme_constant_override("separation", 8 if _compact else 12)
 	_detail.add_theme_constant_override("separation", 8 if _compact else 12)
+	_sheet_grid.vertical = _compact
+	_sheet_grid.add_theme_constant_override("separation", 12 if _compact else 20)
 	_content.custom_minimum_size = Vector2(0, 0) if _compact else Vector2(0, 520)
 	_brand.visible = not _compact
 	_header_subtitle.visible = not _compact
@@ -145,9 +152,9 @@ func _apply_density() -> void:
 	_body.add_theme_constant_override("scrollbar_width", 8 if _compact else 12)
 	_stats.add_theme_constant_override("separation", 2 if _compact else 4)
 	if _compact:
-		get_node(^"Layout/Body/Content/Detail/IdentitySection/Content/Header/Description").visible = false
-		get_node(^"Layout/Body/Content/Detail/EquipmentSection/Content/Header/Description").visible = false
-		get_node(^"Layout/Body/Content/Detail/AccessSection/Content/Header/Description").visible = false
+		get_node(^"Layout/Body/Content/Detail/SheetGrid/Left/IdentitySection/Content/Header/Description").visible = false
+		get_node(^"Layout/Body/Content/Detail/SheetGrid/Left/EquipmentSection/Content/Header/Description").visible = false
+		get_node(^"Layout/Body/Content/Detail/SheetGrid/Right/AccessSection/Content/Header/Description").visible = false
 		get_node(^"Layout/Body/Content/Detail/Inventory/Content/Header/Description").visible = false
 		_protection_label.text = "ARMOR"
 
@@ -256,6 +263,7 @@ func _render_actor() -> void:
 
 	_header_title.text = private_name.to_upper()
 	_header_subtitle.text = "Private Creature sheet · GM"
+	_set_window_title(private_name)
 	if _compact:
 		_header_subtitle.visible = false
 	_detail_title_if_present(private_name)
@@ -288,6 +296,14 @@ func _detail_title_if_present(private_name: String) -> void:
 	summary.text = "Private Creature sheet · GM"
 
 
+func _set_window_title(title: String) -> void:
+	if sdk == null:
+		return
+	var result: SDK.OperationResult = sdk.windows.set_title(title)
+	if not result.ok:
+		_set_status(result.message, true)
+
+
 func _render_equipment(attacks: Array) -> void:
 	for child in _equipment_list.get_children():
 		child.queue_free()
@@ -314,6 +330,8 @@ func _render_equipment(attacks: Array) -> void:
 func _render_inventory(attacks: Array) -> void:
 	for child in _inventory_items.get_children():
 		child.queue_free()
+	for child in _inventory_carried.get_children():
+		child.queue_free()
 	if attacks.is_empty():
 		var empty := Label.new()
 		empty.text = "No private items recorded."
@@ -322,22 +340,40 @@ func _render_inventory(attacks: Array) -> void:
 		return
 	for index in range(attacks.size()):
 		var attack: Dictionary = attacks[index]
-		var row := Button.new()
-		row.custom_minimum_size = Vector2(0, 54)
-		row.alignment = 0
-		row.focus_mode = 2
-		row.theme_type_variation = "RookframeSecondaryButton"
-		var state := "Equipped" if index == 0 else "Carried"
-		var attack_name: String = attack.get("name", "Item")
-		var attack_dice: String = attack.get("dice", "—")
-		var action := "Attack" if index == 0 else "Equip"
-		row.text = "%s\n%s · %s · %s" % [
-			attack_name,
-			attack_dice,
-			state,
-			action,
-		]
-		_inventory_items.add_child(row)
+		var target := _inventory_items if index == 0 else _inventory_carried
+		target.add_child(_inventory_row(attack, index == 0))
+	if _inventory_carried.get_child_count() == 0:
+		var carried_empty := Label.new()
+		carried_empty.text = "No carried items recorded."
+		carried_empty.theme_type_variation = "RookframeMeta"
+		_inventory_carried.add_child(carried_empty)
+
+
+func _inventory_row(attack: Dictionary, equipped: bool) -> Control:
+	var row := HBoxContainer.new()
+	row.custom_minimum_size = Vector2(0, 58)
+	row.add_theme_constant_override("separation", 8)
+	var details := VBoxContainer.new()
+	details.size_flags_horizontal = 3
+	var attack_name: String = attack.get("name", "Item")
+	var attack_dice: String = attack.get("dice", "—")
+	var item_label := Label.new()
+	item_label.text = attack_name
+	item_label.theme_type_variation = "RookframeBody"
+	var detail := Label.new()
+	detail.text = "%s · %s" % [attack_dice, "Equipped" if equipped else "Carried"]
+	detail.theme_type_variation = "RookframeMeta"
+	details.add_child(item_label)
+	details.add_child(detail)
+	row.add_child(details)
+	var action := Button.new()
+	action.custom_minimum_size = Vector2(96, 44)
+	action.focus_mode = 2
+	action.theme_type_variation = "RookframeSecondaryButton"
+	action.text = "Attack" if equipped else "Equip"
+	action.pressed.connect(_set_status.bind("Inventory action is ready for the private Creature sheet."))
+	row.add_child(action)
+	return row
 
 
 func _show_route(route: String) -> void:
@@ -346,6 +382,7 @@ func _show_route(route: String) -> void:
 	var sheet := route == "creature"
 	var edit := route == "edit-creature"
 	var inventory := route == "creature-inventory"
+	_sheet_grid.vertical = _compact or edit
 	_routes.visible = not catalogue and not edit
 	_route_creatures.visible = false
 	_route_creature.visible = not catalogue
@@ -367,19 +404,21 @@ func _show_route(route: String) -> void:
 	_access_section.visible = sheet
 	_edit_fields.visible = edit
 	_inventory.visible = inventory
-	_action_bar.visible = sheet or edit or inventory
+	_action_bar.visible = sheet or edit
 	_create_button.visible = false
 	_edit_button.visible = sheet and sdk.context().is_gm
 	_inventory_button.visible = sheet
 	_duplicate_button.visible = sheet and sdk.context().is_gm
 	_place_button.visible = sheet and sdk.context().is_gm
 	_save_button.visible = edit and sdk.context().is_gm
-	_add_item_button.visible = inventory and sdk.context().is_gm
-	_back_button.visible = inventory or edit
-	_back_button.text = "Cancel" if edit else "Back"
+	_add_item_button.visible = false
+	_inventory_add.visible = inventory and sdk.context().is_gm
+	_back_button.visible = edit
+	_back_button.text = "Cancel"
 	if catalogue:
 		_header_title.text = "CREATURES"
 		_header_subtitle.text = "Immutable definitions · private Actors"
+		_set_window_title("CREATURES")
 		_header_title.visible = not _compact
 		_header_subtitle.visible = not _compact
 		_set_status("Ready — immutable definitions are available to the GM.")
@@ -389,11 +428,13 @@ func _show_route(route: String) -> void:
 	if edit:
 		_header_title.text = "EDIT CREATURE"
 		_header_subtitle.text = "Private values · public name"
+		_set_window_title("EDIT CREATURE")
 	elif inventory:
 		var selected_data: Dictionary = _selected_actor.data
 		var inventory_name: String = selected_data.get("name", "CREATURE")
 		_header_title.text = inventory_name.to_upper()
 		_header_subtitle.text = "Private inventory · GM"
+		_set_window_title(inventory_name)
 	_set_status(_status.text)
 
 
@@ -505,7 +546,7 @@ func _place_rook() -> void:
 	if identity.ok:
 		_selected_actor.public_label = label
 		_refresh_world()
-		_set_busy(false, "Rook placed with public identity.")
+		_set_busy(false, "Rook placed with public identity: %s." % label)
 	else:
 		_set_busy(false, identity.message, true)
 
@@ -532,6 +573,7 @@ func _set_busy(value: bool, message: String, error: bool = false) -> void:
 	_save_button.disabled = value
 	_place_button.disabled = value
 	_add_item_button.disabled = value
+	_inventory_add.disabled = value
 
 
 func _set_status(message: String, error: bool = false) -> void:

@@ -3,6 +3,7 @@ extends RefCounted
 
 const WorldCapability = preload("res://rookframe/packages/0404eb56-ef27-4b1a-8385-27e4e3ec907e/sdk/world_capability.gd")
 const ExtensionSurface = preload("res://rookframe/packages/0404eb56-ef27-4b1a-8385-27e4e3ec907e/sdk/extension_surface.gd")
+const OperationResult = preload("res://rookframe/packages/0404eb56-ef27-4b1a-8385-27e4e3ec907e/sdk/operation_result.gd")
 
 var _host: Object
 func _init(host: Object) -> void:
@@ -10,8 +11,13 @@ func _init(host: Object) -> void:
 
 func open(surface: ExtensionSurface) -> void:
 	_host.OpenWindowWithPresentation(surface.scene, surface.initial_presentation())
+
+
+## Update the managed window chrome to the current authored route identity.
+## Rookframe owns the host chrome; Packages provide only a bounded title value.
+func set_title(title: String) -> OperationResult:
+	return OperationResult.new(_host.SetWindowTitle(title))
 const ActorId = preload("res://rookframe/packages/0404eb56-ef27-4b1a-8385-27e4e3ec907e/sdk/actor_id.gd")
-const OperationResult = preload("res://rookframe/packages/0404eb56-ef27-4b1a-8385-27e4e3ec907e/sdk/operation_result.gd")
 
 
 ## Open this Actor's view and deliver its identity to Window.opened(actor).

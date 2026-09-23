@@ -89,35 +89,35 @@ text = "Inventory"
 visible = false
 layout_mode = 2
 size_flags_horizontal = 3
-theme_override_constants/separation = 8
+theme_override_constants/separation = 0
 
 [node name="Creatures" type="Button" parent="Layout/Header/Routes/Compact"]
 custom_minimum_size = Vector2(0, 44)
 layout_mode = 2
 size_flags_horizontal = 3
-theme_type_variation = &"RookframeSecondaryButton"
-text = "List"
+theme_type_variation = &"RookframeTabButton"
+text = "Creatures"
 
 [node name="Creature" type="Button" parent="Layout/Header/Routes/Compact"]
 custom_minimum_size = Vector2(0, 44)
 layout_mode = 2
 size_flags_horizontal = 3
-theme_type_variation = &"RookframeSecondaryButton"
+theme_type_variation = &"RookframeTabButton"
 text = "Creature"
 
 [node name="EditCreature" type="Button" parent="Layout/Header/Routes/Compact"]
 custom_minimum_size = Vector2(0, 44)
 layout_mode = 2
 size_flags_horizontal = 3
-theme_type_variation = &"RookframeSecondaryButton"
+theme_type_variation = &"RookframeTabButton"
 text = "Edit"
 
 [node name="CreatureInventory" type="Button" parent="Layout/Header/Routes/Compact"]
 custom_minimum_size = Vector2(0, 44)
 layout_mode = 2
 size_flags_horizontal = 3
-theme_type_variation = &"RookframeSecondaryButton"
-text = "Items"
+theme_type_variation = &"RookframeTabButton"
+text = "Inventory"
 
 [node name="Body" type="ScrollContainer" parent="Layout"]
 layout_mode = 2
@@ -251,192 +251,208 @@ layout_mode = 2
 theme_type_variation = &"RookframeValue"
 text = "−d2"
 
-[node name="IdentitySection" type="PanelContainer" parent="Layout/Body/Content/Detail"]
+[node name="SheetGrid" type="BoxContainer" parent="Layout/Body/Content/Detail"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 20
+vertical = false
+
+[node name="Left" type="VBoxContainer" parent="Layout/Body/Content/Detail/SheetGrid"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 12
+
+[node name="Right" type="VBoxContainer" parent="Layout/Body/Content/Detail/SheetGrid"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 12
+
+[node name="IdentitySection" type="PanelContainer" parent="Layout/Body/Content/Detail/SheetGrid/Left"]
 layout_mode = 2
 theme_type_variation = &"RookframeSection"
 
-[node name="Content" type="VBoxContainer" parent="Layout/Body/Content/Detail/IdentitySection"]
+[node name="Content" type="VBoxContainer" parent="Layout/Body/Content/Detail/SheetGrid/Left/IdentitySection"]
 layout_mode = 2
 theme_override_constants/separation = 8
 
-[node name="Header" type="HBoxContainer" parent="Layout/Body/Content/Detail/IdentitySection/Content"]
+[node name="Header" type="HBoxContainer" parent="Layout/Body/Content/Detail/SheetGrid/Left/IdentitySection/Content"]
 layout_mode = 2
 
-[node name="Title" type="Label" parent="Layout/Body/Content/Detail/IdentitySection/Content/Header"]
+[node name="Title" type="Label" parent="Layout/Body/Content/Detail/SheetGrid/Left/IdentitySection/Content/Header"]
 layout_mode = 2
 theme_type_variation = &"RookframeHeading"
 text = "PUBLIC IDENTITY"
 
-[node name="Description" type="Label" parent="Layout/Body/Content/Detail/IdentitySection/Content/Header"]
+[node name="Description" type="Label" parent="Layout/Body/Content/Detail/SheetGrid/Left/IdentitySection/Content/Header"]
 layout_mode = 2
 theme_type_variation = &"RookframeMeta"
 text = "Players see the chosen public name on the tabletop."
 
-[node name="BodySlot" type="VBoxContainer" parent="Layout/Body/Content/Detail/IdentitySection/Content"]
+[node name="BodySlot" type="VBoxContainer" parent="Layout/Body/Content/Detail/SheetGrid/Left/IdentitySection/Content"]
 layout_mode = 2
 theme_override_constants/separation = 4
 
-[node name="PublicNameLabel" type="Label" parent="Layout/Body/Content/Detail/IdentitySection/Content/BodySlot"]
+[node name="PublicNameLabel" type="Label" parent="Layout/Body/Content/Detail/SheetGrid/Left/IdentitySection/Content/BodySlot"]
 layout_mode = 2
 theme_type_variation = &"RookframeLabel"
 text = "PUBLIC NAME"
 
-[node name="PublicIdentity" type="Label" parent="Layout/Body/Content/Detail/IdentitySection/Content/BodySlot"]
+[node name="PublicIdentity" type="Label" parent="Layout/Body/Content/Detail/SheetGrid/Left/IdentitySection/Content/BodySlot"]
 layout_mode = 2
 theme_type_variation = &"RookframeBody"
 text = "Hooded stranger"
 autowrap_mode = 2
 
-[node name="PrivateNotice" type="Label" parent="Layout/Body/Content/Detail/IdentitySection/Content/BodySlot"]
+[node name="PrivateNotice" type="Label" parent="Layout/Body/Content/Detail/SheetGrid/Left/IdentitySection/Content/BodySlot"]
 layout_mode = 2
 theme_type_variation = &"RookframeMeta"
 text = "Shown on the tabletop and in public reports."
 autowrap_mode = 2
 
-[node name="EquipmentSection" type="PanelContainer" parent="Layout/Body/Content/Detail"]
+[node name="EquipmentSection" type="PanelContainer" parent="Layout/Body/Content/Detail/SheetGrid/Left"]
 layout_mode = 2
 theme_type_variation = &"RookframeSection"
 
-[node name="Content" type="VBoxContainer" parent="Layout/Body/Content/Detail/EquipmentSection"]
+[node name="Content" type="VBoxContainer" parent="Layout/Body/Content/Detail/SheetGrid/Left/EquipmentSection"]
 layout_mode = 2
 theme_override_constants/separation = 8
 
-[node name="Header" type="HBoxContainer" parent="Layout/Body/Content/Detail/EquipmentSection/Content"]
+[node name="Header" type="HBoxContainer" parent="Layout/Body/Content/Detail/SheetGrid/Left/EquipmentSection/Content"]
 layout_mode = 2
 
-[node name="Title" type="Label" parent="Layout/Body/Content/Detail/EquipmentSection/Content/Header"]
+[node name="Title" type="Label" parent="Layout/Body/Content/Detail/SheetGrid/Left/EquipmentSection/Content/Header"]
 layout_mode = 2
 theme_type_variation = &"RookframeHeading"
 text = "EQUIPMENT"
 
-[node name="Description" type="Label" parent="Layout/Body/Content/Detail/EquipmentSection/Content/Header"]
+[node name="Description" type="Label" parent="Layout/Body/Content/Detail/SheetGrid/Left/EquipmentSection/Content/Header"]
 layout_mode = 2
 theme_type_variation = &"RookframeMeta"
 text = "Private encounter equipment and attacks."
 
-[node name="BodySlot" type="VBoxContainer" parent="Layout/Body/Content/Detail/EquipmentSection/Content"]
+[node name="BodySlot" type="VBoxContainer" parent="Layout/Body/Content/Detail/SheetGrid/Left/EquipmentSection/Content"]
 layout_mode = 2
 theme_override_constants/separation = 4
 
-[node name="EquipmentList" type="VBoxContainer" parent="Layout/Body/Content/Detail/EquipmentSection/Content/BodySlot"]
+[node name="EquipmentList" type="VBoxContainer" parent="Layout/Body/Content/Detail/SheetGrid/Left/EquipmentSection/Content/BodySlot"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_constants/separation = 4
 
-[node name="SpecialRulesSection" type="PanelContainer" parent="Layout/Body/Content/Detail"]
+[node name="SpecialRulesSection" type="PanelContainer" parent="Layout/Body/Content/Detail/SheetGrid/Right"]
 layout_mode = 2
 theme_type_variation = &"RookframeSection"
 
-[node name="Content" type="VBoxContainer" parent="Layout/Body/Content/Detail/SpecialRulesSection"]
+[node name="Content" type="VBoxContainer" parent="Layout/Body/Content/Detail/SheetGrid/Right/SpecialRulesSection"]
 layout_mode = 2
 theme_override_constants/separation = 8
 
-[node name="Header" type="HBoxContainer" parent="Layout/Body/Content/Detail/SpecialRulesSection/Content"]
+[node name="Header" type="HBoxContainer" parent="Layout/Body/Content/Detail/SheetGrid/Right/SpecialRulesSection/Content"]
 layout_mode = 2
 
-[node name="Title" type="Label" parent="Layout/Body/Content/Detail/SpecialRulesSection/Content/Header"]
+[node name="Title" type="Label" parent="Layout/Body/Content/Detail/SheetGrid/Right/SpecialRulesSection/Content/Header"]
 layout_mode = 2
 theme_type_variation = &"RookframeHeading"
 text = "SPECIAL RULES"
 
-[node name="BodySlot" type="VBoxContainer" parent="Layout/Body/Content/Detail/SpecialRulesSection/Content"]
+[node name="BodySlot" type="VBoxContainer" parent="Layout/Body/Content/Detail/SheetGrid/Right/SpecialRulesSection/Content"]
 layout_mode = 2
 
-[node name="Rules" type="Label" parent="Layout/Body/Content/Detail/SpecialRulesSection/Content/BodySlot"]
+[node name="Rules" type="Label" parent="Layout/Body/Content/Detail/SheetGrid/Right/SpecialRulesSection/Content/BodySlot"]
 layout_mode = 2
 theme_type_variation = &"RookframeBody"
 text = "Quick, attacks and defence are DR14."
 autowrap_mode = 2
 
-[node name="AccessSection" type="PanelContainer" parent="Layout/Body/Content/Detail"]
+[node name="AccessSection" type="PanelContainer" parent="Layout/Body/Content/Detail/SheetGrid/Right"]
 layout_mode = 2
 theme_type_variation = &"RookframeSection"
 
-[node name="Content" type="VBoxContainer" parent="Layout/Body/Content/Detail/AccessSection"]
+[node name="Content" type="VBoxContainer" parent="Layout/Body/Content/Detail/SheetGrid/Right/AccessSection"]
 layout_mode = 2
 theme_override_constants/separation = 8
 
-[node name="Header" type="HBoxContainer" parent="Layout/Body/Content/Detail/AccessSection/Content"]
+[node name="Header" type="HBoxContainer" parent="Layout/Body/Content/Detail/SheetGrid/Right/AccessSection/Content"]
 layout_mode = 2
 
-[node name="Title" type="Label" parent="Layout/Body/Content/Detail/AccessSection/Content/Header"]
+[node name="Title" type="Label" parent="Layout/Body/Content/Detail/SheetGrid/Right/AccessSection/Content/Header"]
 layout_mode = 2
 theme_type_variation = &"RookframeHeading"
 text = "ACCESS"
 
-[node name="Description" type="Label" parent="Layout/Body/Content/Detail/AccessSection/Content/Header"]
+[node name="Description" type="Label" parent="Layout/Body/Content/Detail/SheetGrid/Right/AccessSection/Content/Header"]
 layout_mode = 2
 theme_type_variation = &"RookframeMeta"
 text = "GM only"
 
-[node name="BodySlot" type="VBoxContainer" parent="Layout/Body/Content/Detail/AccessSection/Content"]
+[node name="BodySlot" type="VBoxContainer" parent="Layout/Body/Content/Detail/SheetGrid/Right/AccessSection/Content"]
 layout_mode = 2
 
-[node name="Access" type="Label" parent="Layout/Body/Content/Detail/AccessSection/Content/BodySlot"]
+[node name="Access" type="Label" parent="Layout/Body/Content/Detail/SheetGrid/Right/AccessSection/Content/BodySlot"]
 layout_mode = 2
 theme_type_variation = &"RookframeMeta"
 text = "Players see the public name, not this sheet."
 autowrap_mode = 2
 
-[node name="ActionBar" type="VBoxContainer" parent="Layout/Body/Content/Detail"]
+[node name="ActionBar" type="VBoxContainer" parent="Layout/Body/Content/Detail/SheetGrid/Right"]
 layout_mode = 2
 theme_override_constants/separation = 6
 
-[node name="LeadingSlot" type="HFlowContainer" parent="Layout/Body/Content/Detail/ActionBar"]
+[node name="LeadingSlot" type="HFlowContainer" parent="Layout/Body/Content/Detail/SheetGrid/Right/ActionBar"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_constants/h_separation = 8
 theme_override_constants/v_separation = 8
 
-[node name="TrailingSlot" type="HBoxContainer" parent="Layout/Body/Content/Detail/ActionBar"]
+[node name="TrailingSlot" type="HBoxContainer" parent="Layout/Body/Content/Detail/SheetGrid/Right/ActionBar"]
 layout_mode = 2
 size_flags_horizontal = 8
 alignment = 2
 
-[node name="CreateCreature" type="Button" parent="Layout/Body/Content/Detail/ActionBar/LeadingSlot"]
+[node name="CreateCreature" type="Button" parent="Layout/Body/Content/Detail/SheetGrid/Right/ActionBar/LeadingSlot"]
 custom_minimum_size = Vector2(0, 44)
 layout_mode = 2
 theme_type_variation = &"RookframePrimaryButton"
 text = "Create Creature"
 disabled = true
 
-[node name="EditCreature" type="Button" parent="Layout/Body/Content/Detail/ActionBar/LeadingSlot"]
+[node name="EditCreature" type="Button" parent="Layout/Body/Content/Detail/SheetGrid/Right/ActionBar/LeadingSlot"]
 custom_minimum_size = Vector2(0, 44)
 layout_mode = 2
 theme_type_variation = &"RookframeSecondaryButton"
 text = "Edit values"
 
-[node name="CreatureInventory" type="Button" parent="Layout/Body/Content/Detail/ActionBar/LeadingSlot"]
+[node name="CreatureInventory" type="Button" parent="Layout/Body/Content/Detail/SheetGrid/Right/ActionBar/LeadingSlot"]
 custom_minimum_size = Vector2(0, 44)
 layout_mode = 2
 theme_type_variation = &"RookframeSecondaryButton"
 text = "Inventory"
 
-[node name="Duplicate" type="Button" parent="Layout/Body/Content/Detail/ActionBar/LeadingSlot"]
+[node name="Duplicate" type="Button" parent="Layout/Body/Content/Detail/SheetGrid/Right/ActionBar/LeadingSlot"]
 custom_minimum_size = Vector2(0, 44)
 layout_mode = 2
 theme_type_variation = &"RookframeSecondaryButton"
 text = "Duplicate"
 
-[node name="PlaceRook" type="Button" parent="Layout/Body/Content/Detail/ActionBar/LeadingSlot"]
+[node name="PlaceRook" type="Button" parent="Layout/Body/Content/Detail/SheetGrid/Right/ActionBar/LeadingSlot"]
 custom_minimum_size = Vector2(0, 44)
 layout_mode = 2
 theme_type_variation = &"RookframePrimaryButton"
 text = "Place Rook"
 
-[node name="Back" type="Button" parent="Layout/Body/Content/Detail/ActionBar/LeadingSlot"]
+[node name="Back" type="Button" parent="Layout/Body/Content/Detail/SheetGrid/Right/ActionBar/LeadingSlot"]
 custom_minimum_size = Vector2(0, 44)
 layout_mode = 2
 theme_type_variation = &"RookframeSecondaryButton"
 text = "Back"
 
-[node name="SaveChanges" type="Button" parent="Layout/Body/Content/Detail/ActionBar/LeadingSlot"]
+[node name="SaveChanges" type="Button" parent="Layout/Body/Content/Detail/SheetGrid/Right/ActionBar/LeadingSlot"]
 custom_minimum_size = Vector2(0, 44)
 layout_mode = 2
 theme_type_variation = &"RookframePrimaryButton"
 text = "Save changes"
 
-[node name="AddItem" type="Button" parent="Layout/Body/Content/Detail/ActionBar/LeadingSlot"]
+[node name="AddItem" type="Button" parent="Layout/Body/Content/Detail/SheetGrid/Right/ActionBar/LeadingSlot"]
 custom_minimum_size = Vector2(0, 44)
 layout_mode = 2
 theme_type_variation = &"RookframePrimaryButton"
@@ -497,29 +513,38 @@ text = "INVENTORY"
 
 [node name="Description" type="Label" parent="Layout/Body/Content/Detail/Inventory/Content/Header"]
 layout_mode = 2
+size_flags_horizontal = 3
 theme_type_variation = &"RookframeMeta"
-text = "Private equipment; attacks start from equipped items."
+text = "Equipped attacks and carried equipment."
+autowrap_mode = 2
+
+[node name="AddItem" type="Button" parent="Layout/Body/Content/Detail/Inventory/Content/Header"]
+custom_minimum_size = Vector2(0, 44)
+layout_mode = 2
+theme_type_variation = &"RookframePrimaryButton"
+text = "Add item"
 
 [node name="BodySlot" type="VBoxContainer" parent="Layout/Body/Content/Detail/Inventory/Content"]
 layout_mode = 2
-theme_override_constants/separation = 6
+theme_override_constants/separation = 10
+
+[node name="EquippedHeading" type="Label" parent="Layout/Body/Content/Detail/Inventory/Content/BodySlot"]
+layout_mode = 2
+theme_type_variation = &"RookframeSubtitle"
+text = "EQUIPPED"
 
 [node name="Items" type="VBoxContainer" parent="Layout/Body/Content/Detail/Inventory/Content/BodySlot"]
 layout_mode = 2
 theme_override_constants/separation = 6
 
-[node name="InventorySummary" parent="Layout/Body/Content/Detail/Inventory/Content/BodySlot/Items" instance=ExtResource("5_structured_row")]
+[node name="CarriedHeading" type="Label" parent="Layout/Body/Content/Detail/Inventory/Content/BodySlot"]
 layout_mode = 2
-variant = 3
-title = "EQUIPPED"
-detail = "Knife · d4 · 5 ft · Equipped"
-value_text = "Attack"
+theme_type_variation = &"RookframeSubtitle"
+text = "CARRIED"
 
-[node name="InventoryNotice" type="Label" parent="Layout/Body/Content/Detail/Inventory/Content/BodySlot"]
+[node name="CarriedItems" type="VBoxContainer" parent="Layout/Body/Content/Detail/Inventory/Content/BodySlot"]
 layout_mode = 2
-theme_type_variation = &"RookframeMeta"
-text = "Items remain private to the GM."
-autowrap_mode = 2
+theme_override_constants/separation = 6
 
 [node name="CatalogueBar" type="HBoxContainer" parent="Layout"]
 layout_mode = 2
