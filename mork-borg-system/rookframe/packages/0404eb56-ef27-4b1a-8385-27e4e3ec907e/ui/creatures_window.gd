@@ -294,12 +294,14 @@ func _detail_title_if_present(private_name: String) -> void:
 	var summary := get_node(^"Layout/Body/Content/Detail/Summary") as Label
 	title.text = private_name.to_upper()
 	summary.text = "Private Creature sheet · GM"
+	title.visible = not _compact
+	summary.visible = not _compact
 
 
 func _set_window_title(title: String) -> void:
 	if sdk == null:
 		return
-	var result: SDK.OperationResult = sdk.windows.set_title(title)
+	var result: SDK.OperationResult = sdk.windows.set_title(title if _compact else "MÖRK BORG")
 	if not result.ok:
 		_set_status(result.message, true)
 
@@ -388,6 +390,10 @@ func _show_route(route: String) -> void:
 	_route_creature.visible = not catalogue
 	_route_edit.visible = false
 	_route_inventory.visible = not catalogue
+	_route_creatures.button_pressed = catalogue
+	_route_creature.button_pressed = sheet
+	_route_edit.button_pressed = edit
+	_route_inventory.button_pressed = inventory
 	_catalogue_bar.visible = catalogue
 	_detail.visible = sheet or edit or inventory
 	_search.visible = catalogue
@@ -582,4 +588,4 @@ func _set_busy(value: bool, message: String, error: bool = false) -> void:
 func _set_status(message: String, error: bool = false) -> void:
 	_status.text = message
 	_status.tooltip_text = message
-	_status.visible = not _compact or error or _busy
+	_status.visible = error or _busy

@@ -96,6 +96,7 @@ custom_minimum_size = Vector2(0, 44)
 layout_mode = 2
 size_flags_horizontal = 3
 theme_type_variation = &"RookframeTabButton"
+toggle_mode = true
 text = "Creatures"
 
 [node name="Creature" type="Button" parent="Layout/Header/Routes/Compact"]
@@ -103,6 +104,7 @@ custom_minimum_size = Vector2(0, 44)
 layout_mode = 2
 size_flags_horizontal = 3
 theme_type_variation = &"RookframeTabButton"
+toggle_mode = true
 text = "Creature"
 
 [node name="EditCreature" type="Button" parent="Layout/Header/Routes/Compact"]
@@ -110,6 +112,7 @@ custom_minimum_size = Vector2(0, 44)
 layout_mode = 2
 size_flags_horizontal = 3
 theme_type_variation = &"RookframeTabButton"
+toggle_mode = true
 text = "Edit"
 
 [node name="CreatureInventory" type="Button" parent="Layout/Header/Routes/Compact"]
@@ -117,7 +120,14 @@ custom_minimum_size = Vector2(0, 44)
 layout_mode = 2
 size_flags_horizontal = 3
 theme_type_variation = &"RookframeTabButton"
+toggle_mode = true
 text = "Inventory"
+
+[node name="Status" type="Label" parent="Layout"]
+layout_mode = 2
+theme_type_variation = &"RookframeMeta"
+text = ""
+autowrap_mode = 2
 
 [node name="Body" type="ScrollContainer" parent="Layout"]
 layout_mode = 2
@@ -572,9 +582,3 @@ layout_mode = 2
 theme_type_variation = &"RookframePrimaryButton"
 text = "Create Creature"
 disabled = true
-
-[node name="Status" type="Label" parent="Layout"]
-layout_mode = 2
-theme_type_variation = &"RookframeMeta"
-text = ""
-autowrap_mode = 2
