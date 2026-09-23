@@ -490,7 +490,8 @@ func _duplicate_creature() -> void:
 	if not source.ok or source.actor == null:
 		_set_status(source.message if not source.ok else "Private Creature data is unavailable.", true)
 		return
-	var definition_id: String = str(source.actor.data.get("definition_id", "")).strip_edges()
+	var source_data: Dictionary = source.actor.data
+	var definition_id: String = source_data["definition_id"]
 	var definition: SDK.ContentEntry
 	for entry in _definitions:
 		if entry.reference.local_id == definition_id:
@@ -499,7 +500,7 @@ func _duplicate_creature() -> void:
 	if definition == null:
 		_set_status("The saved Creature definition is unavailable; duplicate was not created.", true)
 		return
-	var data: Dictionary = source.actor.data.duplicate(true)
+	var data: Dictionary = source_data.duplicate(true)
 	_set_busy(true, "Duplicating private Creature sheet…")
 	var result: SDK.ActorResult = await sdk.actors.create(definition.reference, data)
 	_set_busy(false, result.message if not result.ok else "Creature duplicated.", not result.ok)
@@ -516,7 +517,7 @@ func _save_creature() -> void:
 	if not source.ok or source.actor == null:
 		_set_status(source.message if not source.ok else "Private Creature data is unavailable.", true)
 		return
-	var original_data: Dictionary = source.actor.data.duplicate(true)
+	var original_data: Dictionary = source.actor.data
 	var data: Dictionary = original_data.duplicate(true)
 	var original_label: String = source.actor.public_label
 	data["name"] = str(_private_name.get("value")).strip_edges()
@@ -534,15 +535,15 @@ func _save_creature() -> void:
 		var identity: SDK.OperationResult = await sdk.public_identities.assign(_selected_actor.id, label)
 		if not identity.ok:
 			var rollback: SDK.ActorResult = await sdk.actors.update(_selected_actor.id, original_data)
-			var restored_identity: SDK.OperationResult
+			var rollback_message := ""
 			if rollback.ok:
-				restored_identity = await sdk.public_identities.assign(_selected_actor.id, original_label)
+				var restored_identity: SDK.OperationResult = await sdk.public_identities.assign(_selected_actor.id, original_label)
+				if not restored_identity.ok:
+					rollback_message = " Identity rollback failed: %s" % restored_identity.message
+			else:
+				rollback_message = " Actor rollback failed: %s" % rollback.message
 			updated.ok = false
-			updated.message = identity.message
-			if not rollback.ok:
-				updated.message += " Actor rollback failed: %s" % rollback.message
-			elif not restored_identity.ok:
-				updated.message += " Identity rollback failed: %s" % restored_identity.message
+			updated.message = identity.message + rollback_message
 		else:
 			updated.actor.public_label = label
 	_set_busy(false, updated.message if not updated.ok else "Creature changes saved.", not updated.ok)
