@@ -148,6 +148,7 @@ func _apply_density() -> void:
 		get_node(^"Layout/Body/Content/Detail/IdentitySection/Content/Header/Description").visible = false
 		get_node(^"Layout/Body/Content/Detail/EquipmentSection/Content/Header/Description").visible = false
 		get_node(^"Layout/Body/Content/Detail/AccessSection/Content/Header/Description").visible = false
+		get_node(^"Layout/Body/Content/Detail/Inventory/Content/Header/Description").visible = false
 		_protection_label.text = "ARMOR"
 
 
@@ -329,10 +330,12 @@ func _render_inventory(attacks: Array) -> void:
 		var state := "Equipped" if index == 0 else "Carried"
 		var attack_name: String = attack.get("name", "Item")
 		var attack_dice: String = attack.get("dice", "—")
-		row.text = "%s\n%s · %s" % [
+		var action := "Attack" if index == 0 else "Equip"
+		row.text = "%s\n%s · %s · %s" % [
 			attack_name,
 			attack_dice,
 			state,
+			action,
 		]
 		_inventory_items.add_child(row)
 
@@ -377,8 +380,11 @@ func _show_route(route: String) -> void:
 	if catalogue:
 		_header_title.text = "CREATURES"
 		_header_subtitle.text = "Immutable definitions · private Actors"
+		_header_title.visible = not _compact
+		_header_subtitle.visible = not _compact
 		_set_status("Ready — immutable definitions are available to the GM.")
 	elif _selected_actor != null:
+		_header_title.visible = true
 		_render_actor()
 	if edit:
 		_header_title.text = "EDIT CREATURE"
