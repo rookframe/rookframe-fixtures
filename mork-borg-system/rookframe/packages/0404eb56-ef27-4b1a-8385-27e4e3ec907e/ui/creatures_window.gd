@@ -507,6 +507,9 @@ func _save_creature() -> void:
 	data["maximum_hit_points"] = int(_maximum_hit_points.get("value"))
 	data["morale"] = {"kind": "fixed", "value": int(_morale.get("value"))}
 	_set_busy(true, "Saving private Creature sheet…")
+	# Keep the pending state observable for one rendered frame before the
+	# authority update completes.
+	await get_tree().process_frame
 	var updated: SDK.ActorResult = await sdk.actors.update(_selected_actor.id, data)
 	if updated.ok and sdk.context().is_gm:
 		var label := str(_public_label.get("value")).strip_edges()
