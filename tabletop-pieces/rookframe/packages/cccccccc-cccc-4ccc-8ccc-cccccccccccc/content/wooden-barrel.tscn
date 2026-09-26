@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3]
+
+[ext_resource type="PackedScene" path="res://rookframe/packages/cccccccc-cccc-4ccc-8ccc-cccccccccccc/content/wine_barrel_01.tscn" id="1_barrel_model"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_barrel"]
+radius = 0.38
+height = 0.88
+
+[node name="WineBarrel" type="Node3D"]
+
+[node name="Model" parent="." instance=ExtResource("1_barrel_model")]
+
+[node name="PropCollision" type="StaticBody3D" parent="."]
+collision_layer = 1
+collision_mask = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PropCollision"]
+position = Vector3(0, 0.44, 0)
+shape = SubResource("CylinderShape3D_barrel")

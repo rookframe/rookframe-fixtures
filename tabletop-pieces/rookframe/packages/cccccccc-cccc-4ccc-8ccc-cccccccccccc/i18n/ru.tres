@@ -1,0 +1,10 @@
+[gd_resource type="Translation" format=3]
+
+[resource]
+messages = {
+[&"", &"Crate"]: [&"Ящик"],
+[&"", &"Wooden Crate"]: [&"Деревянный ящик"],
+[&"", &"Wooden Barrel"]: [&"Деревянная бочка"],
+[&"", &"Wall-height Bookshelf"]: [&"Высокий книжный шкаф"],
+}
+locale = "ru"

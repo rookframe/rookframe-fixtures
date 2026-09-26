@@ -1,0 +1,10 @@
+[gd_resource type="Translation" format=3]
+
+[resource]
+messages = {
+[&"", &"Crate"]: [&"Crate"],
+[&"", &"Wooden Crate"]: [&"Wooden Crate"],
+[&"", &"Wooden Barrel"]: [&"Wooden Barrel"],
+[&"", &"Wall-height Bookshelf"]: [&"Wall-height Bookshelf"],
+}
+locale = "en"

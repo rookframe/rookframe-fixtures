@@ -2,8 +2,8 @@
   "manifestVersion": 1,
   "id": "cccccccc-cccc-4ccc-8ccc-cccccccccccc",
   "kind": "optional",
-  "name": "Tabletop Pieces",
-  "version": "0.9.5",
+  "name": "Tabletop Props",
+  "version": "0.10.0",
   "sdk": {
     "edition": "2027",
     "minimumRevision": 1
@@ -12,32 +12,10 @@
     "minimum": "0.1.0",
     "verified": "0.1.0"
   },
-  "systemExtensionCompatibility": [
-    {
-      "id": "bbbbbbbb-bbbb-4bbb-8bbb-bbbbbbbbbbbb",
-      "versions": ">=0.3.0 <1.0.0"
-    },
-    {
-      "id": "0404eb56-ef27-4b1a-8385-27e4e3ec907e",
-      "versions": ">=1.0.0 <2.0.0"
-    }
-  ],
   "content": [
     {
       "kind": "visual",
       "entries": [
-        {
-          "id": "marker",
-          "type": "miniature",
-          "payload": "content/marker.tscn",
-          "displayName": "Amber Warden"
-        },
-        {
-          "id": "goblin-raider",
-          "type": "miniature",
-          "payload": "content/goblin-raider.tscn",
-          "displayName": "Goblin Raider"
-        },
         {
           "id": "crate",
           "type": "prop",
@@ -51,20 +29,34 @@
           "displayName": "Wall-height Bookshelf"
         },
         {
-          "id": "stone",
-          "type": "surface_finish",
-          "payload": "content/stone.tres",
-          "displayName": "Stone"
+          "id": "wooden-crate",
+          "type": "prop",
+          "payload": "content/wooden-crate.tscn",
+          "displayName": "Wooden Crate"
         },
         {
-          "id": "wood",
-          "type": "wall_style",
-          "payload": "content/wood.tres",
-          "displayName": "Wood"
+          "id": "wooden-barrel",
+          "type": "prop",
+          "payload": "content/wooden-barrel.tscn",
+          "displayName": "Wooden Barrel"
         }
       ]
     }
   ],
-  "manifest": "https://github.com/rookframe/rookframe-fixtures/releases/download/v0.9.5/Tabletop-Pieces-0.9.5.json",
-  "download": "https://github.com/rookframe/rookframe-fixtures/releases/download/v0.9.5/Tabletop-Pieces-0.9.5.rookpackage"
+  "manifest": "https://github.com/rookframe/rookframe-fixtures/releases/download/tabletop-props-v0.10.0/Tabletop-Props-0.10.0.json",
+  "download": "https://github.com/rookframe/rookframe-fixtures/releases/download/tabletop-props-v0.10.0/Tabletop-Props-0.10.0.rookpackage",
+  "summary": "Wooden boxes, a wine barrel and a wall-height bookshelf for optional tabletop set dressing.",
+  "defaultLocale": "en",
+  "translations": [
+    {
+      "locale": "en",
+      "domain": "default",
+      "path": "i18n/en.tres"
+    },
+    {
+      "locale": "ru",
+      "domain": "default",
+      "path": "i18n/ru.tres"
+    }
+  ]
 }
