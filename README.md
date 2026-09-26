@@ -34,3 +34,7 @@ Workshop 0.16.0 opens Actor sheets in the left dock on their first presentation 
 Tabletop Pieces 0.9.2 adds the wall-height bookshelf Prop: 3,620 triangles, one PBR material, 1.5 × 2.8 × 0.5 m, with an ordinary authored collision shape.
 
 Tabletop Pieces 0.9.4 removes the unapproved Lattice Lamp and Sprite Banner QA Props and their shared texture. The approved bookshelf, existing content, and Crate collision correction remain. New Props require explicit user approval of the specific design before implementation, publication, or placement.
+
+Tabletop Pieces 0.9.5 also supports MÖRK BORG 1.x. Its existing approved visual
+content is unchanged; the compatibility update allows independent Miniature
+browsing, library defaults and Actor assignment. Use its [public Manifest](https://github.com/rookframe/rookframe-fixtures/releases/download/v0.9.5/Tabletop-Pieces-0.9.5.json).

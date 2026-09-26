@@ -3,7 +3,7 @@
   "id": "cccccccc-cccc-4ccc-8ccc-cccccccccccc",
   "kind": "optional",
   "name": "Tabletop Pieces",
-  "version": "0.9.4",
+  "version": "0.9.5",
   "sdk": {
     "edition": "2027",
     "minimumRevision": 1
@@ -16,6 +16,10 @@
     {
       "id": "bbbbbbbb-bbbb-4bbb-8bbb-bbbbbbbbbbbb",
       "versions": ">=0.3.0 <1.0.0"
+    },
+    {
+      "id": "0404eb56-ef27-4b1a-8385-27e4e3ec907e",
+      "versions": ">=1.0.0 <2.0.0"
     }
   ],
   "content": [
@@ -61,6 +65,6 @@
       ]
     }
   ],
-  "manifest": "https://github.com/rookframe/rookframe-fixtures/releases/download/v0.9.4/Tabletop-Pieces-0.9.4.json",
-  "download": "https://github.com/rookframe/rookframe-fixtures/releases/download/v0.9.4/Tabletop-Pieces-0.9.4.rookpackage"
+  "manifest": "https://github.com/rookframe/rookframe-fixtures/releases/download/v0.9.5/Tabletop-Pieces-0.9.5.json",
+  "download": "https://github.com/rookframe/rookframe-fixtures/releases/download/v0.9.5/Tabletop-Pieces-0.9.5.rookpackage"
 }
