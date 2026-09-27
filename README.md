@@ -38,3 +38,14 @@ Tabletop Pieces 0.9.4 removes the unapproved Lattice Lamp and Sprite Banner QA P
 Tabletop Pieces 0.9.5 also supports MÖRK BORG 1.x. Its existing approved visual
 content is unchanged; the compatibility update allows independent Miniature
 browsing, library defaults and Actor assignment. Use its [public Manifest](https://github.com/rookframe/rookframe-fixtures/releases/download/v0.9.5/Tabletop-Pieces-0.9.5.json).
+
+## RFG-309: Tabletop Pieces 0.9.6
+
+This maintenance release restores stock per-pixel shading on Goblin Raider, so
+the physical mesh receives Scene illumination and shadows. Content identities,
+models, collision shapes, admission contracts and compatibility are unchanged.
+Physical meshes use per-pixel StandardMaterial3D with shadow receiving enabled
+and native mesh shadow casting. Camera cutaways retain physical shadows;
+intentionally hidden Rooks and new placement ghosts do not.
+
+[Public Manifest](https://github.com/rookframe/rookframe-fixtures/releases/download/v0.9.6/Tabletop-Pieces-0.9.6.json)
