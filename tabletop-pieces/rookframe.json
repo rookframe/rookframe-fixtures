@@ -1,9 +1,9 @@
 {
-  "manifestVersion": 1,
+  "manifestVersion": 2,
   "id": "cccccccc-cccc-4ccc-8ccc-cccccccccccc",
   "kind": "optional",
   "name": "Tabletop Props",
-  "version": "0.10.0",
+  "version": "0.10.1",
   "sdk": {
     "edition": "2027",
     "minimumRevision": 1
@@ -43,8 +43,8 @@
       ]
     }
   ],
-  "manifest": "https://github.com/rookframe/rookframe-fixtures/releases/download/tabletop-props-v0.10.0/Tabletop-Props-0.10.0.json",
-  "download": "https://github.com/rookframe/rookframe-fixtures/releases/download/tabletop-props-v0.10.0/Tabletop-Props-0.10.0.rookpackage",
+  "manifest": "https://github.com/rookframe/rookframe-fixtures/releases/download/v0.10.1/Tabletop-Props-0.10.1.json",
+  "download": "https://github.com/rookframe/rookframe-fixtures/releases/download/v0.10.1/Tabletop-Props-0.10.1.rookpackage",
   "summary": "Wooden boxes, a wine barrel and a wall-height bookshelf for optional tabletop set dressing.",
   "defaultLocale": "en",
   "translations": [
@@ -58,5 +58,13 @@
       "domain": "default",
       "path": "i18n/ru.tres"
     }
-  ]
+  ],
+  "media": {
+    "gallery": [],
+    "cover": {
+      "type": "image",
+      "path": "media/7d8878749b7ff6089a9942493f25ba667b37f599b92edead32f99837a3e4993c.png",
+      "caption": "Wall-height bookshelf included in Tabletop Props."
+    }
+  }
 }

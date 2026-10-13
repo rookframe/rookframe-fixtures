@@ -1,5 +1,17 @@
 # Builder Reference Finishes — Godot authoring project
 
+## Current artwork release: 0.1.2
+
+Install from the public [0.1.2 Manifest](https://github.com/rookframe/rookframe-fixtures/releases/download/v0.1.2/Builder-Reference-Finishes-0.1.2.json).
+The [checked archive](https://github.com/rookframe/rookframe-fixtures/releases/download/v0.1.2/Builder-Reference-Finishes-0.1.2.rookpackage) belongs to the same release.
+For source, check out tag `v0.1.2` and open this authoring project.
+Run `godot --headless --path . --script plug.gd install` to acquire SDK 0.34.0
+and the retained UI Kit pin, then use the SDK Package check/build commands.
+The output archive name for publication is `Builder-Reference-Finishes-0.1.2.rookpackage`.
+This release adds artwork using Manifest format 2 and requires a Rookframe
+runtime with format-2 support. Earlier version examples below describe their
+original releases; use the links and tag above for the artwork update.
+
 One data-only optional Package containing the original Bevy Builder models:
 
 | Content ID | Display name | Type | Uses |
@@ -18,8 +30,8 @@ facade, Settings contribution, System restriction or dependency on another Packa
 
 ## Open, check, and build
 
-Use the stock pinned Godot **4.7.2 Mono** and Python 3.10+ / .NET 8.
-The included gd-plug bootstrap installs the exact public SDK **0.12.1** and
+Use the stock pinned Godot **4.7.2 Mono** and Python 3.10+ and .NET 10.0.12 or a later 10.0 patch runtime.
+The included gd-plug bootstrap installs the exact public SDK **0.34.0** and
 independently pinned UI Kit. From this project directory:
 
 ```sh
@@ -102,3 +114,7 @@ Finishes in the World's Packages with one published System Extension. Joining
 Participants acquire the exact release through ordinary World preparation.
 Do not import a local archive, copy a Package store, or bundle these models into
 the application for QA. Catalogue listing is optional.
+
+## Release 0.1.2: Package artwork
+
+This update adds a cover and an image gallery to the existing 0.1.1 content. It uses Manifest format 2 and requires a Rookframe runtime with format-2 support. The authoring kit is SDK 0.34.0; the existing SDK Edition, minimum revision, and UI Kit pin are retained. Source media provenance is recorded in `source/media-provenance.json`.

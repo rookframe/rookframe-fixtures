@@ -1,0 +1,37 @@
+[
+  {
+    "role": "cover",
+    "source": "rookframe/packages/dd07cd6c-d4f5-40e1-b3f2-44d2d59c7f7f/content/timber-plaster-wall/preview.png",
+    "sha256": "c399e23cee1223d78ca7a0bcd85830db88ca49dc9f17f6e614848fb312d70a1e",
+    "caption": "Timber and Plaster Wall",
+    "note": "Existing Package repository screenshot or asset preview, copied unchanged; original source attribution retained in the repository."
+  },
+  {
+    "role": "gallery",
+    "source": "rookframe/packages/dd07cd6c-d4f5-40e1-b3f2-44d2d59c7f7f/content/rough-stone-wall/preview.png",
+    "sha256": "b40563945131dd22f57c353e5729888c8474e7f006306263b87b3f818713b992",
+    "caption": "Rough Stone Wall",
+    "note": "Existing Package repository screenshot or asset preview, copied unchanged; original source attribution retained in the repository."
+  },
+  {
+    "role": "gallery",
+    "source": "rookframe/packages/dd07cd6c-d4f5-40e1-b3f2-44d2d59c7f7f/content/ornate-stone-panel-wall/preview.png",
+    "sha256": "a78e669bc2d0490bc21f617a96caa5efe3bfb9499f7cbf8975a681efb2c46b75",
+    "caption": "Ornate Stone Panel Wall",
+    "note": "Existing Package repository screenshot or asset preview, copied unchanged; original source attribution retained in the repository."
+  },
+  {
+    "role": "gallery",
+    "source": "rookframe/packages/dd07cd6c-d4f5-40e1-b3f2-44d2d59c7f7f/content/dark-stone-tiles/preview.png",
+    "sha256": "2f80ca741259774963649d369a6eda555843592d2a516adcc98b5a6d8757044f",
+    "caption": "Dark Stone Tiles",
+    "note": "Existing Package repository screenshot or asset preview, copied unchanged; original source attribution retained in the repository."
+  },
+  {
+    "role": "gallery",
+    "source": "rookframe/packages/dd07cd6c-d4f5-40e1-b3f2-44d2d59c7f7f/content/oak-planks/preview.png",
+    "sha256": "6c19b9db2003d14d9c65515d4022f7bdbd95429c0fd68492d7aaf1b21cb745a8",
+    "caption": "Oak Planks",
+    "note": "Existing Package repository screenshot or asset preview, copied unchanged; original source attribution retained in the repository."
+  }
+]

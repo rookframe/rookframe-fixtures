@@ -1,9 +1,9 @@
 {
-  "manifestVersion": 1,
+  "manifestVersion": 2,
   "id": "dd07cd6c-d4f5-40e1-b3f2-44d2d59c7f7f",
   "kind": "optional",
   "name": "Builder Reference Finishes",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "summary": "Three detailed Wall Styles and two Surface Finishes for live Builder Mode.",
   "sdk": {
     "edition": "2029",
@@ -55,6 +55,35 @@
       ]
     }
   ],
-  "manifest": "https://github.com/rookframe/rookframe-fixtures/releases/download/v0.1.1/Builder-Reference-Finishes-0.1.1.json",
-  "download": "https://github.com/rookframe/rookframe-fixtures/releases/download/v0.1.1/Builder-Reference-Finishes-0.1.1.rookpackage"
+  "manifest": "https://github.com/rookframe/rookframe-fixtures/releases/download/v0.1.2/Builder-Reference-Finishes-0.1.2.json",
+  "download": "https://github.com/rookframe/rookframe-fixtures/releases/download/v0.1.2/Builder-Reference-Finishes-0.1.2.rookpackage",
+  "media": {
+    "gallery": [
+      {
+        "type": "image",
+        "path": "media/b40563945131dd22f57c353e5729888c8474e7f006306263b87b3f818713b992.png",
+        "caption": "Rough Stone Wall"
+      },
+      {
+        "type": "image",
+        "path": "media/a78e669bc2d0490bc21f617a96caa5efe3bfb9499f7cbf8975a681efb2c46b75.png",
+        "caption": "Ornate Stone Panel Wall"
+      },
+      {
+        "type": "image",
+        "path": "media/2f80ca741259774963649d369a6eda555843592d2a516adcc98b5a6d8757044f.png",
+        "caption": "Dark Stone Tiles"
+      },
+      {
+        "type": "image",
+        "path": "media/6c19b9db2003d14d9c65515d4022f7bdbd95429c0fd68492d7aaf1b21cb745a8.png",
+        "caption": "Oak Planks"
+      }
+    ],
+    "cover": {
+      "type": "image",
+      "path": "media/c399e23cee1223d78ca7a0bcd85830db88ca49dc9f17f6e614848fb312d70a1e.png",
+      "caption": "Timber and Plaster Wall"
+    }
+  }
 }
