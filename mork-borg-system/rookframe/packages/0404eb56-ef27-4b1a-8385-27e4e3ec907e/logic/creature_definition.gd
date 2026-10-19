@@ -1,4 +1,4 @@
-extends "res://rookframe/packages/0404eb56-ef27-4b1a-8385-27e4e3ec907e/sdk/actor_definition.gd"
+extends "res://rookframe/sdk/actor_definition.gd"
 
 ## Immutable MÖRK BORG core definitions. A live Actor receives a deep copy and
 ## can then edit its private encounter sheet without changing this catalogue.

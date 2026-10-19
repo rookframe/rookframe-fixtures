@@ -6,7 +6,7 @@
   "version": "0.16.0",
   "sdk": {
     "edition": "2029",
-    "minimumRevision": 8
+    "minimumRevision": 34
   },
   "rookframeCompatibility": {
     "minimum": "0.1.0",

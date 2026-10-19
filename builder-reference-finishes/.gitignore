@@ -4,3 +4,14 @@ addons/rookframe_sdk/
 rookframe/ui/
 build/
 __pycache__/
+addons/*
+!addons/gd-plug/
+rookframe/sdk/
+addons/rookframe_development/
+rookframe/development/
+.rookframe-development/
+.rookframe/development.json
+.rookframe/installed-application.json
+rookframe_ui_kit_provenance.json
+/dependencies/webrtc_native/lib/
+/addons/webrtc_native/lib/

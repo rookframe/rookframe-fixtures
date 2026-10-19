@@ -1,6 +1,6 @@
 extends PanelContainer
-const SDK = preload("res://rookframe/packages/bbbbbbbb-bbbb-4bbb-8bbb-bbbbbbbbbbbb/sdk/package_sdk_facade.gd")
-const AccessEntry = preload("res://rookframe/packages/bbbbbbbb-bbbb-4bbb-8bbb-bbbbbbbbbbbb/sdk/actor_access_entry.gd")
+const SDK = preload("res://rookframe/sdk/package_sdk_facade.gd")
+const AccessEntry = preload("res://rookframe/sdk/actor_access_entry.gd")
 var _sdk: SDK
 var _actor: SDK.ActorId
 var participant_id: String

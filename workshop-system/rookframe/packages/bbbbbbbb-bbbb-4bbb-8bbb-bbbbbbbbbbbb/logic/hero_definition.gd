@@ -1,4 +1,4 @@
-extends "res://rookframe/packages/bbbbbbbb-bbbb-4bbb-8bbb-bbbbbbbbbbbb/sdk/actor_definition.gd"
+extends "res://rookframe/sdk/actor_definition.gd"
 
 const HeroData = preload("res://rookframe/packages/bbbbbbbb-bbbb-4bbb-8bbb-bbbbbbbbbbbb/logic/hero_data.gd")
 func create_data(choices: Variant) -> Variant:

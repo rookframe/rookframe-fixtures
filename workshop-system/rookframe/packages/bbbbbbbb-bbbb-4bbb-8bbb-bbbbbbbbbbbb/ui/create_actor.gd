@@ -1,4 +1,4 @@
-extends "res://rookframe/packages/bbbbbbbb-bbbb-4bbb-8bbb-bbbbbbbbbbbb/sdk/window.gd"
+extends "res://rookframe/sdk/window.gd"
 const TextField = preload("res://rookframe/ui/components/forms/text_field.gd")
 const SHEET: SDK.ExtensionSurface = preload("res://rookframe/packages/bbbbbbbb-bbbb-4bbb-8bbb-bbbbbbbbbbbb/ui/actor_sheet.tres")
 @onready var actor_name: TextField = get_node("Layout/Fields/ActorName")

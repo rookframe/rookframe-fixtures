@@ -1,4 +1,4 @@
-extends "res://rookframe/packages/bbbbbbbb-bbbb-4bbb-8bbb-bbbbbbbbbbbb/sdk/window.gd"
+extends "res://rookframe/sdk/window.gd"
 const TextField = preload("res://rookframe/ui/components/forms/text_field.gd")
 @onready var journal_title: TextField = get_node("Layout/Body/Fields/Journal/JournalTitle")
 @onready var status: Label = get_node("Layout/Status")

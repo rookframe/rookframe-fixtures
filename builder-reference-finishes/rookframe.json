@@ -7,7 +7,7 @@
   "summary": "Three detailed Wall Styles and two Surface Finishes for live Builder Mode.",
   "sdk": {
     "edition": "2029",
-    "minimumRevision": 1
+    "minimumRevision": 34
   },
   "rookframeCompatibility": {
     "minimum": "0.1.0",

@@ -13,7 +13,7 @@ Workshop System provides Hero Actors, Actor sheets and a separate Actor browser,
 
 ## Author projects
 
-`workshop-system/`, `tabletop-pieces/`, and `mork-borg-system/` are ordinary Godot author projects. Each includes the gd-plug bootstrap and license, an exact SDK dependency (Workshop 0.16.0; Tabletop Pieces 0.10.1; MÖRK BORG System 0.16.0), a separately pinned public UI Kit, and a committed authoring lock. From either project directory, install the dependencies:
+`workshop-system/`, `tabletop-pieces/`, and `mork-borg-system/` are ordinary Godot author projects. Each includes the gd-plug bootstrap and license, SDK 0.36.0-rc.2 and Development Plugin 0.2.0-rc.1, a separately pinned public UI Kit, and a committed authoring lock. From either project directory, install the dependencies:
 
 ```sh
 Godot --headless --path . --script plug.gd install
@@ -29,7 +29,7 @@ The Rookframe Fixture System and Fixture Essentials 1.0.7 release remains availa
 
 Workshop 0.16.0 opens Actor sheets in the left dock on their first presentation while retaining Participant-controlled movement and redocking. It also requests a human attack Throw through the native Dice Tray with named attack and damage dice. Its durable waiting record survives reconnects, and the Extension recovers the terminal result before applying its DR 12 rule and explicitly publishing the interpreted HIT, MISS, or cancellation report. Actor-creation and journal drafts also survive reconnects without implicit submission.
 
-`builder-reference-finishes/` is the data-only Godot author project for the five original Bevy architectural models. It uses SDK 0.12.1, preserves the original GLBs and Blender sources, and publishes ordinary typed Wall Style and Surface Finish Content. Both Surface Finishes support independent Floor and Ceiling selection.
+`builder-reference-finishes/` is the data-only Godot author project for the five original Bevy architectural models. It uses the same pinned SDK, preserves the original GLBs and Blender sources, and publishes ordinary typed Wall Style and Surface Finish Content. Both Surface Finishes support independent Floor and Ceiling selection.
 
 Tabletop Pieces 0.9.2 adds the wall-height bookshelf Prop: 3,620 triangles, one PBR material, 1.5 × 2.8 × 0.5 m, with an ordinary authored collision shape.
 
@@ -38,3 +38,5 @@ Tabletop Pieces 0.9.4 removes the unapproved Lattice Lamp and Sprite Banner QA P
 Tabletop Pieces 0.9.5 also supports MÖRK BORG 1.x. Its existing approved visual
 content is unchanged; the compatibility update allows independent Miniature
 browsing, library defaults and Actor assignment. Use its [public Manifest](https://github.com/rookframe/rookframe-fixtures/releases/download/v0.9.5/Tabletop-Pieces-0.9.5.json).
+
+Package projects download ready-to-use SDK scripts. Check and build with the SDK authoring tools and the matching installed Rookframe application. Package authors do not generate the SDK or build a checker.
