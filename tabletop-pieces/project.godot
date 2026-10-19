@@ -3,3 +3,9 @@ config_version=5
 config/name="Tabletop Pieces"
 [rendering]
 renderer/rendering_method="gl_compatibility"
+
+[editor]
+import/use_multiple_threads=false
+
+[editor_plugins]
+enabled=PackedStringArray("res://addons/rookframe_development/plugin.cfg")

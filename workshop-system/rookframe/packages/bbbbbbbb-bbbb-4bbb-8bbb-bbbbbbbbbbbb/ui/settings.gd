@@ -1,4 +1,4 @@
-extends "res://rookframe/packages/bbbbbbbb-bbbb-4bbb-8bbb-bbbbbbbbbbbb/sdk/settings_view.gd"
+extends "res://rookframe/sdk/settings_view.gd"
 const Settings = preload("res://rookframe/packages/bbbbbbbb-bbbb-4bbb-8bbb-bbbbbbbbbbbb/logic/settings.gd")
 const TextField = preload("res://rookframe/ui/components/forms/text_field.gd")
 @onready var heading: TextField = get_node("Heading")

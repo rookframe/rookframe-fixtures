@@ -18,25 +18,27 @@ facade, Settings contribution, System restriction or dependency on another Packa
 
 ## Open, check, and build
 
-Use the stock pinned Godot **4.7.2 Mono** and Python 3.10+ / .NET 8.
-The included gd-plug bootstrap installs the exact public SDK **0.12.1** and
-independently pinned UI Kit. From this project directory:
+Use stock Godot **4.7.2 .NET**, Python 3.10+, and the matching installed Rookframe
+application. The included gd-plug bootstrap downloads SDK **0.36.0-rc.3**,
+Development Plugin **0.2.0-rc.1**, and the independently pinned UI Kit.
+From this project directory:
 
 ```sh
 godot --headless --path . --script plug.gd install
 godot --editor --path .
 ```
 
-In Godot, use **Project → Tools → Rookframe: Check Package**, then
-**Rookframe: Build Package**. The enabled stock EditorPlugin invokes the existing
-SDK checker and builder. The output uses `build/<package-id>-0.1.1-<unique-output-id>.rookpackage`;
+In Godot, enable Rookframe Development and select the installed Rookframe
+application in its dock. Check Package invokes that application's checker;
+Build Package exports the Package and checks the archive with the same application.
+The output uses `build/<package-id>-0.1.1-<unique-output-id>.rookpackage`;
 an existing output is never overwritten. Publication uses the download filename
 recorded in the Manifest. Every deliberate rebuild receives a new immutable Build ID.
 Equivalent supported CLI actions are:
 
 ```sh
-python3 addons/rookframe_sdk/rookframe_authoring.py check --project .
-python3 addons/rookframe_sdk/rookframe_authoring.py build --project .
+python3 addons/rookframe_sdk/rookframe_authoring.py check --project . --godot /path/to/godot --rookframe /path/to/Rookframe
+python3 addons/rookframe_sdk/rookframe_authoring.py build --project . --godot /path/to/godot --rookframe /path/to/Rookframe
 ```
 
 This project adds no Package builder. The SDK prepares and admits the complete

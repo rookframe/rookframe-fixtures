@@ -1,4 +1,4 @@
-extends "res://rookframe/packages/bbbbbbbb-bbbb-4bbb-8bbb-bbbbbbbbbbbb/sdk/presentation.gd"
+extends "res://rookframe/sdk/presentation.gd"
 const SELECTED_ROOK: SDK.Contribution = preload("res://rookframe/packages/bbbbbbbb-bbbb-4bbb-8bbb-bbbbbbbbbbbb/ui/selected_rook.tres")
 const ACTOR_CREATION: SDK.Contribution = preload("res://rookframe/packages/bbbbbbbb-bbbb-4bbb-8bbb-bbbbbbbbbbbb/ui/actor_creation.tres")
 const SHEET: SDK.ExtensionSurface = preload("res://rookframe/packages/bbbbbbbb-bbbb-4bbb-8bbb-bbbbbbbbbbbb/ui/actor_sheet.tres")

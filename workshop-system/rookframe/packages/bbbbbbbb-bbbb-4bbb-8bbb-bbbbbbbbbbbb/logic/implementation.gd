@@ -1,4 +1,4 @@
-extends "res://rookframe/packages/bbbbbbbb-bbbb-4bbb-8bbb-bbbbbbbbbbbb/sdk/implementation.gd"
+extends "res://rookframe/sdk/implementation.gd"
 const Settings = preload("res://rookframe/packages/bbbbbbbb-bbbb-4bbb-8bbb-bbbbbbbbbbbb/logic/settings.gd")
 
 func describe_settings() -> SDK.SettingsRegistration:

@@ -19,7 +19,7 @@ project/assembly_name="Builder Reference Finishes"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/rookframe_sdk/plugin.cfg")
+enabled=PackedStringArray("res://addons/rookframe_development/plugin.cfg")
 
 [rendering]
 
