@@ -19,7 +19,7 @@ facade, Settings contribution, System restriction or dependency on another Packa
 ## Open, check, and build
 
 Use stock Godot **4.7.2 .NET**, Python 3.10+, and the matching installed Rookframe
-application. The included gd-plug bootstrap downloads SDK **0.36.0-rc.2**,
+application. The included gd-plug bootstrap downloads SDK **0.36.0-rc.3**,
 Development Plugin **0.2.0-rc.1**, and the independently pinned UI Kit.
 From this project directory:
 

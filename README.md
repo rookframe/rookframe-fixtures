@@ -13,7 +13,7 @@ Workshop System provides Hero Actors, Actor sheets and a separate Actor browser,
 
 ## Author projects
 
-`workshop-system/`, `tabletop-pieces/`, and `mork-borg-system/` are ordinary Godot author projects. Each includes the gd-plug bootstrap and license, SDK 0.36.0-rc.2 and Development Plugin 0.2.0-rc.1, a separately pinned public UI Kit, and a committed authoring lock. From either project directory, install the dependencies:
+`workshop-system/`, `tabletop-pieces/`, and `mork-borg-system/` are ordinary Godot author projects. Each includes the gd-plug bootstrap and license, SDK 0.36.0-rc.3 and Development Plugin 0.2.0-rc.1, a separately pinned public UI Kit, and a committed authoring lock. From either project directory, install the dependencies:
 
 ```sh
 Godot --headless --path . --script plug.gd install

@@ -92,9 +92,10 @@ def install_runtime(project: Path, selection: dict[str, str], *, previous_commit
     inventory_path = safe_path(project, INVENTORY)
     provenance_path = safe_path(project, PROVENANCE)
     old = json.loads(inventory_path.read_text()) if inventory_path.exists() else None
-    # A legacy installation has no hash inventory. Its recorded revision supplies
-    # the original bytes; gd-plug's destination list limits the adopted ownership.
-    if old is None and cache.exists() and safe_path(project, PUBLIC_ROOT).exists():
+    # Adopt only a recorded legacy installation, never files merely sharing
+    # names with a cached checkout. gd-plug's destination list limits ownership.
+    if (old is None and cache.exists() and safe_path(project, PUBLIC_ROOT).exists()
+            and (previous_commit or provenance_path.exists() or legacy_files is not None)):
         if not previous_commit and provenance_path.exists():
             previous_commit = json.loads(provenance_path.read_text())["commit"]
         if not previous_commit:
@@ -118,11 +119,9 @@ def install_runtime(project: Path, selection: dict[str, str], *, previous_commit
         if path.exists():
             if not path.is_file():
                 raise ValueError("UI Kit destination is not a file: " + name)
-            digest = hashlib.sha256(path.read_bytes()).hexdigest()
-            if name in old_files:
-                if digest != old_files[name]:
-                    raise ValueError("Locally modified UI Kit resource: " + name)
-            else:
+            # A requested dependency install replaces its owned files. Godot
+            # may have reserialized them when saving a Package scene.
+            if name not in old_files:
                 raise ValueError("UI Kit would overwrite an unrelated file: " + name)
     record = {"schemaVersion": 1, "commit": commit, "version": selection["tag"],
               "sourceRoot": source_root, "files": new_hashes}
